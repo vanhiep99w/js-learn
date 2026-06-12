@@ -230,3 +230,4 @@ obj.arrow();    // undefined — this kế thừa từ ngoài, không phải obj
 - [Closures](/functions/closures/)
 - [Từ khoá this](/functions/this-keyword/)
 - [Hoisting](/fundamentals/hoisting/)
+- [Constructor Function](/objects-prototypes/constructor-function/)

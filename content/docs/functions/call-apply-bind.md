@@ -197,3 +197,4 @@ Bản chất: gọi `obj.method()` thì `this = obj`; `call` lợi dụng đúng
 - [Hàm cơ bản](/functions/function-basics/)
 - [Higher-order Functions](/functions/higher-order-functions/)
 - [Factory Functions](/functions/factory-functions/)
+- [Prototype & kế thừa](/objects-prototypes/prototype/)
