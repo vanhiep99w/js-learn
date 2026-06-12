@@ -272,4 +272,4 @@ Object.hasOwn(p, "toString"); // false — kế thừa, không phải own
 - [Constructor Function](/objects-prototypes/constructor-function/)
 - [Class](/objects-prototypes/class/)
 - [Object](/objects-prototypes/object/)
-- [Closures](/functions/closures/)
+- [Closures](/function-closure/closures/)

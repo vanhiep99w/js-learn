@@ -156,7 +156,7 @@ r.#area;       // ❌ SyntaxError — không truy cập private từ ngoài
 ```
 
 > [!NOTE]
-> Field khai báo *ngoài* constructor thực chất vẫn được engine chuyển *vào* constructor (và đặt sau `super()` nếu có `extends`). Private field `#x` (ES2022) là cách đóng gói thật sự ở cấp ngôn ngữ — khác với closure-private của [factory function](/functions/factory-functions/).
+> Field khai báo *ngoài* constructor thực chất vẫn được engine chuyển *vào* constructor (và đặt sau `super()` nếu có `extends`). Private field `#x` (ES2022) là cách đóng gói thật sự ở cấp ngôn ngữ — khác với closure-private của [factory function](/function-closure/factory-functions/).
 
 ---
 

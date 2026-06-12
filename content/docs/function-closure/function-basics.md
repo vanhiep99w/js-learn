@@ -192,13 +192,13 @@ function apply(fn, value) {                  // truyền hàm làm tham số
 apply((x) => x ** 2, 5);                     // 25
 ```
 
-Đây chính là điều kiện để có [Higher-order functions](/functions/higher-order-functions/) và [Closures](/functions/closures/).
+Đây chính là điều kiện để có [Higher-order functions](/function-closure/higher-order-functions/) và [Closures](/function-closure/closures/).
 
 ---
 
 ## Arrow function khác gì
 
-Arrow function **không** có `this`, `arguments`, không dùng làm constructor. Khác biệt quan trọng nhất là `this` — xem sâu ở bài [Từ khoá this](/functions/this-keyword/).
+Arrow function **không** có `this`, `arguments`, không dùng làm constructor. Khác biệt quan trọng nhất là `this` — xem sâu ở bài [Từ khoá this](/function-closure/this-keyword/).
 
 ```js
 const obj = {
@@ -226,8 +226,8 @@ obj.arrow();    // undefined — this kế thừa từ ngoài, không phải obj
 
 ## Bài liên quan
 
-- [Higher-order Functions](/functions/higher-order-functions/)
-- [Closures](/functions/closures/)
-- [Từ khoá this](/functions/this-keyword/)
+- [Higher-order Functions](/function-closure/higher-order-functions/)
+- [Closures](/function-closure/closures/)
+- [Từ khoá this](/function-closure/this-keyword/)
 - [Hoisting](/fundamentals/hoisting/)
 - [Constructor Function](/objects-prototypes/constructor-function/)

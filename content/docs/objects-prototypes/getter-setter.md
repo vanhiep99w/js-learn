@@ -209,4 +209,4 @@ obj._x;       // 42
 - [Object](/objects-prototypes/object/)
 - [Class](/objects-prototypes/class/)
 - [Prototype & kế thừa](/objects-prototypes/prototype/)
-- [Từ khoá this](/functions/this-keyword/)
+- [Từ khoá this](/function-closure/this-keyword/)

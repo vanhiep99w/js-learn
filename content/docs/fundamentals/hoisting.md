@@ -216,4 +216,4 @@ console.log(typeof foo);  // "number"   — execution gán foo = 10
 
 - [var, let, const](/fundamentals/var-let-const/)
 - [Scope & Scope Chain](/fundamentals/scope/)
-- [Functions](/functions/function-basics/)
+- [Functions](/function-closure/function-basics/)

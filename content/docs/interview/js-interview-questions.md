@@ -71,6 +71,6 @@ type vs interface, generics.
 
 <Cards>
   <Card title="Event Loop — Deep Dive" href="/async/event-loop/" />
-  <Card title="Closures" href="/functions/closures/" />
+  <Card title="Closures" href="/function-closure/closures/" />
   <Card title="Prototype & Prototype Chain" href="/objects-prototypes/prototype/" />
 </Cards>

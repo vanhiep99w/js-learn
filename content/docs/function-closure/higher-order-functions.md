@@ -23,7 +23,7 @@ description: "Higher-order function (HOF) trong JavaScript: hàm nhận hàm là
 1. Nhận một hoặc nhiều hàm làm **tham số** (callback).
 2. **Trả về** một hàm.
 
-HOF tận dụng tính chất [first-class function](/functions/function-basics/) của JS, giúp viết code khai báo (declarative), tái sử dụng logic, và là nền tảng của lập trình hàm.
+HOF tận dụng tính chất [first-class function](/function-closure/function-basics/) của JS, giúp viết code khai báo (declarative), tái sử dụng logic, và là nền tảng của lập trình hàm.
 
 ```js
 // Nhận hàm làm tham số
@@ -55,7 +55,7 @@ over10(15);   // true
 ```
 
 > [!NOTE]
-> Loại (2) — hàm trả về hàm — luôn tạo ra một [closure](/functions/closures/): hàm con "nhớ" biến của hàm cha (`threshold`) ngay cả sau khi hàm cha đã return.
+> Loại (2) — hàm trả về hàm — luôn tạo ra một [closure](/function-closure/closures/): hàm con "nhớ" biến của hàm cha (`threshold`) ngay cả sau khi hàm cha đã return.
 
 ---
 
@@ -90,7 +90,7 @@ reduce: [1,2,3,4] ──acc+x─────▶ 10            (gộp về 1 giá
 ```
 
 > [!IMPORTANT]
-> `map` và `filter` **không mutate** mảng gốc — chúng trả về mảng mới. Đây là lý do chúng hợp với phong cách [pure function](/functions/pure-functions/). `forEach` thì khác: nó không trả về gì, chỉ để chạy side effect.
+> `map` và `filter` **không mutate** mảng gốc — chúng trả về mảng mới. Đây là lý do chúng hợp với phong cách [pure function](/function-closure/pure-functions/). `forEach` thì khác: nó không trả về gì, chỉ để chạy side effect.
 
 ---
 
@@ -160,7 +160,7 @@ triple(10);                    // 30
 ```
 
 > [!TIP]
-> Currying/partial application rất hữu ích để tạo các hàm chuyên biệt từ hàm tổng quát (vd `multiply(5)` → `multiplyBy5`), tránh lặp tham số. Xem thêm [Factory Functions](/functions/factory-functions/).
+> Currying/partial application rất hữu ích để tạo các hàm chuyên biệt từ hàm tổng quát (vd `multiply(5)` → `multiplyBy5`), tránh lặp tham số. Xem thêm [Factory Functions](/function-closure/factory-functions/).
 
 ---
 
@@ -178,8 +178,8 @@ triple(10);                    // 30
 
 ## Bài liên quan
 
-- [Hàm cơ bản](/functions/function-basics/)
-- [Closures](/functions/closures/)
-- [Factory Functions](/functions/factory-functions/)
-- [Pure Functions](/functions/pure-functions/)
+- [Hàm cơ bản](/function-closure/function-basics/)
+- [Closures](/function-closure/closures/)
+- [Factory Functions](/function-closure/factory-functions/)
+- [Pure Functions](/function-closure/pure-functions/)
 - [Prototype & kế thừa](/objects-prototypes/prototype/)
