@@ -14,6 +14,8 @@ description: "call, apply, bind trong JavaScript: ba cách set this tường min
 - [Không tác dụng lên arrow function](#không-tác-dụng-lên-arrow-function)
 - [Tự cài đặt để hiểu internal](#tự-cài-đặt-để-hiểu-internal)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -188,6 +190,45 @@ Bản chất: gọi `obj.method()` thì `this = obj`; `call` lợi dụng đúng
 | `bind`/`call` lên arrow function | Không đổi được `this` | Dùng function thường |
 | `bind` nhiều lần | Lần bind sau không ghi đè lần đầu | `this` đã khoá ở lần `bind` đầu |
 | Truyền tham số kỳ vọng ghi đè bound | Thực ra nối thêm vào sau | Hiểu rõ partial application |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Output?
+> ```js
+> function add(a, b) { return a + b; }
+> const add5 = add.bind(null, 5);
+> console.log(add5(10));
+> console.log(add.call(null, 5, 10));
+> ```
+
+> [!TIP]
+> **Đáp án:** `15` và `15`. `bind` tạo **hàm mới** khoá sẵn `a=5`, gọi `add5(10)` nối `b=10`. `call` gọi **ngay** với tham số rời `(5, 10)`.
+
+> [!NOTE]
+> **Câu 2:** Dòng nào đúng để tìm max của mảng `nums = [5, 1, 8]`?
+> ```js
+> Math.max(nums);
+> Math.max.apply(null, nums);
+> Math.max(...nums);
+> ```
+
+> [!TIP]
+> **Đáp án:** dòng 2 và 3 (`8`). Dòng 1 truyền cả mảng làm **một** tham số → `NaN`. `apply` nhận **mảng** tham số; spread `...` là cách hiện đại thay cho `apply`.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Cả ba set `this` **tường minh**. `call`/`apply` **gọi ngay**; `bind` **trả hàm mới**.
+> 2. `call` → tham số **rời** (commas); `apply` → tham số **mảng** (array). Mẹo: **a**pply–**a**rray.
+> 3. `bind` khoá sẵn `this` (+ tham số đầu) → lý tưởng cho **callback** & **partial application**; tham số khi gọi **nối thêm vào sau**.
+> 4. `bind` nhiều lần: lần sau **không** ghi đè `this` lần đầu.
+> 5. Trên **arrow function**: `this` không đổi được (tham số vẫn truyền được).
+> 6. ES6: spread `Math.max(...nums)` thường thay được `apply`.
 
 ---
 

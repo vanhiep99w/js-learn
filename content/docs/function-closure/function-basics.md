@@ -13,6 +13,8 @@ description: "Hàm trong JavaScript: function declaration vs function expression
 - [First-class functions](#first-class-functions)
 - [Arrow function khác gì](#arrow-function-khác-gì)
 - [Anti-patterns](#anti-patterns)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -221,6 +223,44 @@ obj.arrow();    // undefined — this kế thừa từ ngoài, không phải obj
 | Default param kỳ vọng chặn `0`/`""` | Chỉ `undefined` mới kích hoạt default | Kiểm tra tường minh nếu cần |
 | Arrow function làm method cần `this` | `this` không trỏ object | Dùng function thường cho method |
 | Đệ quy không điều kiện dừng | Stack overflow | Luôn có base case |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Output?
+> ```js
+> console.log(add(2, 3));
+> console.log(sub(2, 3));
+> function add(a, b) { return a + b; }
+> const sub = (a, b) => a - b;
+> ```
+
+> [!TIP]
+> **Đáp án:** in `5`, rồi **`ReferenceError`** ở `sub`. `add` là *declaration* → hoisted cả thân hàm. `sub` là *expression* gán vào `const` → đang trong TDZ, chưa khởi tạo.
+
+> [!NOTE]
+> **Câu 2:** Vì sao `n` vẫn nhận được default khi truyền `undefined` nhưng không khi truyền `0`?
+> ```js
+> const f = (n = 10) => n;
+> console.log(f(undefined), f(0), f());
+> ```
+
+> [!TIP]
+> **Đáp án:** `10 0 10`. Default param chỉ kích hoạt khi tham số là `undefined` (hoặc không truyền) — `0` là giá trị hợp lệ nên giữ nguyên.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. 3 cách tạo hàm: **declaration** (hoisted cả thân), **expression** (theo biến), **arrow** (theo biến, không `this`/`arguments`).
+> 2. Mỗi lần **gọi** → tạo Execution Context đẩy lên **Call Stack**; return → pop ra. Đệ quy vô hạn → stack overflow.
+> 3. Default param chỉ kích hoạt khi tham số = `undefined` (không tính `0`/`""`/`false`/`null`).
+> 4. Dùng **rest `...args`** (mảng thật) thay cho `arguments` (giống mảng, không phải mảng).
+> 5. Hàm là **first-class**: gán / truyền / trả về như mọi giá trị — nền tảng cho HOF & closure.
+> 6. Không dùng arrow làm **method** cần `this`; arrow lý tưởng cho **callback** trong method.
 
 ---
 

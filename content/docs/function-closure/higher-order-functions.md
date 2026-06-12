@@ -12,6 +12,8 @@ description: "Higher-order function (HOF) trong JavaScript: hàm nhận hàm là
 - [Function composition](#function-composition)
 - [Currying & partial application](#currying--partial-application)
 - [Anti-patterns](#anti-patterns)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -173,6 +175,40 @@ triple(10);                    // 30
 | Lồng nhiều callback sâu | "callback hell", khó đọc | Dùng compose/pipe hoặc tách hàm |
 | Mutate mảng trong callback `map` | Phá tính pure | Trả về giá trị mới, không sửa gốc |
 | Curry quá đà cho hàm đơn giản | Khó đọc | Chỉ curry khi thật sự tái sử dụng |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `pipe(addOne, double)(3)` và `compose(addOne, double)(3)` cho kết quả gì?
+> ```js
+> const addOne = (x) => x + 1, double = (x) => x * 2;
+> ```
+
+> [!TIP]
+> **Đáp án:** `pipe` = `8` (`double(addOne(3))` = `(3+1)*2`); `compose` = `7` (`addOne(double(3))` = `3*2+1`). `pipe` chạy trái→phải, `compose` phải→trái.
+
+> [!NOTE]
+> **Câu 2:** Vì sao nên dùng `forEach` thay vì `map` ở đây?
+> ```js
+> users.map((u) => console.log(u.name));
+> ```
+
+> [!TIP]
+> **Đáp án:** `map` tạo một **mảng mới** (ở đây toàn `undefined` vì callback không `return`) — lãng phí và gây hiểu nhầm. Khi chỉ cần chạy side effect, dùng `forEach`.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. HOF = hàm **nhận hàm** làm tham số *hoặc* **trả về hàm**.
+> 2. `map` (biến đổi, giữ độ dài), `filter` (lọc), `reduce` (gộp về 1 giá trị) — **không mutate** mảng gốc.
+> 3. `reduce` là khối nền tảng: có thể tự cài `map`/`filter`. Luôn truyền **giá trị khởi tạo**.
+> 4. `pipe` đọc trái→phải, `compose` phải→trái (`f(g(x))`).
+> 5. **Currying** = chuỗi hàm 1 tham số; **partial application** = cố định một phần tham số (function factory).
+> 6. Cần side effect thuần → `forEach`, không dùng `map`.
 
 ---
 
