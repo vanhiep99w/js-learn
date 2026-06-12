@@ -14,6 +14,8 @@ description: "Getter/setter trong JavaScript: dùng get/set để bind hàm khi 
 - [Định nghĩa bằng Object.defineProperty](#định-nghĩa-bằng-objectdefineproperty)
 - [Accessor property vs data property](#accessor-property-vs-data-property)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -201,6 +203,46 @@ obj._x;       // 42
 | Setter không lưu đâu cả | Gán "mất" giá trị | Lưu vào backing field |
 | Quên setter, chỉ có getter | Gán bị bỏ qua (lỗi ở strict) | Thêm setter nếu cần ghi |
 | Trùng tên data + accessor | Lỗi định nghĩa | Chỉ chọn một loại cho mỗi key |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Đoạn này in gì?
+> ```js
+> const o = {
+>   first: "Hệp", last: "Trần",
+>   get full() { return `${this.first} ${this.last}`; },
+> };
+> console.log(o.full);
+> console.log(typeof o.full);
+> ```
+
+> [!TIP]
+> **Đáp án:** `"Hệp Trần"` rồi `"string"`. Getter được đọc như **property** (không có `()`); `o.full` trả về chuỗi — gọi `o.full()` sẽ lỗi vì nó không phải hàm.
+
+> [!NOTE]
+> **Câu 2:** Vì sao đoạn này gây stack overflow?
+> ```js
+> const o = { get x() { return this.x; } };
+> o.x;
+> ```
+
+> [!TIP]
+> **Đáp án:** Getter `x` đọc `this.x` — chính nó → gọi lại getter → đệ quy vô hạn. Phải dùng **backing field** khác tên (`_x`/`#x`) để lưu giá trị thật.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. `get`/`set` biến property thành **accessor**: đọc/ghi sẽ **gọi hàm**, nhưng cú pháp như property (không `()`).
+> 2. Getter **0 tham số**; setter **đúng 1 tham số** (giá trị được gán).
+> 3. `this` trong getter/setter trỏ về **object chứa** → đọc được field khác.
+> 4. Luôn dùng **backing field** (`_x`/`#x`) để lưu giá trị; getter trỏ về chính nó → đệ quy vô hạn.
+> 5. Một property **không thể vừa data vừa accessor**; chỉ có getter → ghi bị bỏ qua.
+> 6. Dùng cho giá trị suy ra (derived), validate khi gán, đóng gói — rất hợp với `#private` trong class.
 
 ---
 

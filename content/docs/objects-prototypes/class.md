@@ -14,6 +14,8 @@ description: "Class trong JavaScript: syntactic sugar trên constructor function
 - [Static method, property, block](#static-method-property-block)
 - [Kế thừa: extends & super](#kế-thừa-extends--super)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -230,6 +232,48 @@ d ──▶ Dog.prototype ──▶ Animal.prototype ──▶ Object.prototype 
 | Tưởng `static` dùng được trên instance | `undefined` | Gọi qua tên class |
 | Gọi class thiếu `new` | `TypeError` | Class bắt buộc `new` |
 | Truy cập `#private` từ ngoài | `SyntaxError` | Chỉ truy cập trong class |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `a.talk === b.talk` và `a.talkArrow === b.talkArrow` cho gì?
+> ```js
+> class Person {
+>   talk() { return "hi"; }
+>   talkArrow = () => "hi";
+> }
+> const a = new Person(), b = new Person();
+> ```
+
+> [!TIP]
+> **Đáp án:** `true` rồi `false`. `talk()` là **method** → đặt lên `prototype`, chia sẻ. `talkArrow` là **field arrow** → khởi tạo riêng cho từng instance (nhân bản). Tránh field arrow trừ khi cần `this` cố định.
+
+> [!NOTE]
+> **Câu 2:** Vì sao dòng đầu lỗi nhưng dòng sau chạy?
+> ```js
+> new Foo();
+> class Foo {}
+> sayHi();
+> function sayHi() {}
+> ```
+
+> [!TIP]
+> **Đáp án:** `new Foo()` → `ReferenceError` vì `class` nằm trong **TDZ** (giống `let`/`const`), chưa khởi tạo trước dòng khai báo. Function declaration được hoist **toàn bộ** nên `sayHi()` gọi trước vẫn chạy.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. `class` là **sugar** trên constructor function + prototype; `typeof Class === "function"`.
+> 2. Method trong class → tự đặt lên **`prototype`** (chia sẻ). Field arrow `m = () => {}` → mỗi instance một bản.
+> 3. Class bị **TDZ** (giống `let`), không dùng được trước dòng khai báo; khác function declaration.
+> 4. **`#field`** là private thật cấp ngôn ngữ; truy cập từ ngoài → `SyntaxError`.
+> 5. **`static`** gắn lên chính class (không trên instance); gọi qua tên class.
+> 6. `extends` + `super`: trong constructor con **phải gọi `super()` trước khi dùng `this`**. Cơ chế là nối prototype chain.
+> 7. Class **bắt buộc `new`** — gọi thiếu → `TypeError`.
 
 ---
 

@@ -13,6 +13,8 @@ description: "Constructor function trong JavaScript: hàm thường dùng với 
 - [Method nên đặt lên prototype](#method-nên-đặt-lên-prototype)
 - [Constructor function là tiền thân của class](#constructor-function-là-tiền-thân-của-class)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -200,6 +202,43 @@ class PersonC {
 | Đặt method trong constructor | Nhân bản hàm mỗi instance | Đặt lên `prototype` |
 | `return` một primitive mong nó thay object | Bị bỏ qua | Chỉ object tự-return mới thay `this` |
 | Dùng arrow function làm constructor | Arrow không có `this`/không `new` được | Dùng function thường hoặc class |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `new A().x` và `new B().x` cho gì?
+> ```js
+> function A() { this.x = 1; return { x: 99 }; }
+> function B() { this.x = 1; return 5; }
+> ```
+
+> [!TIP]
+> **Đáp án:** `99` và `1`. Nếu constructor **tự return một object**, `new` trả object đó (bước 4); return **primitive** bị bỏ qua → vẫn trả `this`.
+
+> [!NOTE]
+> **Câu 2:** Điều gì xảy ra khi quên `new`?
+> ```js
+> function Person(name) { this.name = name; }
+> const p = Person("Hệp");
+> console.log(p);
+> ```
+
+> [!TIP]
+> **Đáp án:** `p` là `undefined`. Không `new` → hàm chạy như hàm thường, `this` là global (sloppy) hoặc `undefined` (strict), không có `return` → trả `undefined`. Ở sloppy mode còn lỡ ghi `name` ra global. Dùng `new.target` hoặc `class` để chống.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. `new Fn()` làm 4 bước: tạo `{}` → `obj.__proto__ = Fn.prototype` → chạy `Fn` với `this = obj` → trả `obj` (ngầm).
+> 2. Không cần `return`: `new` tự trả `this`. Chỉ **object tự return** mới thay được; primitive bị bỏ qua.
+> 3. Luôn gán property qua **`this.x`**; quên `this` → property không gắn vào object.
+> 4. Quên `new` → `this` = global/`undefined`, ô nhiễm global. Chống bằng `new.target` hoặc `class`.
+> 5. Đặt method lên **`Fn.prototype`** (chia sẻ), không trong constructor (nhân bản).
+> 6. Constructor function + prototype chính là thứ `class` biên dịch xuống.
 
 ---
 
