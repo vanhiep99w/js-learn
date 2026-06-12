@@ -237,6 +237,19 @@ async function parallel() {
 }
 ```
 
+Hình dung trên trục thời gian (timer 2s và 1s):
+
+```text
+Tuần tự (~3s):   slow ████████ (2s) ─→ fast ████ (1s)
+                 0s              2s          3s
+
+Đồng thời (~2s): slow ████████ (2s)
+                 fast ████ (1s)          ← chạy CHỒNG lên nhau
+                 0s          1s   2s
+```
+
+Khác biệt mấu chốt: bản tuần tự chỉ *bắt đầu* timer của `fast` **sau khi** `slow` đã xong (vì `await` chặn ngay dòng đó), nên hai timer nối đuôi nhau (2+1=3s). Bản đồng thời *khởi tạo cả hai timer ngay*, nên chúng chạy chồng lên nhau và tổng thời gian chỉ bằng cái lâu nhất (~2s).
+
 | Cách viết | Thời gian | Khi nào dùng |
 | --- | --- | --- |
 | `await` lần lượt từng lời gọi | ~3s (tổng) | Khi bước sau **cần kết quả** bước trước |

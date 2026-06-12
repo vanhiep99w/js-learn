@@ -260,7 +260,18 @@ console.log('4');
 // Output: 1 4 3 2
 ```
 
-`3` (microtask) chạy *trước* `2` (macrotask) dù cả hai "delay 0". Vì sao microtask ưu tiên hơn macrotask → xem [Event Loop — Deep Dive](/async/event-loop/).
+Trace từng bước để thấy rõ thứ tự `1 4 3 2`:
+
+| Bước | Đang chạy | Microtask Q | Macrotask Q | Output |
+| --- | --- | --- | --- | --- |
+| 1 | `console.log('1')` | — | — | `1` |
+| 2 | `setTimeout(..., 0)` | — | `[cb2]` | `1` |
+| 3 | `Promise.resolve().then` | `[cb3]` | `[cb2]` | `1` |
+| 4 | `console.log('4')` | `[cb3]` | `[cb2]` | `1 4` |
+| 5 | stack rỗng → **vét microtask** | — | `[cb2]` | `1 4 3` |
+| 6 | event loop lấy macrotask | — | — | `1 4 3 2` |
+
+`3` (microtask) chạy *trước* `2` (macrotask) dù cả hai "delay 0", vì sau mỗi lần stack rỗng event loop **vét sạch microtask queue** trước khi đụng tới macrotask. Vì sao microtask ưu tiên hơn macrotask → xem [Event Loop — Deep Dive](/async/event-loop/).
 
 ---
 
