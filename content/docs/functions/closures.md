@@ -300,7 +300,7 @@ MyObject2.prototype.getMessage = function () { return this.message; };
 ```
 
 > [!TIP]
-> Khi method **không cần** biến private (closure), hãy đặt nó lên `prototype` để chia sẻ giữa các instance, tiết kiệm bộ nhớ. Chỉ dùng closure (method trong constructor/factory) khi *thực sự* cần đóng gói state riêng. Xem [Prototype & kế thừa](/objects-prototypes/prototypes/).
+> Khi method **không cần** biến private (closure), hãy đặt nó lên `prototype` để chia sẻ giữa các instance, tiết kiệm bộ nhớ. Chỉ dùng closure (method trong constructor/factory) khi *thực sự* cần đóng gói state riêng. Xem [Prototype & kế thừa](/objects-prototypes/prototype/).
 
 ---
 
@@ -321,3 +321,4 @@ MyObject2.prototype.getMessage = function () { return this.message; };
 - [Factory Functions](/functions/factory-functions/)
 - [Higher-order Functions](/functions/higher-order-functions/)
 - [var, let, const](/fundamentals/var-let-const/)
+- [Constructor Function](/objects-prototypes/constructor-function/)

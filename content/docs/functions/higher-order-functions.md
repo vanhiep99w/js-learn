@@ -182,3 +182,4 @@ triple(10);                    // 30
 - [Closures](/functions/closures/)
 - [Factory Functions](/functions/factory-functions/)
 - [Pure Functions](/functions/pure-functions/)
+- [Prototype & kế thừa](/objects-prototypes/prototype/)

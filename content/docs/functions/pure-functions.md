@@ -177,3 +177,4 @@ function renderTotal(items) {
 - [Kiểu dữ liệu & null/undefined/NaN](/fundamentals/data-types/)
 - [Hàm cơ bản](/functions/function-basics/)
 - [Factory Functions](/functions/factory-functions/)
+- [Object](/objects-prototypes/object/)

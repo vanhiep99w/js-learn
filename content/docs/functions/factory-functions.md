@@ -154,7 +154,7 @@ k1.greet === k2.greet;   // true — cùng một hàm trên prototype
 ```
 
 > [!TIP]
-> Cần *nhiều* instance và quan tâm bộ nhớ → ưu tiên `class`/prototype. Cần *encapsulation mạnh*, ít instance, tránh hoàn toàn `this`/`new` → factory function gọn và an toàn hơn. Xem [Prototype & kế thừa](/objects-prototypes/prototypes/).
+> Cần *nhiều* instance và quan tâm bộ nhớ → ưu tiên `class`/prototype. Cần *encapsulation mạnh*, ít instance, tránh hoàn toàn `this`/`new` → factory function gọn và an toàn hơn. Xem [Prototype & kế thừa](/objects-prototypes/prototype/).
 
 ---
 
@@ -194,4 +194,5 @@ createShape("circle", 2).area();   // ~12.57
 - [Closures](/functions/closures/)
 - [Higher-order Functions](/functions/higher-order-functions/)
 - [Từ khoá this](/functions/this-keyword/)
-- [Prototype & kế thừa](/objects-prototypes/prototypes/)
+- [Prototype & kế thừa](/objects-prototypes/prototype/)
+- [Class](/objects-prototypes/class/)

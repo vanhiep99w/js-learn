@@ -229,4 +229,5 @@ flowchart TD
 - [call / apply / bind](/functions/call-apply-bind/)
 - [Hàm cơ bản](/functions/function-basics/)
 - [Closures](/functions/closures/)
-- [Prototype & kế thừa](/objects-prototypes/prototypes/)
+- [Prototype & kế thừa](/objects-prototypes/prototype/)
+- [Constructor Function](/objects-prototypes/constructor-function/)
