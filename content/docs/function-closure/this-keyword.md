@@ -74,7 +74,7 @@ p.name;   // "Hiệp"
 
 ### 2. Explicit binding — `call` / `apply` / `bind`
 
-Bạn chỉ định `this` tường minh (xem [call / apply / bind](/functions/call-apply-bind/)):
+Bạn chỉ định `this` tường minh (xem [call / apply / bind](/function-closure/call-apply-bind/)):
 
 ```js
 function greet() { return this.name; }
@@ -125,7 +125,7 @@ const unbound = module.getX;
 unbound();               // undefined — gọi trần, this = global (không có x)
 ```
 
-Khi `unbound()` chạy, không có object nào "đứng trước dấu chấm" → default binding → `this` là global → `this.x` là `undefined`. Khắc phục bằng `bind` (xem bài [call / apply / bind](/functions/call-apply-bind/)).
+Khi `unbound()` chạy, không có object nào "đứng trước dấu chấm" → default binding → `this` là global → `this.x` là `undefined`. Khắc phục bằng `bind` (xem bài [call / apply / bind](/function-closure/call-apply-bind/)).
 
 ---
 
@@ -226,8 +226,8 @@ flowchart TD
 
 ## Bài liên quan
 
-- [call / apply / bind](/functions/call-apply-bind/)
-- [Hàm cơ bản](/functions/function-basics/)
-- [Closures](/functions/closures/)
+- [call / apply / bind](/function-closure/call-apply-bind/)
+- [Hàm cơ bản](/function-closure/function-basics/)
+- [Closures](/function-closure/closures/)
 - [Prototype & kế thừa](/objects-prototypes/prototype/)
 - [Constructor Function](/objects-prototypes/constructor-function/)

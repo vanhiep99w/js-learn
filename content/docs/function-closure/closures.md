@@ -318,7 +318,7 @@ MyObject2.prototype.getMessage = function () { return this.message; };
 ## Bài liên quan
 
 - [Scope & Scope Chain](/fundamentals/scope/)
-- [Factory Functions](/functions/factory-functions/)
-- [Higher-order Functions](/functions/higher-order-functions/)
+- [Factory Functions](/function-closure/factory-functions/)
+- [Higher-order Functions](/function-closure/higher-order-functions/)
 - [var, let, const](/fundamentals/var-let-const/)
 - [Constructor Function](/objects-prototypes/constructor-function/)

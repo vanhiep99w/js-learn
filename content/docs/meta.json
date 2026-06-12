@@ -1,7 +1,7 @@
 {
   "pages": [
     "fundamentals",
-    "functions",
+    "function-closure",
     "objects-prototypes",
     "async",
     "modules",

@@ -207,5 +207,5 @@ class PersonC {
 
 - [Prototype & kế thừa](/objects-prototypes/prototype/)
 - [Class](/objects-prototypes/class/)
-- [Từ khoá this](/functions/this-keyword/)
-- [Factory Functions](/functions/factory-functions/)
+- [Từ khoá this](/function-closure/this-keyword/)
+- [Factory Functions](/function-closure/factory-functions/)

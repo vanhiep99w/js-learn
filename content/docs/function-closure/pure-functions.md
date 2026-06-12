@@ -121,7 +121,7 @@ const a = square(4) + square(4);   // tương đương 16 + 16
 const b = 16 + 16;                  // hoàn toàn thay thế được
 ```
 
-Chính nhờ tính chất này mà compiler/engine có thể tối ưu, và ta có thể **memoize** (cache) an toàn — xem [Higher-order Functions](/functions/higher-order-functions/).
+Chính nhờ tính chất này mà compiler/engine có thể tối ưu, và ta có thể **memoize** (cache) an toàn — xem [Higher-order Functions](/function-closure/higher-order-functions/).
 
 ---
 
@@ -173,8 +173,8 @@ function renderTotal(items) {
 
 ## Bài liên quan
 
-- [Higher-order Functions](/functions/higher-order-functions/)
+- [Higher-order Functions](/function-closure/higher-order-functions/)
 - [Kiểu dữ liệu & null/undefined/NaN](/fundamentals/data-types/)
-- [Hàm cơ bản](/functions/function-basics/)
-- [Factory Functions](/functions/factory-functions/)
+- [Hàm cơ bản](/function-closure/function-basics/)
+- [Factory Functions](/function-closure/factory-functions/)
 - [Object](/objects-prototypes/object/)

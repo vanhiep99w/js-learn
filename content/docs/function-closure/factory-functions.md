@@ -35,7 +35,7 @@ const u = createUser("Hiệp", 25);   // không cần new
 u.greet();                           // "Xin chào, tôi là Hiệp"
 ```
 
-Factory tận dụng [closure](/functions/closures/) để đóng gói trạng thái, và tránh hoàn toàn các bẫy của `this`/`new`.
+Factory tận dụng [closure](/function-closure/closures/) để đóng gói trạng thái, và tránh hoàn toàn các bẫy của `this`/`new`.
 
 ---
 
@@ -64,7 +64,7 @@ multiplyWith5(11);         // 55  — không phải lặp lại số 5
 ```
 
 > [!NOTE]
-> "Function factory" giải đúng bài toán trong ghi chú gốc: với `nhan(5, 4)`, `nhan(5, 10)`... phải lặp lại số 5. Dùng `nhanWith(5)` để cố định một lần rồi tái sử dụng. Đây chính là [partial application / currying](/functions/higher-order-functions/).
+> "Function factory" giải đúng bài toán trong ghi chú gốc: với `nhan(5, 4)`, `nhan(5, 10)`... phải lặp lại số 5. Dùng `nhanWith(5)` để cố định một lần rồi tái sử dụng. Đây chính là [partial application / currying](/function-closure/higher-order-functions/).
 
 ---
 
@@ -137,7 +137,7 @@ const c = createUser("Cường");   // gọi thường
 
 ## Đánh đổi bộ nhớ
 
-Điểm yếu của factory: mỗi object tạo ra có **bản sao riêng** của mỗi method (giống vấn đề method-trong-constructor ở bài [Closures](/functions/closures/)). Với hàng nghìn instance, điều này tốn bộ nhớ.
+Điểm yếu của factory: mỗi object tạo ra có **bản sao riêng** của mỗi method (giống vấn đề method-trong-constructor ở bài [Closures](/function-closure/closures/)). Với hàng nghìn instance, điều này tốn bộ nhớ.
 
 ```js
 const c1 = createUser("A");
@@ -191,8 +191,8 @@ createShape("circle", 2).area();   // ~12.57
 
 ## Bài liên quan
 
-- [Closures](/functions/closures/)
-- [Higher-order Functions](/functions/higher-order-functions/)
-- [Từ khoá this](/functions/this-keyword/)
+- [Closures](/function-closure/closures/)
+- [Higher-order Functions](/function-closure/higher-order-functions/)
+- [Từ khoá this](/function-closure/this-keyword/)
 - [Prototype & kế thừa](/objects-prototypes/prototype/)
 - [Class](/objects-prototypes/class/)

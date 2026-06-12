@@ -201,7 +201,7 @@ console.log(next());  // 1
 console.log(next());  // 2  — count vẫn sống nhờ closure
 ```
 
-Dù `counter()` đã chạy xong, biến `count` không bị thu hồi vì hàm bên trong vẫn còn tham chiếu tới nó qua scope chain. Xem sâu hơn ở bài [Closures](/functions/closures/).
+Dù `counter()` đã chạy xong, biến `count` không bị thu hồi vì hàm bên trong vẫn còn tham chiếu tới nó qua scope chain. Xem sâu hơn ở bài [Closures](/function-closure/closures/).
 
 ---
 
@@ -238,6 +238,6 @@ Ngày nay **ES Modules** tự cô lập scope: mỗi file module là một scope
 
 ## Bài liên quan
 
-- [Closures](/functions/closures/)
+- [Closures](/function-closure/closures/)
 - [Hoisting](/fundamentals/hoisting/)
 - [var, let, const](/fundamentals/var-let-const/)
