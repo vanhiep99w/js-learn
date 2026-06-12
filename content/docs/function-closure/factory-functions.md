@@ -12,6 +12,8 @@ description: "Factory function trong JavaScript: hàm trả về object (hoặc 
 - [Đánh đổi bộ nhớ](#đánh-đổi-bộ-nhớ)
 - [Khi nào dùng factory](#khi-nào-dùng-factory)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -186,6 +188,41 @@ createShape("circle", 2).area();   // ~12.57
 | Nhầm factory function với function factory | Hiểu sai mục đích | Nhớ: object vs function |
 | Mong `instanceof` hoạt động | Factory không gắn prototype chain | Dùng class nếu cần `instanceof` |
 | Dùng `this` trong object trả về của arrow | `this` không trỏ object | Tham chiếu biến closure trực tiếp |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Vì sao `c.count` là `undefined` nhưng `c.value` lại là `11`?
+> ```js
+> function createCounter(start = 0) {
+>   let count = start;
+>   return { inc() { return ++count; }, get value() { return count; } };
+> }
+> const c = createCounter(10); c.inc();
+> ```
+
+> [!TIP]
+> **Đáp án:** `count` là biến trong **closure**, không phải property của object trả ra → `c.count` truy cập property không tồn tại → `undefined`. Chỉ các method được trả ra mới chạm được `count` — đó là *biến private thật sự*.
+
+> [!NOTE]
+> **Câu 2:** `k1.greet === k2.greet` và `c1.greet === c2.greet` cho gì (class `UserK` vs factory `createUser`)?
+
+> [!TIP]
+> **Đáp án:** class → `true` (method nằm chung trên `prototype`); factory → `false` (mỗi object một **bản sao** method). Đó là đánh đổi bộ nhớ của factory.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. **Factory function** trả về **object** (thay constructor); **function factory** trả về **function** (partial application).
+> 2. Factory dùng **closure** → biến private thật; không cần `new`, không dính bẫy `this`.
+> 3. Đánh đổi: mỗi instance có **bản sao method riêng** → tốn bộ nhớ khi nhiều instance.
+> 4. Nhiều instance + quan tâm bộ nhớ → **class/prototype**; cần encapsulation mạnh, ít instance → **factory**.
+> 5. Factory **không** hỗ trợ `instanceof` tự nhiên (không gắn prototype chain).
+> 6. Factory linh hoạt: trả loại object khác nhau tùy tham số; dễ compose (mixin) hơn kế thừa cứng.
 
 ---
 

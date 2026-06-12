@@ -15,6 +15,7 @@ description: "Closure trong JavaScript đi sâu vào cơ chế internal: lexical
 - [Bẫy closure trong vòng lặp](#bẫy-closure-trong-vòng-lặp)
 - [Đánh đổi bộ nhớ & hiệu năng](#đánh-đổi-bộ-nhớ--hiệu-năng)
 - [Self-check](#self-check)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -312,6 +313,18 @@ MyObject2.prototype.getMessage = function () { return this.message; };
    → Đổi `var` thành `let` (mỗi vòng một binding) hoặc bọc IIFE truyền giá trị vào.
 3. **Closure copy giá trị hay giữ địa chỉ biến?**
    → Giữ *địa chỉ* (tham chiếu tới ô biến). Nó luôn đọc giá trị mới nhất lúc hàm được gọi.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. **Mọi hàm đều tạo closure** ngay khi được định nghĩa — hệ quả tất yếu của lexical scope, không phải tính năng bật/tắt.
+> 2. Khi tạo hàm, engine lưu `[[Environment]]` trỏ tới Lexical Environment **nơi định nghĩa** → closure theo nơi định nghĩa, không theo nơi gọi.
+> 3. Closure giữ **địa chỉ ô biến**, không copy giá trị → luôn đọc giá trị mới nhất lúc gọi.
+> 4. Biến trong closure **không bị GC** chừng nào hàm con còn sống → dùng cho data privacy / counter / module.
+> 5. Bẫy `var` trong loop: chỉ một ô `i` chung → dùng `let` (mỗi vòng một binding) hoặc IIFE.
+> 6. Closure tốn bộ nhớ: method **không cần** state riêng nên đặt lên `prototype` để chia sẻ.
 
 ---
 
