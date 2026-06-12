@@ -14,6 +14,8 @@ description: "Cơ chế hoisting trong JavaScript: creation phase vs execution p
 - [Khi var và function trùng tên](#khi-var-và-function-trùng-tên)
 - [Bảng tổng kết hoisting](#bảng-tổng-kết-hoisting)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -61,6 +63,9 @@ flowchart LR
 2. **Execution phase** — engine chạy từng dòng, thực hiện các phép gán giá trị thật.
 
 Chính vì pha Creation chạy *trước*, nên đến pha Execution thì các tên đã "tồn tại" — đó là bản chất của hoisting.
+
+> [!NOTE]
+> Theo spec, "đăng ký tên" ở pha Creation chính là việc tạo **binding** trong Environment Record của scope. `var` được tạo binding *và* khởi tạo `undefined`; `let`/`const`/`class` được tạo binding nhưng để trạng thái *uninitialized* (chính là TDZ); `function` declaration được tạo binding *và* gán luôn cả object hàm. Xem thêm [binding sống ở đâu](/fundamentals/var-let-const/#đào-sâu-internal-binding-sống-ở-đâu).
 
 ---
 
@@ -182,6 +187,16 @@ function foo() {}
 console.log(typeof foo);  // "number"   — execution gán foo = 10
 ```
 
+Trace từng bước cho đoạn trên:
+
+| Pha | Hành động | `foo` sau bước |
+| --- | --- | --- |
+| Creation | đăng ký `var foo` (nếu chưa có) | `undefined` |
+| Creation | đăng ký `function foo` (ghi đè, ưu tiên) | `[Function: foo]` |
+| Execution | `console.log(typeof foo)` | in `"function"` |
+| Execution | `foo = 10` | `10` |
+| Execution | `console.log(typeof foo)` | in `"number"` |
+
 ---
 
 ## Bảng tổng kết hoisting
@@ -209,6 +224,44 @@ console.log(typeof foo);  // "number"   — execution gán foo = 10
 
 > [!TIP]
 > Cách an toàn nhất để "miễn nhiễm" với hoisting: luôn **khai báo biến/hàm trước khi dùng**, và **mặc định `const`/`let`** thay vì `var`. Khi đó hoisting gần như không còn gây bất ngờ.
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Output?
+> ```js
+> foo();
+> function foo() { console.log('A'); }
+> bar();
+> var bar = function () { console.log('B'); };
+> ```
+
+> [!TIP]
+> **Đáp án:** in `A`, rồi **`TypeError: bar is not a function`**. `foo` là *declaration* → hoisted cả thân hàm, gọi được. `bar` là *expression* gán vào `var` → chỉ `bar = undefined` được hoisted, gọi `undefined()` → `TypeError`.
+
+> [!NOTE]
+> **Câu 2:** Vì sao đoạn này ném `ReferenceError` thay vì in `"ngoài"`?
+> ```js
+> let x = 'ngoài';
+> { console.log(x); let x = 'trong'; }
+> ```
+
+> [!TIP]
+> **Đáp án:** `let x` bên trong block **được hoisted vào đầu block** → `console.log(x)` chạm vào `x` đang trong **TDZ** của block, không leo ra ngoài. Đây là bằng chứng `let` *có* hoisting.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Mỗi execution context có **2 pha**: Creation (đăng ký binding) → Execution (gán giá trị thật).
+> 2. Hoisting chỉ kéo **khai báo**, *không* kéo phần gán giá trị.
+> 3. `var` → `undefined`; `let`/`const`/`class` → **TDZ** (`ReferenceError`); `function` declaration → cả thân hàm (gọi được).
+> 4. **Declaration** gọi-trước được; **expression** thì không (theo quy tắc của biến chứa nó).
+> 5. `function` thắng `var` cùng tên ở Creation; rồi phép gán ở Execution mới ghi đè.
+> 6. An toàn nhất: **khai báo trước khi dùng**, mặc định `const`/`let`.
 
 ---
 

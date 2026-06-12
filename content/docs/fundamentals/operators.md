@@ -14,7 +14,10 @@ description: "Toán tử trong JavaScript: so sánh == (abstract equality, type 
 - [Spread vs Rest `...`](#spread-vs-rest-)
 - [Toán tử đặc biệt: typeof, instanceof, in, void, delete](#toán-tử-đặc-biệt-typeof-instanceof-in-void-delete)
 - [Operator precedence](#operator-precedence)
+- [Đào sâu internal: `+` và ToPrimitive](#đào-sâu-internal--và-toprimitive)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -268,6 +271,44 @@ console.log(true || false && false);  // true — && trước ||
 
 ---
 
+## Đào sâu internal: `+` và ToPrimitive
+
+Toán tử `+` gây bối rối nhất vì nó vừa là *cộng số* vừa là *nối chuỗi*. Engine quyết định theo thuật toán: trước hết **ép cả hai vế về primitive** (gọi `ToPrimitive`), rồi:
+
+- Nếu **một trong hai** vế là **string** → nối chuỗi.
+- Ngược lại → ép cả hai về number rồi cộng.
+
+```js
+1 + 2        // 3      (number + number)
+'1' + 2      // '12'   (có string → nối)
+1 + '2'      // '12'
+1 + 2 + '3'  // '33'   (trái→phải: (1+2)=3, rồi 3+'3'='33')
+'1' + 2 + 3  // '123'  ('1'+2='12', rồi '12'+3='123')
+```
+
+`ToPrimitive(obj)` gọi `obj.valueOf()` rồi `obj.toString()` (theo "hint"). Với hầu hết object, `valueOf` trả chính nó (không primitive) nên rơi xuống `toString`:
+
+```text
+ []  + 1
+  ├ ToPrimitive([]) → valueOf trả [] (không primitive) → toString() = ""
+  └ "" + 1 → "1"             (có string → nối)
+
+ {} + []  → phụ thuộc ngữ cảnh (statement vs expression), dễ gây nhầm
+```
+
+Các toán tử số học khác (`-`, `*`, `/`, `%`) **không** có nghĩa nối chuỗi → luôn ép về number:
+
+```js
+'5' - 1   // 4    ('5' → 5)
+'5' * 2   // 10
+'abc' - 1 // NaN  (không ép được)
+```
+
+> [!IMPORTANT]
+> Đây cũng là cơ chế phía sau `==` khi so object với primitive (bảng ở [Quy tắc ép kiểu](#quy-tắc-ép-kiểu-khi-so-sánh)) và sau trò `[] == ![]`. Hiểu `ToPrimitive` là hiểu gốc rễ của mọi "coercion magic".
+
+---
+
 ## Pitfalls
 
 | Pitfall | Kết quả bất ngờ | Cách tránh |
@@ -280,6 +321,44 @@ console.log(true || false && false);  // true — && trước ||
 | `{...obj}` với object lồng | shallow copy, dùng chung ref | `structuredClone` nếu cần deep |
 | `a ?? b || c` không ngoặc | `SyntaxError` | Thêm `()` rõ ràng |
 | `2 ** 3 ** 2` tưởng `64` | thực ra `512` (kết hợp phải) | Dùng ngoặc |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Output?
+> ```js
+> console.log(1 + 2 + '3');
+> console.log('1' + 2 + 3);
+> console.log('5' - 1);
+> ```
+
+> [!TIP]
+> **Đáp án:** `'33'`, `'123'`, `4`. `+` tính trái→phải: `1+2=3` rồi `3+'3'='33'`; `'1'+2='12'` rồi `'12'+3='123'`. Còn `-` không nối chuỗi nên ép `'5'→5` → `4`.
+
+> [!NOTE]
+> **Câu 2:** Vì sao `obj?.a.b` vẫn có thể ném `TypeError`?
+> ```js
+> const obj = { a: undefined };
+> console.log(obj?.a.b);
+> ```
+
+> [!TIP]
+> **Đáp án:** Ném `TypeError`. `obj?.a` → `undefined` (không ngắn mạch vì `obj` *tồn tại*), nhưng rồi truy cập `.b` trên `undefined` → lỗi. `?.` chỉ bảo vệ **đúng mắt xích** đặt nó; cần `obj?.a?.b`.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. **Mặc định `===`/`!==`**; ngoại lệ hữu ích: `x == null` (bắt cả `null` và `undefined`).
+> 2. `==` **ép kiểu** trước khi so → `[] == ![]` ra `true`. Tránh hoàn toàn bằng `===`.
+> 3. `+` có string → **nối chuỗi**; các toán tử số khác luôn **ép number** (qua `ToPrimitive`).
+> 4. `?.` ngắn mạch khi vế trái `null`/`undefined`; đặt đúng mắt xích nullish.
+> 5. `||` xét falsy, `??` chỉ xét null/undefined; `??=`/`||=`/`&&=` là gán short-circuit.
+> 6. `...` = **spread** (trải, khi gọi/tạo) vs **rest** (gom, khi khai báo/destructure); spread copy **nông**.
+> 7. Biểu thức phức tạp → **dùng `()`** thay vì nhớ bảng precedence (`2 ** 3 ** 2 = 512`, kết hợp phải).
 
 ---
 
