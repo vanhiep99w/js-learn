@@ -15,6 +15,8 @@ description: "Object trong JavaScript: tạo object (literal, computed key, shor
 - [Copy & so sánh object](#copy--so-sánh-object)
 - [Đóng băng object](#đóng-băng-object)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -232,6 +234,43 @@ Object.isFrozen(config);  // true
 | Spread `{...obj}` để copy object lồng | Chỉ copy nông | `structuredClone` cho copy sâu |
 | Kỳ vọng key số giữ thứ tự chèn | Key số bị sắp tăng dần | Dùng `Map` |
 | `for...in` lấy luôn property kế thừa | Lẫn property prototype | Lọc bằng `Object.hasOwn` |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `Object.keys` trả về gì, theo thứ tự nào?
+> ```js
+> const o = { b: 1, 2: "x", a: 2, 1: "y" };
+> console.log(Object.keys(o));
+> ```
+
+> [!TIP]
+> **Đáp án:** `["1", "2", "b", "a"]`. Key dạng **số nguyên** bị sắp tăng dần và đẩy lên trước; key chuỗi giữ thứ tự khai báo. Cần giữ đúng thứ tự chèn → dùng `Map`.
+
+> [!NOTE]
+> **Câu 2:** Sau đoạn này, `original.nested.b` bằng bao nhiêu?
+> ```js
+> const original = { a: 1, nested: { b: 2 } };
+> const copy = { ...original };
+> copy.nested.b = 99;
+> ```
+
+> [!TIP]
+> **Đáp án:** `99`. Spread `{...}` chỉ copy **nông** → `copy.nested` và `original.nested` vẫn là cùng một object. Cần độc lập → `structuredClone(original)`.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Object = tập **key → value**, lưu & truyền theo **tham chiếu**.
+> 2. `obj.key` cho key cố định hợp lệ; `obj["key"]`/`obj[bien]` cho key đặc biệt hoặc động.
+> 3. Gán `undefined` **không xóa** key → dùng `delete`.
+> 4. Key số bị sắp tăng dần; cần giữ thứ tự chèn → `Map`.
+> 5. `===` so sánh **tham chiếu**, không so nội dung. Copy: `{...}`/`Object.assign` (nông), `structuredClone` (sâu).
+> 6. `for...in` lấy cả property **kế thừa** → lọc bằng `Object.hasOwn`. `Object.freeze` chỉ đóng băng **1 cấp**.
 
 ---
 

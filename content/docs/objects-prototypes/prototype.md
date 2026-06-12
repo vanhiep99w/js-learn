@@ -15,6 +15,7 @@ description: "Prototype trong JavaScript đi sâu internal: [[Prototype]] / __pr
 - [Kế thừa qua prototype](#kế-thừa-qua-prototype)
 - [Shadowing & hasOwnProperty](#shadowing--hasownproperty)
 - [Self-check](#self-check)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -264,6 +265,19 @@ Object.hasOwn(p, "toString"); // false — kế thừa, không phải own
    → Trong constructor: mỗi instance một bản sao (tốn bộ nhớ). Trên prototype: mọi instance chia sẻ một bản.
 4. **`Object.prototype.__proto__` là gì?**
    → `null` — đỉnh của mọi prototype chain.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Mọi object đều có liên kết ẩn **`[[Prototype]]`** (đọc qua `__proto__` / `Object.getPrototypeOf`).
+> 2. Đọc property không có → lookup **đi lên** chuỗi prototype tới khi gặp hoặc `null` (→ `undefined`).
+> 3. Phân biệt: **`__proto__`** (trên mọi object, liên kết lên cha) vs **`prototype`** (chỉ trên function/class, sẽ thành `__proto__` của instance).
+> 4. Chìa khóa: `instance.__proto__ === Constructor.prototype`.
+> 5. Đặt method lên **prototype** → mọi instance chia sẻ 1 bản (tiết kiệm bộ nhớ); trong constructor → nhân bản.
+> 6. Đỉnh chuỗi: `Object.prototype` → `null`. Kế thừa: `Object.create` / nối prototype / `class extends`.
+> 7. **Shadowing**: own property trùng tên che prototype. `Object.hasOwn` phân biệt own vs kế thừa.
 
 ---
 
