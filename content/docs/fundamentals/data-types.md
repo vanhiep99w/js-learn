@@ -12,7 +12,10 @@ description: "Kiểu dữ liệu trong JavaScript: 7 primitive (string, number, 
 - [null vs undefined vs NaN](#null-vs-undefined-vs-nan)
 - [typeof & kiểm tra kiểu đúng cách](#typeof--kiểm-tra-kiểu-đúng-cách)
 - [Đặc thù của Number](#đặc-thù-của-number)
+- [Đào sâu internal: primitive "có method" như thế nào](#đào-sâu-internal-primitive-có-method-như-thế-nào)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -250,6 +253,34 @@ console.log(typeof Infinity); // "number"
 
 ---
 
+## Đào sâu internal: primitive "có method" như thế nào
+
+Một câu hỏi hay gây bối rối: nếu `"hello"` là *primitive* (không phải object), tại sao lại gọi được `"hello".toUpperCase()`? Câu trả lời: **autoboxing** (bọc tự động).
+
+Khi bạn truy cập property/method trên một primitive, engine *tạm thời* bọc nó trong object wrapper tương ứng (`String`, `Number`, `Boolean`, `Symbol`, `BigInt`), gọi method, rồi **vứt bỏ** wrapper ngay:
+
+```text
+ "hello".toUpperCase()
+   │ 1. tạo tạm new String("hello")   (wrapper object)
+   │ 2. gọi .toUpperCase() trên wrapper → "HELLO"
+   └ 3. hủy wrapper, trả về "HELLO"
+```
+
+Hệ quả: không thể gán thêm property cho primitive (vì wrapper bị vứt ngay):
+
+```js
+let s = "hi";
+s.custom = 123;       // tạo wrapper tạm, gán, rồi vứt
+console.log(s.custom); // undefined — wrapper cũ đã biến mất
+```
+
+> [!WARNING]
+> Đừng *tự tay* dùng `new Number(5)`, `new String("x")`. Chúng tạo **object** (`typeof === "object"`), so sánh `===` với primitive luôn `false`, và `new Boolean(false)` là... **truthy**. Luôn dùng primitive trực tiếp; để engine lo việc boxing.
+
+Cũng vì primitive **immutable**: mọi method như `toUpperCase`, `slice`, `trim` đều **trả về giá trị mới**, không sửa chuỗi gốc.
+
+---
+
 ## Pitfalls
 
 | Pitfall | Kết quả | Giải thích / Cách đúng |
@@ -262,6 +293,45 @@ console.log(typeof Infinity); // "number"
 | Truyền object vào hàm rồi mutate | Đổi cả bên ngoài | Copy trước khi sửa nếu cần |
 | `1n + 1` | `TypeError` | Không trộn BigInt với Number |
 | `isNaN("abc")` | `true` (gây nhầm) | Dùng `Number.isNaN` |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** Output?
+> ```js
+> function tang(obj, n) { obj.x++; n++; }
+> const o = { x: 1 };
+> let num = 1;
+> tang(o, num);
+> console.log(o.x, num);
+> ```
+
+> [!TIP]
+> **Đáp án:** `2 1`. `o` truyền **tham chiếu** → `obj.x++` sửa đúng object ngoài (`o.x = 2`). `num` là **primitive copy theo giá trị** → `n++` chỉ đổi bản sao bên trong hàm, `num` ngoài vẫn `1`.
+
+> [!NOTE]
+> **Câu 2:** Vì sao cả hai dòng đều `false`?
+> ```js
+> console.log(NaN === NaN);
+> console.log([1,2] === [1,2]);
+> ```
+
+> [!TIP]
+> **Đáp án:** `NaN` là giá trị duy nhất **không bằng chính nó** (theo IEEE-754) — dùng `Number.isNaN`. Hai `[1,2]` là **hai object khác tham chiếu** → `===` so danh tính, không so nội dung.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. **7 primitive** (copy theo giá trị, immutable) + **object** (copy theo tham chiếu).
+> 2. Primitive so sánh theo **giá trị**; object so theo **danh tính tham chiếu** (không theo nội dung).
+> 3. `{...obj}`/`Object.assign` = **shallow** (1 cấp); deep thì dùng `structuredClone`.
+> 4. `null` = cố ý rỗng (lập trình viên gán); `undefined` = chưa khởi tạo (JS gán); `NaN !== NaN` → dùng `Number.isNaN`.
+> 5. `typeof null === "object"` và `typeof [] === "object"` — dùng `x === null` / `Array.isArray`.
+> 6. Number là **IEEE-754 64-bit** → `0.1 + 0.2 !== 0.3` (so bằng `Number.EPSILON`); số nguyên lớn dùng **BigInt**.
 
 ---
 

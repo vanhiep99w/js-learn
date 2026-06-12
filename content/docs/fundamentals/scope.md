@@ -9,10 +9,13 @@ description: "Scope trong JavaScript: global / function / block scope, lexical (
 - [Ba loại scope](#ba-loại-scope)
 - [Lexical scope (static scope)](#lexical-scope-static-scope)
 - [Scope chain & cách resolve biến](#scope-chain--cách-resolve-biến)
+- [Đào sâu internal: Lexical Environment](#đào-sâu-internal-lexical-environment)
 - [Variable shadowing](#variable-shadowing)
 - [Scope & Closure](#scope--closure)
 - [IIFE và module scope](#iife-và-module-scope)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -156,6 +159,22 @@ flowchart LR
 
 ---
 
+## Đào sâu internal: Lexical Environment
+
+"Scope chain" không phải phép thuật — nó là một **danh sách liên kết** các **Lexical Environment**. Mỗi Lexical Environment gồm hai phần:
+
+- **Environment Record** — bảng binding (tên biến → giá trị) của scope hiện tại.
+- **`[[OuterEnv]]`** — con trỏ tới Lexical Environment của scope **cha từ-vị-trí-viết** (không phải scope gọi!). Chính con trỏ này làm nên tính *lexical*.
+
+```text
+ level2 Env { c }  ──[[OuterEnv]]──▶  level1 Env { b }  ──[[OuterEnv]]──▶  Global Env { a }  ──▶ null
+        ▲ tìm `a` ở đây trước, không có → leo theo [[OuterEnv]] cho tới khi thấy hoặc hết
+```
+
+Khi engine cần giá trị một biến, nó chạy thủ tục **ResolveBinding**: tra Environment Record hiện tại; không thấy thì nhảy theo `[[OuterEnv]]` lên cha; lặp tới Global; vẫn không thấy → `ReferenceError`. Vì `[[OuterEnv]]` được "chốt" theo nơi hàm được **định nghĩa** (lúc tạo function object), nên dù gọi hàm ở đâu, chuỗi tra cứu vẫn theo cấu trúc code gốc → đó là lý do JS là lexical scope. Closure chính là việc function object giữ sống `[[OuterEnv]]` này ngay cả sau khi hàm cha return.
+
+---
+
 ## Variable shadowing
 
 **Shadowing** xảy ra khi một biến ở scope trong có *cùng tên* với biến scope ngoài. Biến trong "che" biến ngoài trong phạm vi của nó.
@@ -233,6 +252,45 @@ Ngày nay **ES Modules** tự cô lập scope: mỗi file module là một scope
 
 > [!TIP]
 > Gán biến mà quên từ khoá (`x = 10` thay vì `let x = 10`) sẽ **tạo biến global ngầm** ở sloppy mode — một trong những bug khó chịu nhất. Luôn bật `"use strict"` (ES Modules tự bật) để biến lỗi này thành `ReferenceError`.
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `a()` in ra gì?
+> ```js
+> const x = 'global';
+> function a() { console.log(x); }
+> function b() { const x = 'trong b'; a(); }
+> b();
+> ```
+
+> [!TIP]
+> **Đáp án:** `"global"`. `a` tra `x` theo `[[OuterEnv]]` của **nơi nó được viết** (global), không theo nơi nó được *gọi* (trong `b`). Đây chính là lexical scope — nếu JS dùng dynamic scope thì đã in `"trong b"`.
+
+> [!NOTE]
+> **Câu 2:** Đoạn này in gì, và `b` có tồn tại ngoài block không?
+> ```js
+> { let a = 1; var b = 2; }
+> console.log(b);
+> console.log(a);
+> ```
+
+> [!TIP]
+> **Đáp án:** in `2` (`var b` là function/global-scoped → leak ra ngoài block), rồi **`ReferenceError`** ở `console.log(a)` (`let a` bị nhốt trong block).
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Scope = quy tắc "ở điểm này, biến nào nhìn thấy được". Ba loại: **global / function / block**.
+> 2. JS dùng **lexical (static) scope** — quyết định theo *nơi viết*, không theo *nơi gọi*.
+> 3. Tra biến đi theo **scope chain** (`[[OuterEnv]]`) từ **trong ra ngoài**, một chiều; không thấy → `ReferenceError`.
+> 4. `var` = function scope; `let`/`const` = block scope.
+> 5. **Closure** = hệ quả của lexical scope: hàm giữ sống `[[OuterEnv]]` sau khi cha return.
+> 6. Quên từ khoá khi gán → biến global ngầm (sloppy mode). Luôn dùng `"use strict"`/ES Modules.
 
 ---
 

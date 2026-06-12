@@ -13,6 +13,8 @@ description: "Truthy và Falsy trong JavaScript: đầy đủ 8 giá trị falsy
 - [|| vs ?? — khác biệt sống còn](#-vs----khác-biệt-sống-còn)
 - [Ép kiểu boolean tường minh](#ép-kiểu-boolean-tường-minh)
 - [Pitfalls](#pitfalls)
+- [Tự kiểm tra](#tự-kiểm-tra)
+- [Cheat sheet](#cheat-sheet)
 - [Bài liên quan](#bài-liên-quan)
 
 ---
@@ -85,6 +87,9 @@ a && b;   a || b;                   // toán tử logic
 ```
 
 Cơ chế: engine gọi phép toán trừu tượng `ToBoolean(value)` — trả `false` nếu value thuộc 8 giá trị falsy, ngược lại `true`.
+
+> [!NOTE]
+> **Vì sao `[]` và `{}` lại truthy?** `ToBoolean` theo spec **không hề nhìn vào nội dung** của giá trị. Nó chỉ phân loại theo *kiểu*: mọi **object** (kể cả array rỗng, object rỗng, cả `new Boolean(false)`) luôn → `true`; chỉ 7 primitive trong [danh sách falsy](#danh-sách-8-giá-trị-falsy) → `false`. Không có "đếm phần tử" hay "object có rỗng không" trong thuật toán này — đó lý do phải dùng `arr.length === 0` hoặc `Object.keys(obj).length === 0`.
 
 ---
 
@@ -194,6 +199,44 @@ Boolean(null);     // false
 | Tưởng `"0"`, `"false"` là falsy | Chúng truthy (chuỗi không rỗng) | Parse về số/boolean trước khi xét |
 | Trả `a && b` rồi kỳ vọng boolean | Trả về toán hạng, không phải `true/false` | Bọc `Boolean(a && b)` nếu cần boolean |
 | Dùng `==` để kiểm tra falsy | Coercion khó lường | Kiểm tra rõ ràng hoặc dùng `===` |
+
+---
+
+## Tự kiểm tra
+
+> [!NOTE]
+> **Câu 1:** `if (arr)` có vào block khi `arr = []` không? Output?
+> ```js
+> const arr = [];
+> if (arr) console.log('A');
+> if (arr.length) console.log('B');
+> ```
+
+> [!TIP]
+> **Đáp án:** in `A` thôi. `[]` là object → **truthy** → vào block in `A`. Nhưng `arr.length` = `0` → **falsy** → không in `B`. Muốn kiểm tra mảng rỗng phải dùng `arr.length`.
+
+> [!NOTE]
+> **Câu 2:** Khác biệt output?
+> ```js
+> const count = 0;
+> console.log(count || 5);
+> console.log(count ?? 5);
+> ```
+
+> [!TIP]
+> **Đáp án:** `5` rồi `0`. `||` thay khi trái **falsy** → `0` falsy nên lấy `5` (thường là bug!). `??` chỉ thay khi trái **`null`/`undefined`** → `0` hợp lệ, giữ nguyên.
+
+---
+
+## Cheat sheet
+
+> [!IMPORTANT]
+> 1. Chỉ có **8 giá trị falsy**: `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`. Mọi thứ khác **truthy**.
+> 2. `[]`, `{}`, `"0"`, `"false"`, `function(){}` đều **truthy** — `ToBoolean` xét **kiểu**, không xét nội dung.
+> 3. Kiểm tra rỗng: `arr.length === 0`, `Object.keys(obj).length === 0` — *không* `if (!arr)`.
+> 4. `&&`/`||` trả về **toán hạng gốc** (short-circuit), không phải `true`/`false`.
+> 5. `||` thay theo **falsy**; `??` chỉ thay theo **null/undefined**. Khi `0`/`""`/`false` hợp lệ → dùng `??`.
+> 6. Cần boolean thật → `Boolean(x)` hoặc `!!x`.
 
 ---
 
