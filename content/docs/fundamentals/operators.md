@@ -220,8 +220,15 @@ typeof undeclaredVar;  // "undefined" — KHÔNG ném lỗi dù biến chưa kha
 const o = { a: 1, b: 2 };
 delete o.a;                // true; o = { b: 2 }
 
-// void — luôn trả về undefined
+// void — luôn trả về undefined, bất kể biểu thức đi kèm trả về gì
 void 0;                    // undefined
+void (2);                  // undefined
+void function () { return 5; }();  // undefined — nuốt cả giá trị return
+
+// void + function expression: chạy IIFE một lần ngay lập tức
+void function () {
+  console.log("chạy ngay, không để lại tên hàm");
+}();
 ```
 
 | Toán tử | Dùng để | Trả về |

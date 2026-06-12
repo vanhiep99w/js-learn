@@ -154,6 +154,9 @@ console.log(Number.isNaN(NaN));  // true  — cách kiểm tra đúng
 > [!WARNING]
 > Vì `NaN !== NaN`, đừng bao giờ kiểm tra `x === NaN` (luôn `false`). Dùng `Number.isNaN(x)`. Tránh `isNaN()` toàn cục vì nó ép kiểu trước (`isNaN("abc")` trả `true` gây hiểu nhầm).
 
+> [!TIP]
+> Quy ước thực tế giữa `null` và `undefined`: **đừng tự tay gán `undefined`** cho biến — đó vốn là giá trị *mặc định* JS dùng cho "chưa khởi tạo". Khi bạn muốn **chủ động** xoá/reset một biến (báo hiệu "tôi cố tình để trống chỗ này"), hãy gán `null`. Nhờ vậy `undefined` luôn mang nghĩa "JS chưa đụng tới", còn `null` mang nghĩa "lập trình viên cố ý làm rỗng".
+
 ---
 
 ## typeof & kiểm tra kiểu đúng cách
@@ -200,6 +203,23 @@ console.log(0.1 + 0.2 === 0.3);    // false
 // Cách so sánh an toàn:
 console.log(Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);  // true
 ```
+
+**Vì sao?** Số nguyên đổi sang nhị phân gọn gàng, nhưng nhiều số thập phân lại lặp vô hạn trong hệ nhị phân — máy buộc phải cắt bớt, sinh sai số:
+
+```js
+(4).toString(2);     // "100"  — số nguyên: gọn
+(0.2).toString(2);   // "0.001100110011001100110011001100110011001100110011001101"
+                     //          ↑ chuỗi "0011" lặp mãi → phải làm tròn
+```
+
+Khi *hiển thị* (không phải so sánh), dùng `toFixed(n)` để cắt số chữ số thập phân:
+
+```js
+(0.1 + 0.2).toFixed(2);   // "0.30"  — trả về string, đã làm tròn
+```
+
+> [!NOTE]
+> `toFixed` trả về **string**, không phải number, và chỉ nên dùng để hiển thị. Để *so sánh* hai số float, vẫn dùng `Number.EPSILON` như trên — đừng so sánh các chuỗi `toFixed`.
 
 ### 2. Giới hạn số nguyên an toàn
 
