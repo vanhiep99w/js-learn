@@ -1,0 +1,11 @@
+{
+  "title": "Nền tảng (Fundamentals)",
+  "pages": [
+    "var-let-const",
+    "hoisting",
+    "scope",
+    "data-types",
+    "truthy-falsy",
+    "operators"
+  ]
+}
