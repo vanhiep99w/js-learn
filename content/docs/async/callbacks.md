@@ -272,6 +272,16 @@ Promise biến "kim tự tháp" thành một **chuỗi phẳng**, gom xử lý l
 > - `console.log('3')` — đồng bộ.
 > - Stack rỗng → event loop lấy callback timer ra: `2`.
 
+Trace từng bước (chú ý `forEach` chạy *trên* Call Stack, còn timer thì *xếp hàng*):
+
+| Bước | Đang chạy | Macrotask Q | Output |
+| --- | --- | --- | --- |
+| 1 | `console.log('1')` | — | `1` |
+| 2 | `setTimeout(cb, 0)` → Web API | `[cb]` | `1` |
+| 3 | `forEach` (sync callback) | `[cb]` | `1 10 20` |
+| 4 | `console.log('3')` | `[cb]` | `1 10 20 3` |
+| 5 | stack rỗng → event loop lấy `cb` | — | `1 10 20 3 2` |
+
 ---
 
 ## Cheat sheet
