@@ -1,0 +1,12 @@
+{
+  "title": "Hàm & Closure",
+  "pages": [
+    "function-basics",
+    "higher-order-functions",
+    "closures",
+    "this-keyword",
+    "call-apply-bind",
+    "pure-functions",
+    "factory-functions"
+  ]
+}

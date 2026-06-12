@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "fundamentals",
+    "functions",
+    "objects-prototypes",
+    "async",
+    "modules",
+    "advanced",
+    "typescript",
+    "interview"
+  ]
+}
