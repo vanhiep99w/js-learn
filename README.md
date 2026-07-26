@@ -4,9 +4,11 @@ Tài liệu học JavaScript tiếng Việt — Fundamentals, Functions & Closur
 
 ## Stack
 
-- Next.js 15 + Fumadocs + Cloudflare Pages
+- Next.js 16 + React 19 + Fumadocs 16 + Tailwind CSS 4 + Cloudflare Pages
 
 ## Development
+
+Yêu cầu Node.js 20.9 trở lên.
 
 ```bash
 npm install

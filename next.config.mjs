@@ -13,6 +13,9 @@ const config = {
   distDir: 'dist',
   trailingSlash: true,
   images: { unoptimized: true },
+  experimental: {
+    useTypeScriptCli: true,
+  },
 };
 
 export default withMDX(config);
