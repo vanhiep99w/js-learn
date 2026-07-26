@@ -77,9 +77,9 @@ Hình dung phạm vi mỗi biến:
 function demo() {
   if (true) {
     ┌──────────────── block scope (let b, const c) ────────────────┐
-    │  var a = 1;     ← a KHÔNG bị nhốt ở đây                       │
-    │  let b = 2;     ← b chỉ sống trong khung này                  │
-    │  const c = 3;   ← c chỉ sống trong khung này                  │
+    │  var a = 1;     ← a KHÔNG bị nhốt ở đây                      │
+    │  let b = 2;     ← b chỉ sống trong khung này                 │
+    │  const c = 3;   ← c chỉ sống trong khung này                 │
     └──────────────────────────────────────────────────────────────┘
   }
   // a vẫn còn (function scope), b & c đã "chết"
