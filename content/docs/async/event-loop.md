@@ -195,7 +195,7 @@ Event Loop bản chất là một vòng `while (true)` chạy mãi. Bốn bướ
 4. **Quay lại bước 1** — hết việc thì "ngủ" chờ task mới (không busy-loop), có việc thì lặp lại.
 
 ```text
-   ┌──────────────────────────────────────────────────────────┐
+   ┌────────────────────────────────────────────────────────────┐
    │  while (true):                                             │
    │    1. task = lấy 1 macrotask cũ nhất đã sẵn sàng           │
    │       run(task)               // chạy tới khi stack rỗng   │
@@ -203,7 +203,7 @@ Event Loop bản chất là một vòng `while (true)` chạy mãi. Bốn bướ
    │         run(microtask)        // vét SẠCH, kể cả cái mới   │
    │    3. if (tới nhịp render) → rAF callbacks; paint          │
    │    4. (hết việc thì ngủ chờ)                               │
-   └──────────────────────────────────────────────────────────┘
+   └────────────────────────────────────────────────────────────┘
 ```
 
 Ba bất biến rút ra từ thuật toán này — học thuộc là giải được mọi câu đố:
@@ -430,7 +430,7 @@ Trên Node, event loop do **libuv** cài đặt và chi tiết hơn trình duy�
 │  │       idle, prepare       │  (nội bộ)
 │  └─────────────┬─────────────┘
 │  ┌─────────────▼─────────────┐      ┌───────────────┐
-│  │           poll            │◀────▶│  I/O đến / chờ │  lấy I/O event, chạy callback
+│  │           poll            │◀────▶│  I/O đến / chờ│  lấy I/O event, chạy callback
 │  └─────────────┬─────────────┘      └───────────────┘
 │  ┌─────────────▼─────────────┐
 │  │           check           │  callback setImmediate()

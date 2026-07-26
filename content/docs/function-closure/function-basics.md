@@ -104,7 +104,7 @@ Diễn biến Call Stack:
 ```text
 Bước 1: gọi first()        Bước 2: first gọi second()    Bước 3: second return
 ┌──────────────┐           ┌──────────────┐              ┌──────────────┐
-│              │           │  second EC   │ ← đẩy vào     │              │
+│              │           │  second EC   │ ← đẩy vào    │              │
 │  first EC    │           │  first EC    │              │  first EC    │ ← tiếp tục
 │  global EC   │           │  global EC   │              │  global EC   │
 └──────────────┘           └──────────────┘              └──────────────┘
