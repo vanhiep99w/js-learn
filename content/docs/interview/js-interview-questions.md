@@ -45,11 +45,10 @@ prototype chain, class, kế thừa.
 
 ## Bất đồng bộ
 
-event loop, promise vs async/await, microtask vs macrotask.
-
-```js
-// TODO: ví dụ minh hoạ
-```
+- [Phân tích luồng chạy Event Loop: Microtask và Macrotask](/interview/event-loop-microtask-macrotask/)
+- [Event Loop — Deep Dive](/async/event-loop/)
+- [Promises](/async/promises/)
+- [Async/Await](/async/async-await/)
 
 ## Nâng cao
 

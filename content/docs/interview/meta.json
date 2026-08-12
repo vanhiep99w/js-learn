@@ -1,6 +1,7 @@
 {
   "title": "Câu hỏi phỏng vấn",
   "pages": [
-    "js-interview-questions"
+    "js-interview-questions",
+    "event-loop-microtask-macrotask"
   ]
 }
