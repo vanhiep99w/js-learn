@@ -13,6 +13,7 @@ description: "Hiểu Web Workers từ mô hình main thread và worker thread đ
   - [Khi nào không cần Worker](#khi-nào-không-cần-worker)
 - [Mô hình thực thi](#mô-hình-thực-thi)
   - [Main thread và worker thread](#main-thread-và-worker-thread)
+  - [So sánh với Java thread](#so-sánh-với-java-thread)
   - [Worker có event loop riêng](#worker-có-event-loop-riêng)
 - [Dedicated Worker đầu tiên](#dedicated-worker-đầu-tiên)
   - [Tạo Worker trên main thread](#tạo-worker-trên-main-thread)
@@ -128,6 +129,59 @@ console.log(typeof document);     // "undefined"
 
 > [!WARNING]
 > Không thể “lách” giới hạn DOM bằng cách gửi một DOM node qua `postMessage()`. DOM node không thuộc nhóm dữ liệu mà structured clone có thể sao chép. Hãy gửi dữ liệu thuần về main thread, rồi để main thread cập nhật DOM.
+
+### So sánh với Java thread
+
+Web Worker và Java thread đều có call stack riêng, nhưng mô hình bộ nhớ mặc định khác nhau. Các Java thread trong cùng JVM chia sẻ một heap. Ngược lại, mỗi Web Worker có môi trường thực thi và JavaScript heap tách biệt với main thread và các Worker khác.
+
+| Thành phần | Web Worker | Java thread |
+|---|---|---|
+| Call stack | Mỗi Worker có stack riêng | Mỗi thread có stack riêng |
+| Heap | Tách biệt theo môi trường JavaScript | Dùng chung heap trong cùng JVM |
+| Object thông thường | Không thể dùng chung reference | Nhiều thread có thể giữ reference đến cùng object |
+| Truyền dữ liệu | `postMessage()` dùng structured clone hoặc transfer | Đọc và ghi trực tiếp object trên heap chung |
+| Chia sẻ memory có chủ đích | `SharedArrayBuffer` | Object trên heap đã được chia sẻ mặc định |
+| Đồng bộ | `Atomics` với shared memory | `synchronized`, `Lock`, `volatile`, atomic classes |
+
+Ví dụ trong JavaScript, Worker nhận một bản sao độc lập của object:
+
+```js
+const user = { name: 'An' };
+
+worker.postMessage(user);
+user.name = 'Bình';
+```
+
+Thay đổi `user.name` trên main thread không tự xuất hiện trong Worker. `postMessage()` đã tạo một snapshot bằng structured clone tại thời điểm gửi.
+
+Trong Java, nhiều thread có thể truy cập cùng một object trên heap:
+
+```java
+User user = new User("An");
+
+Thread thread = new Thread(() -> {
+    System.out.println(user.getName());
+});
+
+thread.start();
+```
+
+Khả năng dùng chung reference giúp Java thread giao tiếp trực tiếp, nhưng cũng tạo ra race condition khi nhiều thread cùng thay đổi một object. Vì vậy Java cần các cơ chế đồng bộ như `synchronized`, `volatile` hoặc lock.
+
+Web Worker chỉ chia sẻ memory khi ứng dụng yêu cầu rõ ràng bằng `SharedArrayBuffer`:
+
+```js
+const buffer = new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT);
+const state = new Int32Array(buffer);
+
+worker.postMessage(buffer);
+Atomics.store(state, 0, 10);
+```
+
+Main thread và Worker cùng nhìn thấy vùng nhớ này. Khi nhiều phía đọc và ghi đồng thời, cần dùng `Atomics` để tránh race condition. Xem chi tiết tại [SharedArrayBuffer chia sẻ bộ nhớ](#sharedarraybuffer-chia-sẻ-bộ-nhớ).
+
+> [!NOTE]
+> “Worker có heap riêng” là mô hình bộ nhớ mà Web Worker API cung cấp cho JavaScript. Trình duyệt có thể triển khai Worker bằng thread hoặc process tùy kiến trúc nội bộ. Điểm chắc chắn ở cấp ứng dụng là object JavaScript thông thường không được chia sẻ trực tiếp giữa các Worker.
 
 ### Worker có event loop riêng
 
