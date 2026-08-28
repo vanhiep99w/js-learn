@@ -6,10 +6,17 @@ description: "Hiểu Event Loop trong JavaScript từ trực giác đến intern
 ## Mục lục
 
 - [Bắt đầu từ trực giác: quán ăn một đầu bếp](#bắt-đầu-từ-trực-giác-quán-ăn-một-đầu-bếp)
+  - [Bản đồ toàn cảnh Event Loop](#bản-đồ-toàn-cảnh-event-loop)
 - [Hai câu hỏi mở đầu](#hai-câu-hỏi-mở-đầu)
 - [JS single-threaded nghĩa là gì? — Call Stack](#js-single-threaded-nghĩa-là-gì--call-stack)
 - [Vì sao single-thread vẫn không block? — Web APIs offload](#vì-sao-single-thread-vẫn-không-block--web-apis-offload)
+  - ["Single-threaded" nói chính xác là gì?](#single-threaded-nói-chính-xác-là-gì)
+  - [Host làm phần việc nào?](#host-làm-phần-việc-nào)
+  - [Host có thật sự dùng thread không?](#host-có-thật-sự-dùng-thread-không)
+  - [`fetch` diễn ra từng bước](#fetch-diễn-ra-từng-bước)
+  - [Callback vẫn chạy trên main JS thread](#callback-vẫn-chạy-trên-main-js-thread)
 - [Hai hàng đợi: Macrotask vs Microtask](#hai-hàng-đợi-macrotask-vs-microtask)
+  - [Khi có 5 microtask và 3 task](#khi-có-5-microtask-và-3-task)
 - [Event Loop chạy ra sao — thuật toán 4 bước](#event-loop-chạy-ra-sao--thuật-toán-4-bước)
 - [Mổ xẻ ví dụ A D C B — trace từng bước](#mổ-xẻ-ví-dụ-a-d-c-b--trace-từng-bước)
 - [Microtask sinh ra microtask — quy tắc "vét sạch"](#microtask-sinh-ra-microtask--quy-tắc-vét-sạch)
@@ -40,6 +47,35 @@ Trước khi đụng tới thuật ngữ, hãy tưởng tượng một **quán �
 > **Mô hình cần nhớ:** JS không tự "đa luồng". Nó chỉ có **một đầu bếp** (một luồng chạy code). Cái khiến nó xử lý được nhiều việc bất đồng bộ là: **giao việc chờ cho host làm song song**, rồi dùng **Event Loop** để lần lượt nhặt kết quả về xử lý khi rảnh tay.
 
 Giữ hình ảnh quán ăn này trong đầu — phần còn lại của bài chỉ là gọi đúng tên từng thứ và xem JS làm y hệt như vậy.
+
+### Bản đồ toàn cảnh Event Loop
+
+```mermaid
+flowchart LR
+    subgraph HOST[Host: Browser hoặc Node và OS]
+        IO[Timer · Network I/O · File I/O · UI event]
+    end
+
+    subgraph RUNTIME[Main runtime thread]
+        TQ[Task queue]
+        EL[Event loop<br/>host runtime]
+        CS[V8 / JS engine<br/>Call Stack]
+        MQ[Microtask queue<br/>Promise · await]
+    end
+
+    IO -->|I/O hoàn tất hoặc event xảy ra| TQ
+    TQ -->|lấy 1 task khi stack rỗng| EL
+    EL -->|chạy task| CS
+    CS -->|task xong, stack rỗng| EL
+    EL -->|vét hết microtask| MQ
+    MQ -->|chạy từng callback| CS
+    CS -->|stack rỗng| EL
+```
+
+Đọc theo chiều mũi tên: host/OS làm phần chờ; khi xong, nó đưa việc vào **task queue**. Event loop chạy trên main runtime thread, chỉ giao callback cho V8 khi **call stack rỗng**. Sau một task, event loop phải chạy hết **microtask queue** rồi mới lấy task kế tiếp.
+
+> [!NOTE]
+> Sơ đồ là mô hình học tập: browser có nhiều task source, còn Node có các phase của libuv thay vì đúng một queue vật lý. Quy tắc quan trọng vẫn không đổi: **một task → hết microtask → task tiếp theo**.
 
 ---
 
@@ -100,13 +136,13 @@ printSquare printSquare  printSquare        printSquare      → stack rỗng
 
 Hai hệ quả cực kỳ quan trọng:
 
-1. **Chỉ một frame chạy tại một thời điểm.** Đây chính là "single-threaded" — engine không thể vừa chạy hàm này vừa chạy hàm khác.
+1. **Trong main JS context, chỉ một frame/callback chạy tại một thời điểm.** Nghĩa là code JS của trang (hoặc main thread của Node) không thể vừa chạy hàm A vừa chạy hàm B. Đây mới là ý nghĩa thực tế của “single-threaded”; mọi thread đều chạy tuần tự bên trong nó, nhưng Java có thể dễ dàng tạo nhiều thread chạy code Java song song, còn JS thông thường thì chưa có thêm thread chạy code JS.
 2. **Bao lâu stack còn frame, không gì khác chen vào được** — kể cả render, kể cả callback đã sẵn sàng. Event loop chỉ lấy việc mới khi stack **rỗng**.
 
 Đây là lý do vòng lặp nặng ở Câu hỏi 1 làm đơ trang: callback `click` là một frame **chiếm call stack suốt vài giây**, nên trình duyệt không có một khe nào để repaint.
 
 > [!CAUTION]
-> **"Blocking" là gì?** Blocking = một frame chiếm call stack quá lâu. Thủ phạm điển hình: vòng lặp triệu phần tử, `JSON.parse` file lớn, `alert()`. Cách thoát: chia nhỏ công việc (`setTimeout` / `queueMicrotask` / `requestIdleCallback`) hoặc đẩy hẳn sang **Web Worker** (một luồng thật sự khác).
+> **"Blocking" là gì?** Blocking = một frame chiếm call stack quá lâu. Thủ phạm điển hình: vòng lặp triệu phần tử, `JSON.parse` file lớn, `alert()`. Chia nhỏ công việc bằng `setTimeout` hoặc `requestIdleCallback` chỉ tạo cơ hội cho UI và callback khác được chạy xen kẽ — **không tạo thêm thread, cũng không làm tính toán chạy song song**. Với CPU-bound task thật sự nặng, hãy đẩy hẳn sang **Web Worker** (browser) hoặc `worker_threads` (Node).
 
 > [!NOTE]
 > Gọi hàm đệ quy quá sâu làm stack đầy → `RangeError: Maximum call stack size exceeded`. Đó là khi "tờ order chồng cao quá giới hạn".
@@ -115,24 +151,129 @@ Hai hệ quả cực kỳ quan trọng:
 
 ## Vì sao single-thread vẫn không block? — Web APIs offload
 
-Nghịch lý: JS chỉ một luồng, nhưng `setTimeout`, `fetch`, đọc file... **không** làm đơ trang. Bí mật nằm ở chỗ: **những việc chờ đó không do engine làm.**
+`setTimeout`, `fetch`, hay đọc file không làm main JS thread phải **ngồi chờ**. Code JS chỉ khởi động công việc rồi nhận về một callback hoặc `Promise`; phần chờ được giao cho **host** (trình duyệt, Node.js và hệ điều hành).
 
-JS engine (V8, SpiderMonkey...) thật ra **chỉ** có Call Stack + Heap. Những thứ async — timer, network, DOM event — do **môi trường host** cung cấp:
+### "Single-threaded" nói chính xác là gì?
 
-- Trên trình duyệt: **Web APIs** (timer, `fetch`/XHR, DOM events...).
-- Trên Node.js: thư viện **libuv**.
+Câu “JavaScript chỉ có một thread” là cách nói rút gọn. Nó **không** có nghĩa cả browser, Node.js hay V8 chỉ có đúng một thread. Browser/Node/V8 đều có thể có thread nội bộ cho mạng, render, garbage collection, tối ưu mã máy…
+
+Điều cần nhớ khi viết ứng dụng là: **nếu không tạo Worker, chỉ có một main JS thread chạy code JavaScript của bạn**. Các phần sau đều phải lần lượt chạy trên thread này; chúng không chạy song song với nhau:
+
+```js
+console.log('code đồng bộ');
+setTimeout(() => console.log('timer callback'), 0);
+fetch('/api/users').then(() => console.log('fetch callback'));
+button.addEventListener('click', () => console.log('click callback'));
+```
+
+`setTimeout`, `Promise`, `async/await` và `fetch` **không tạo thêm JS thread**. Chúng chỉ cho main thread cơ hội làm việc khác trong lúc I/O đang chờ.
+
+### Host làm phần việc nào?
+
+V8/SpiderMonkey thực thi code JS, quản lý call stack và heap. Còn host cung cấp API và xử lý phần **chờ I/O** — những việc không biết khi nào sẽ xong.
+
+| API / sự kiện | Host làm ở nền | Khi hoàn tất |
+|---|---|---|
+| `setTimeout` | theo dõi thời gian | xếp timer callback thành task |
+| `fetch` / HTTP | gửi request, chờ mạng, nhận response | resolve/reject Promise |
+| click, keyboard | OS/browser nhận input | xếp event listener callback thành task |
+| `fs.readFile` trong Node | libuv/OS đọc file (thường dùng worker pool hoặc API async của OS) | xếp callback hoàn tất I/O |
+| crypto, nén, một số DNS API trong Node | libuv worker pool xử lý | xếp callback/resolve Promise |
+
+Không nên hiểu bảng này là “mỗi `fetch` chiếm một thread riêng”. Cách cài đặt tùy host và hệ điều hành: network I/O thường dùng cơ chế thông báo bất đồng bộ của OS; `fs`, crypto hoặc DNS trong Node có thể dùng thread pool. Dù cơ chế bên dưới là gì, kết quả nhìn từ JS giống nhau: **main thread không chờ**.
+
+### Host có thật sự dùng thread không?
+
+**Có.** Browser, Node.js và hệ điều hành đều dùng CPU/thread để thực hiện công việc của chúng. Browser có thể có main thread, network service, render/compositor và GPU process. Node có main thread, event loop của libuv và một worker pool. V8 cũng có thể có background thread nội bộ cho garbage collection hoặc tối ưu mã.
+
+Tuy nhiên, “host dùng nhiều thread” không có nghĩa **mỗi I/O có một thread ngồi chờ**. Nếu 1.000 lệnh `fetch` cùng lúc đều cần một thread, hệ thống sẽ cạn thread rất nhanh. Với network I/O, host thường đăng ký 1.000 socket với OS. Card mạng và kernel báo khi socket nào có dữ liệu; host chỉ xử lý socket đã sẵn sàng rồi đưa việc tiếp tục vào queue.
+
+```text
+1.000 fetch
+    │
+    ▼
+Host đăng ký 1.000 socket với OS
+    │
+    ▼
+OS/network stack báo socket nào có dữ liệu
+    │
+    ▼
+Host xếp callback/Promise continuation tương ứng
+    │
+    ▼
+Main JS thread chạy từng callback một
+```
+
+Một số việc thực sự cần CPU hoặc có API đồng bộ/blocking thì host có thể dùng **thread pool**. Trong Node, `fs`, nhiều API crypto, zlib và một số DNS API thường đi qua libuv worker pool; ngược lại, network I/O như `fetch` thường dùng cơ chế thông báo sự kiện của OS thay vì giữ một worker thread chỉ để chờ mạng.
+
+> [!NOTE]
+> Có thể hình dung: host/OS có nhiều người để **chờ và báo tin**; main JS thread là người duy nhất chạy code callback của ứng dụng. Dù host dùng thread nào bên dưới, callback JS vẫn không tự chạy song song.
 
 ```mermaid
 flowchart LR
-    A[Goi setTimeout cb 1000] --> B[Engine dang ky timer voi Web API roi return ngay]
-    B --> C[Code dong bo chay tiep - khong cho]
-    B -. Web API tu dem gio 1000ms o background .-> D[Het gio]
-    D --> E[Web API day cb vao Macrotask Queue]
-    E --> F[Event Loop lay cb khi Call Stack rong]
-    F --> G[cb chay tren Call Stack]
+    A[JS gọi API async] --> B[Host bắt đầu timer/I-O]
+    B --> C[JS nhận Promise/callback và chạy tiếp]
+    B -. Host/OS chờ ở nền .-> D[Hoàn tất]
+    D --> E[Đưa việc tiếp tục vào queue]
+    E --> F[Event loop chờ Call Stack rỗng]
+    F --> G[Main JS thread chạy callback]
 ```
 
-Xem ví dụ kinh điển:
+### `fetch` diễn ra từng bước
+
+```js
+console.log('A');
+
+fetch('/api/users')
+  .then((response) => response.json())
+  .then((users) => console.log('C:', users));
+
+console.log('B');
+```
+
+Đầu ra bắt đầu bằng `A`, rồi `B`; `C` chỉ xuất hiện sau khi response sẵn sàng.
+
+1. Main JS thread in `A`, rồi gọi `fetch('/api/users')`.
+2. Browser nhận yêu cầu và bắt đầu network I/O. `fetch` trả về một `Promise` **ngay**, nên main JS thread không chờ server.
+3. Main JS thread in `B` và có thể tiếp tục chạy code, nhận event hoặc render.
+4. Browser/hệ điều hành gửi request, chờ server và nhận dữ liệu response.
+5. Khi response sẵn sàng, browser resolve Promise. Hàm `.then(...)` được đưa vào **microtask queue**.
+6. Khi call stack rỗng, event loop lấy microtask đó. Main JS thread chạy `.then`, gọi `response.json()`, rồi chạy `.then` kế tiếp khi việc đọc/parse body hoàn tất.
+
+```text
+Main JS thread                         Browser / OS
+──────────────────────────────────     ───────────────────────────────
+gọi fetch('/api/users')                gửi HTTP request
+nhận Promise, chạy console.log('B')    chờ server và nhận response
+... tiếp tục làm việc khác ...          báo Promise đã sẵn sàng
+chạy .then(...)
+```
+
+### Callback vẫn chạy trên main JS thread
+
+Host xử lý **việc chờ**, không chạy tùy ý code JS của bạn ở nền. Code bên trong callback, `.then(...)` hoặc phần sau `await` quay lại main JS thread:
+
+```js
+fetch('/api/users').then((response) => response.json()).then((users) => {
+  // Vẫn là main JS thread.
+  renderUsers(users);
+});
+```
+
+Vì vậy callback nặng vẫn làm UI đơ:
+
+```js
+fetch('/api/users').then(() => {
+  while (true) {
+    // Chặn main JS thread. Click, render và callback khác phải chờ.
+  }
+});
+```
+
+> [!IMPORTANT]
+> **Mấu chốt:** async I/O khác với chạy song song. I/O được host/OS xử lý trong lúc chờ; callback xử lý kết quả vẫn chạy lần lượt trên main JS thread. Muốn chạy code JS CPU-bound song song thật sự, dùng **Web Worker** trong browser hoặc **`worker_threads`** trong Node.
+
+Ví dụ `setTimeout` cũng theo đúng mô hình này:
 
 ```js
 console.log('start');
@@ -141,15 +282,7 @@ console.log('end');
 // start → end → (sau ~1s) timeout
 ```
 
-Diễn biến đúng theo mô hình quán ăn:
-
-1. **`console.log('start')`** — chạy ngay trên call stack → in `start`.
-2. **`setTimeout(..., 1000)`** — đầu bếp *giao việc đếm giờ cho Web API* rồi return ngay lập tức (non-blocking). Web API tự đếm 1000ms ở "background", engine không chờ.
-3. **`console.log('end')`** — vì không phải chờ, code đồng bộ chạy tiếp → in `end`. Call stack rỗng.
-4. **Sau ~1s, callback vào hàng chờ** — Web API đếm xong *không tự chạy* callback, nó đẩy callback vào **Macrotask Queue**. Event Loop thấy stack rỗng → lấy ra chạy → in `timeout`.
-
-> [!IMPORTANT]
-> **Mấu chốt:** `setTimeout` chỉ **đăng ký** lịch rồi return. Callback **không bao giờ chen ngang** code đang chạy — nó luôn phải đi qua hàng chờ và đợi Event Loop. Vì vậy `timeout` luôn in *sau* `end`, kể cả khi delay là `0`.
+`setTimeout(..., 1000)` chỉ đăng ký timer rồi return. Sau khoảng 1 giây, host đưa callback vào **macrotask queue**; callback không thể chen ngang code đang chạy. Vì vậy `timeout` luôn in sau `end`, kể cả khi delay là `0`.
 
 ---
 
@@ -179,6 +312,43 @@ Tác vụ nhỏ, ưu tiên cao. Sau **mỗi** macrotask (và ngay sau khi script
 | `await` (phần sau `await`) | Bản chất là `.then` ngầm |
 | `queueMicrotask(fn)` | API tường minh |
 | `MutationObserver` | Callback quan sát DOM |
+
+### Khi có 5 microtask và 3 task
+
+Giả sử callback hiện tại vừa chạy xong nên **call stack rỗng**. Hàng đợi đang có:
+
+```text
+Microtask queue: [M1, M2, M3, M4, M5]
+Task queue:      [T1, T2, T3]
+```
+
+Event loop **không đưa cả 5 microtask vào call stack cùng lúc**. Call stack chỉ chạy được một callback tại một thời điểm. Nó lấy từng microtask ra, chạy xong thì mới lấy cái tiếp theo:
+
+```text
+Call Stack       Microtask queue        Task queue
+───────────      ─────────────────      ───────────
+rỗng             M1 M2 M3 M4 M5         T1 T2 T3
+M1 đang chạy     M2 M3 M4 M5            T1 T2 T3
+M2 đang chạy     M3 M4 M5               T1 T2 T3
+M3 đang chạy     M4 M5                  T1 T2 T3
+M4 đang chạy     M5                     T1 T2 T3
+M5 đang chạy     rỗng                   T1 T2 T3
+T1 đang chạy     rỗng                   T2 T3
+```
+
+Kết quả: `M1 → M2 → M3 → M4 → M5 → T1`. `T2` và `T3` tiếp tục phải chờ đến các vòng sau.
+
+Nếu `M3` tạo thêm `M6`, `M6` được thêm vào cuối microtask queue và vẫn phải chạy **trước** `T1`:
+
+```js
+queueMicrotask(() => { // M3
+  queueMicrotask(() => { // M6
+    console.log('M6');
+  });
+});
+```
+
+Khi đó thứ tự là `M1 → M2 → M3 → M4 → M5 → M6 → T1`. Vì microtask có thể tự sinh thêm microtask, queue này có thể không bao giờ rỗng; đó là hiện tượng **microtask starvation**.
 
 > [!WARNING]
 > **Khác biệt sống còn:** microtask được ưu tiên tuyệt đối so với macrotask. Dù `setTimeout(0)` đã sẵn sàng từ lâu, mọi microtask đang chờ vẫn chạy *trước*. Hãy nhớ một câu duy nhất: **sync → microtask → macrotask**.
