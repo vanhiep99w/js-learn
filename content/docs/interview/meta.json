@@ -2,6 +2,7 @@
   "title": "Câu hỏi phỏng vấn",
   "pages": [
     "js-interview-questions",
-    "event-loop-microtask-macrotask"
+    "event-loop-microtask-macrotask",
+    "copy-object"
   ]
 }
