@@ -74,7 +74,7 @@ test('no Mermaid or hand-drawn diagrams survive outside genuine artifacts', asyn
   }
 });
 
-test('the five learning descriptors satisfy the installed 0.9.6 schemas', async () => {
+test('the five learning descriptors satisfy the installed 0.9.8 schemas', async () => {
   const parsers = {
     'code-walkthrough': parseCodeWalkthroughDescriptor,
     'code-diff': parseCodeDiffDescriptor,
@@ -88,7 +88,7 @@ test('the five learning descriptors satisfy the installed 0.9.6 schemas', async 
     await parse(blocks[0].code);
   }
   const pkg = JSON.parse(await read('node_modules/@vanhiep99w/docs-kit/package.json'));
-  assert.equal(pkg.version, '0.9.6');
+  assert.equal(pkg.version, '0.9.8');
   const timeline = parseSpanWaterfallDescriptor(all.find((f) => f.language === 'span-waterfall').code);
   assert.equal(timeline.provenance.kind, 'illustrative');
   assert.equal(timeline.spans.find((s) => s.id === 'concurrent-fast').start, 0);
@@ -105,7 +105,7 @@ test('all 35 pages compile with D2 and learning plugins; both icon themes embed 
       ],
     }));
     for (const fence of fences(value)) {
-      const component = { d2: /mode=/.test(fence.meta) ? 'D2InteractiveDiagram' : 'D2Diagram', 'code-walkthrough': 'CodeWalkthrough', 'code-diff': 'CodeDiff', 'terminal-session': 'TerminalSession', 'protocol-exchange': 'ProtocolExchange', 'span-waterfall': 'SpanWaterfall' }[fence.language];
+      const component = { d2: /\binteractive=false\b/.test(fence.meta) && !/mode=(steps|tabs|explorer|animation)/.test(fence.meta) ? 'D2Diagram' : 'D2InteractiveDiagram', 'code-walkthrough': 'CodeWalkthrough', 'code-diff': 'CodeDiff', 'terminal-session': 'TerminalSession', 'protocol-exchange': 'ProtocolExchange', 'span-waterfall': 'SpanWaterfall' }[fence.language];
       if (component) assert.ok(output.includes(component), `${file}: missing ${component}`);
     }
     if (value.includes('icon: ../../icons/nodejs.svg')) {
