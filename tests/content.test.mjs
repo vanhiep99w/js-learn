@@ -74,7 +74,7 @@ test('no Mermaid or hand-drawn diagrams survive outside genuine artifacts', asyn
   }
 });
 
-test('the five learning descriptors satisfy the installed 0.9.5 schemas', async () => {
+test('the five learning descriptors satisfy the installed 0.9.6 schemas', async () => {
   const parsers = {
     'code-walkthrough': parseCodeWalkthroughDescriptor,
     'code-diff': parseCodeDiffDescriptor,
@@ -88,7 +88,7 @@ test('the five learning descriptors satisfy the installed 0.9.5 schemas', async 
     await parse(blocks[0].code);
   }
   const pkg = JSON.parse(await read('node_modules/@vanhiep99w/docs-kit/package.json'));
-  assert.equal(pkg.version, '0.9.5');
+  assert.equal(pkg.version, '0.9.6');
   const timeline = parseSpanWaterfallDescriptor(all.find((f) => f.language === 'span-waterfall').code);
   assert.equal(timeline.provenance.kind, 'illustrative');
   assert.equal(timeline.spans.find((s) => s.id === 'concurrent-fast').start, 0);
