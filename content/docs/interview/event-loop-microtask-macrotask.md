@@ -59,8 +59,14 @@ Khi Call Stack rỗng, Event Loop xử lý công việc theo mô hình sau:
 
 Vì vậy, trong mô hình phỏng vấn trên trình duyệt, thứ tự ưu tiên thường là:
 
-```text
-Code đồng bộ → toàn bộ microtask → một macrotask → toàn bộ microtask mới → macrotask tiếp theo
+```d2 title="Thứ tự đồng bộ, microtask và macrotask"
+direction: down
+sync: Code đồng bộ
+m1: toàn bộ microtask
+t1: một macrotask
+m2: toàn bộ microtask mới
+t2: macrotask tiếp theo
+sync -> m1 -> t1 -> m2 -> t2
 ```
 
 <Callout type="warn" title="Không chỉ là ba nhóm chạy một lần">
@@ -69,15 +75,19 @@ Code đồng bộ → toàn bộ microtask → một macrotask → toàn bộ mi
 
 ## Mô hình cần nhớ
 
-```mermaid
-flowchart TD
-    A[Chạy một task] --> B[Thực thi code đến khi Call Stack rỗng]
-    B --> C{Microtask Queue còn việc?}
-    C -->|Có| D[Lấy microtask đầu hàng đợi và chạy]
-    D --> C
-    C -->|Không| E[Trình duyệt có thể render]
-    E --> F[Chọn task tiếp theo]
-    F --> A
+```d2 title="Một vòng event loop trình duyệt"
+direction: down
+a: Chạy một task
+b: Thực thi code đến khi Call Stack rỗng
+c: Microtask Queue còn việc? {shape: diamond}
+d: Lấy microtask đầu hàng đợi và chạy
+e: Trình duyệt có thể render
+f: Chọn task tiếp theo
+a -> b -> c
+c -> d: Có
+d -> c
+c -> e: Không
+e -> f -> a
 ```
 
 Trong HTML Standard, thuật ngữ chính xác là **task**, không phải macrotask. “Macrotask” là cách gọi phổ biến để phân biệt task với microtask. Ngoài ra, trình duyệt có thể quản lý nhiều task queue theo nguồn thay vì chỉ một hàng đợi toàn cục. Khi giải bài phỏng vấn thông thường, mô hình một Macrotask Queue vẫn đủ để suy luận thứ tự.
@@ -154,18 +164,42 @@ Khi gặp một đoạn code hỏi output, hãy dùng quy trình sau:
 
 ## Ví dụ cơ bản
 
-```js
-console.log('A');
+Chọn từng bước để đối chiếu dòng code với hàng đợi. Viewer chỉ highlight source; phần phân loại và output bên dưới là lời giải, không phải kết quả viewer thực thi.
 
-setTimeout(() => {
-  console.log('B');
-}, 0);
+```code-walkthrough
+title: Vì sao output là A D C B?
+language: javascript
+snapshots:
+  - id: basic
+    title: event-loop-basic.js
+    code: |
+      console.log('A');
 
-Promise.resolve().then(() => {
-  console.log('C');
-});
+      setTimeout(() => {
+        console.log('B');
+      }, 0);
 
-console.log('D');
+      Promise.resolve().then(() => {
+        console.log('C');
+      });
+
+      console.log('D');
+steps:
+  - id: sync
+    snapshot: basic
+    title: Chạy phần đồng bộ
+    description: A được in trước. Đăng ký timer và Promise reaction không chạy callback ngay; D vẫn được in trong task hiện tại.
+    ranges: [[1, 1], [11, 11]]
+  - id: microtask
+    snapshot: basic
+    title: Vét microtask khi stack rỗng
+    description: Promise đã fulfilled nên callback in C được enqueue vào Microtask Queue và chạy sau A, D.
+    ranges: [[7, 9]]
+  - id: timer
+    snapshot: basic
+    title: Lấy timer task
+    description: Callback in B chỉ chạy sau khi microtask C kết thúc. Delay 0 không vượt qua task hiện tại hay checkpoint microtask.
+    ranges: [[3, 5]]
 ```
 
 Phân loại:
@@ -365,8 +399,12 @@ Sau timer đầu tiên, Event Loop không chuyển thẳng sang timer thứ hai.
 
 Đây là lý do công thức đúng phải là:
 
-```text
-một macrotask → vét hết microtask → macrotask tiếp theo
+```d2 title="Giữa hai macrotask phải vét hết microtask"
+direction: down
+t1: một macrotask
+m: vét hết microtask
+t2: macrotask tiếp theo
+t1 -> m -> t2
 ```
 
 ### Microtask có thể làm Event Loop bị đói
@@ -457,16 +495,14 @@ Hãy ghi nhớ năm quy tắc:
 4. Sau mỗi task, Event Loop xử lý **hết** microtask trước task tiếp theo.
 5. Khi phân tích output, phải cập nhật queue sau từng callback vì callback có thể tạo thêm công việc.
 
-```text
-Task hiện tại
-    ↓
-Call Stack rỗng
-    ↓
-Vét hết Microtask Queue
-    ↓
-Browser có thể render
-    ↓
-Task tiếp theo
+```d2 title="Checklist thứ tự event loop"
+direction: down
+t: Task hiện tại
+s: Call Stack rỗng
+m: Vét hết Microtask Queue
+r: Browser có thể render
+n: Task tiếp theo
+t -> s -> m -> r -> n
 ```
 
 ## Bài liên quan

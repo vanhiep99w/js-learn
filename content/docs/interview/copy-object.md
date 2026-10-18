@@ -36,15 +36,14 @@ Object trong JavaScript được truyền và lưu bằng **tham chiếu**. Vì 
 
 Biến object không chứa toàn bộ dữ liệu object; nó giữ một tham chiếu tới vùng dữ liệu đó. Phép gán chỉ sao chép tham chiếu.
 
-```text
-const copy = original
-
-original ──────┐
-               ▼
-          { name: "An" }
-               ▲
-               │
-copy ──────────┘
+```d2 title="Phép gán chỉ sao chép tham chiếu"
+direction: down
+original: original
+copy: copy
+obj: "{name: \"An\"}"
+original -> copy: const copy = original
+original -> obj: tham chiếu
+copy -> obj: cùng tham chiếu
 ```
 
 ```js
@@ -68,14 +67,13 @@ Hai biến cùng tham chiếu một object, nên thay đổi qua biến nào cũ
 
 Shallow copy tạo một object ngoài mới. Các property primitive ở cấp đầu độc lập, nhưng property là object, array hoặc function vẫn giữ nguyên tham chiếu cũ.
 
-```text
-original                         shallow
-┌─────────────────────────┐     ┌─────────────────────────┐
-│ name: "An"              │     │ name: "Bình"            │
-│ address ─────────────┐   │     │ address ─────────────┐   │
-└──────────────────────│───┘     └──────────────────────│───┘
-                       │                                │
-                       └──────────► { city: "Hà Nội" } ◄┘
+```d2 title="Shallow copy chỉ tách object ngoài"
+direction: down
+original: "original\n{name: \"An\"}"
+shallow: "shallow\n{name: \"Bình\"}"
+address: "{city: \"Hà Nội\"}"
+original -> address: address
+shallow -> address: address
 ```
 
 ### Spread syntax

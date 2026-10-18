@@ -101,24 +101,28 @@ first();
 
 Diễn biến Call Stack:
 
-```text
-Bước 1: gọi first()        Bước 2: first gọi second()    Bước 3: second return
-┌──────────────┐           ┌──────────────┐              ┌──────────────┐
-│              │           │  second EC   │ ← đẩy vào    │              │
-│  first EC    │           │  first EC    │              │  first EC    │ ← tiếp tục
-│  global EC   │           │  global EC   │              │  global EC   │
-└──────────────┘           └──────────────┘              └──────────────┘
+```d2 title="Execution Context được push và pop"
+direction: right
+first: "Bước 1: gọi first()\nCall Stack (trên → dưới):\nfirst EC\nglobal EC"
+second: "Bước 2: first gọi second()\nCall Stack (trên → dưới):\nsecond EC\nfirst EC\nglobal EC"
+back: "Bước 3: second return\nCall Stack (trên → dưới):\nfirst EC (tiếp tục)\nglobal EC"
+first -> second: đẩy second EC vào
+second -> back: pop second EC
 ```
 
-```mermaid
-flowchart TD
-    A[Goi ham] --> B[Tao Execution Context moi]
-    B --> C[Day EC len Call Stack]
-    C --> D[Chay code trong ham]
-    D --> E{Goi ham khac?}
-    E -- Co --> B
-    E -- Khong / return --> F[Pop EC khoi Call Stack]
-    F --> G[Quay lai EC truoc do]
+```d2 title="Vòng đời một Execution Context"
+direction: down
+a: Goi ham
+b: Tao Execution Context moi
+c: Day EC len Call Stack
+d: Chay code trong ham
+e: Goi ham khac? {shape: diamond}
+f: Pop EC khoi Call Stack
+g: Quay lai EC truoc do
+a -> b -> c -> d -> e
+e -> b: Co
+e -> f: Khong / return
+f -> g
 ```
 
 > [!IMPORTANT]

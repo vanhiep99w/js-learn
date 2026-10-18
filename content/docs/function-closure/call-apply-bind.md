@@ -125,9 +125,22 @@ add5(20);                          // 25
 | `apply` | ✅ | mảng (`[a, b]`) | kết quả hàm | tham số đã ở dạng mảng |
 | `bind` | ❌ | rời (khoá sẵn) | **hàm mới** | callback / partial application |
 
-```text
-call/apply:  fn ──set this──▶ CHẠY NGAY ──▶ kết quả
-bind:        fn ──set this──▶ HÀM MỚI (chờ gọi) ──gọi sau──▶ kết quả
+```d2 title="call/apply chạy ngay, bind trả hàm mới"
+direction: down
+call: call/apply {
+  fn: fn
+  run: CHẠY NGAY
+  result: kết quả
+  fn -> run: set this
+  run -> result
+}
+bind: bind {
+  fn: fn
+  bound: HÀM MỚI (chờ gọi)
+  result: kết quả
+  fn -> bound: set this
+  bound -> result: gọi sau
+}
 ```
 
 ---

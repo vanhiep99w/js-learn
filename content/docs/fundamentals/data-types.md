@@ -62,14 +62,19 @@ console.log(o1.x); // 99 — cùng một object!
 
 ## Lưu trong bộ nhớ: stack vs heap
 
-```text
-        STACK (giá trị + tham chiếu)          HEAP (object thực)
-        ────────────────────────────          ──────────────────
-  a  →  10                                
-  b  →  20                                
-  o1 →  ref#001 ───────────────────────▶   ┌──────────────┐
-  o2 →  ref#001 ───────────────────────▶   │ { x: 99 }    │  ← o1 & o2 cùng trỏ vào
-                                           └──────────────┘
+```d2 title="Giá trị primitive và tham chiếu dùng chung"
+direction: right
+stack: "STACK (giá trị + tham chiếu)" {
+  a: a = 10
+  b: b = 20
+  o1: "o1 = ref#001"
+  o2: "o2 = ref#001"
+}
+heap: HEAP (object thực) {
+  obj: "{x: 99}\no1 & o2 cùng trỏ vào"
+}
+stack.o1 -> heap.obj
+stack.o2 -> heap.obj
 ```
 
 - `a`, `b` chứa trực tiếp giá trị số trên stack → độc lập nhau.
@@ -259,11 +264,13 @@ Một câu hỏi hay gây bối rối: nếu `"hello"` là *primitive* (không p
 
 Khi bạn truy cập property/method trên một primitive, engine *tạm thời* bọc nó trong object wrapper tương ứng (`String`, `Number`, `Boolean`, `Symbol`, `BigInt`), gọi method, rồi **vứt bỏ** wrapper ngay:
 
-```text
- "hello".toUpperCase()
-   │ 1. tạo tạm new String("hello")   (wrapper object)
-   │ 2. gọi .toUpperCase() trên wrapper → "HELLO"
-   └ 3. hủy wrapper, trả về "HELLO"
+```d2 title="Autoboxing của string — mô hình khái niệm"
+direction: down
+call: "\"hello\".toUpperCase()"
+wrap: "1. Tạo tạm new String(\"hello\")\nwrapper object"
+method: "2. Gọi .toUpperCase() trên wrapper → \"HELLO\""
+end: "3. Hủy wrapper, trả về \"HELLO\""
+call -> wrap -> method -> end
 ```
 
 Hệ quả: không thể gán thêm property cho primitive (vì wrapper bị vứt ngay):

@@ -96,20 +96,19 @@ console.log('B');
 
 Vì sao `setTimeout(..., 0)` lại chạy *sau* `console.log('B')`? Vì callback async **không** chạy trên Call Stack hiện tại. Nó đi một vòng:
 
-```
-   xuLy()              setTimeout(cb, 0)
-     │                       │
-     ▼                       ▼
-┌──────────┐         ┌──────────────┐
-│Call Stack│         │  Web API     │  (Timer do trình duyệt/Node quản lý)
-└──────────┘         │  đếm 0ms...  │
-     │               └──────┬───────┘
-     │ (rỗng, code           │ hết giờ → đẩy cb vào hàng đợi
-     │  đồng bộ xong)        ▼
-     │               ┌──────────────┐
-     └──── lấy cb ◄──│ Macrotask Q  │
-        khi stack    └──────────────┘
-        rỗng (Event Loop)
+```d2 title="Timer không chạy callback ngay trong stack hiện tại"
+direction: down
+sync: xuLy()
+stack: Call Stack
+timer: "Web API / host timer\nsetTimeout(cb, 0) — đếm 0ms\ntrình duyệt/Node quản lý"
+queue: Macrotask Q
+ready: "Stack rỗng?\nCode đồng bộ xong?" {shape: diamond}
+cb: Chạy cb trên Call Stack
+sync -> stack
+stack -> ready
+timer -> queue: hết giờ — đẩy cb vào hàng đợi
+queue -> ready: Event Loop xét callback đã sẵn sàng
+ready -> cb: lấy cb khi stack rỗng
 ```
 
 1. `setTimeout(cb, 0)` chỉ **đăng ký** `cb` với Web API Timer rồi return ngay.

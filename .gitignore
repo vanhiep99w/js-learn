@@ -19,3 +19,9 @@ __pycache__/
 
 # Next.js
 next-env.d.ts
+
+# Docs-kit cache and local validation
+.cache/
+*.tsbuildinfo
+playwright-report/
+test-results/

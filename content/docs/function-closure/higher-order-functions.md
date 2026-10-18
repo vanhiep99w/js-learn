@@ -85,10 +85,17 @@ function myMap(arr, fn) {
 }
 ```
 
-```text
-map:    [1,2,3,4] ──fn(x)=x*2──▶ [2,4,6,8]    (giữ nguyên độ dài)
-filter: [1,2,3,4] ──x%2===0───▶ [2,4]         (độ dài <=)
-reduce: [1,2,3,4] ──acc+x─────▶ 10            (gộp về 1 giá trị)
+```d2 title="map, filter và reduce khác nhau ở đầu ra"
+direction: down
+map: "map: [1,2,3,4]"
+mout: "[2,4,6,8]\ngiữ nguyên độ dài"
+filter: "filter: [1,2,3,4]"
+fout: "[2,4]\nđộ dài <= đầu vào"
+reduce: "reduce: [1,2,3,4]"
+rout: "10\ngộp về 1 giá trị"
+map -> mout: fn(x)=x*2
+filter -> fout: x%2===0
+reduce -> rout: acc+x
 ```
 
 > [!IMPORTANT]
@@ -132,9 +139,13 @@ const f = pipe(addOne, double);   // double(addOne(x))
 f(3);                              // (3+1)*2 = 8
 ```
 
-```mermaid
-flowchart LR
-    X[x = 3] --> A[addOne -> 4] --> B[double -> 8] --> R[ket qua 8]
+```d2 title="Pipeline addOne rồi double"
+direction: right
+x: x = 3
+a: addOne → 4
+b: double → 8
+r: ket qua 8
+x -> a -> b -> r
 ```
 
 `pipe` đọc trái→phải (tự nhiên hơn), `compose` đọc phải→trái (theo ký hiệu toán học `f(g(x))`).

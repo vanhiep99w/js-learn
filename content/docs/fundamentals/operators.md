@@ -83,13 +83,17 @@ console.log([] == 0);        // true  — [] → "" → 0
 console.log([1] == 1);       // true  — [1] → "1" → 1
 ```
 
-```text
-[] == ![]   →   ?
-  ├─ ![]      = false           (array truthy → ![] = false)
-  ├─ [] == false
-  ├─ false    → 0               (boolean → number)
-  ├─ []       → "" → 0          (object → primitive → number)
-  └─ 0 == 0   → true            ← kết quả gây sốc nhưng đúng quy tắc
+```d2 title="Từng bước ép kiểu của [] == ![]"
+direction: down
+expr: "[] == ![]"
+not: "![] = false\narray truthy → ![] = false"
+compare: "[] == false"
+boolean: "false → 0\nboolean → number"
+primitive: "[] → \"\" → 0\nobject → primitive → number"
+result: "0 == 0 → true\nkết quả gây sốc nhưng đúng quy tắc"
+expr -> not -> compare
+compare -> boolean -> result
+compare -> primitive -> result
 ```
 
 > [!WARNING]
@@ -248,16 +252,18 @@ void function () {
 
 Toán tử có **độ ưu tiên** khác nhau — quyết định thứ tự đánh giá khi không có ngoặc. Một vài mức hay gặp (cao → thấp):
 
-```text
-()  ?.  []           ← truy cập / nhóm (cao nhất)
-**                   ← luỹ thừa
-*  /  %
-+  -
-<  <=  >  >=
-==  ===  !=  !==
-&&
-||  ??
-=  +=  ...            ← gán (thấp nhất)
+```d2 title="Độ ưu tiên toán tử từ cao xuống thấp"
+direction: down
+access: "()  ?.  []\ntruy cập / nhóm (cao nhất)"
+power: "** — luỹ thừa"
+product: "*  /  %"
+sum: "+  -"
+order: "<  <=  >  >="
+equal: "==  ===  !=  !=="
+and: "&&"
+or: "||  ??"
+assign: "=  +=  ...\ngán (thấp nhất)"
+access -> power -> product -> sum -> order -> equal -> and -> or -> assign
 ```
 
 ```js
@@ -288,12 +294,16 @@ Toán tử `+` gây bối rối nhất vì nó vừa là *cộng số* vừa là
 
 `ToPrimitive(obj)` gọi `obj.valueOf()` rồi `obj.toString()` (theo "hint"). Với hầu hết object, `valueOf` trả chính nó (không primitive) nên rơi xuống `toString`:
 
-```text
- []  + 1
-  ├ ToPrimitive([]) → valueOf trả [] (không primitive) → toString() = ""
-  └ "" + 1 → "1"             (có string → nối)
-
- {} + []  → phụ thuộc ngữ cảnh (statement vs expression), dễ gây nhầm
+```d2 title="Ép kiểu khi cộng array với number"
+direction: down
+expr: "[] + 1"
+primitive: "ToPrimitive([])"
+value: "valueOf trả [] — không primitive"
+string: "toString() = \"\""
+concat: "\"\" + 1 → \"1\"\ncó string → nối"
+context: "{} + [] phụ thuộc ngữ cảnh\nstatement vs expression — dễ gây nhầm"
+expr -> primitive -> value -> string -> concat
+expr -> context: đối chiếu {style.stroke-dash: 3}
 ```
 
 Các toán tử số học khác (`-`, `*`, `/`, `%`) **không** có nghĩa nối chuỗi → luôn ép về number:

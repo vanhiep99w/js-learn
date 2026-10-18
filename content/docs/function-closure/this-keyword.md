@@ -184,12 +184,14 @@ obj.func2();   // "object1", rồi "object1"
 obj.func3();   // undefined — KHÔNG có object context, this là global
 ```
 
-```text
-func2 (function thường): this = obj (vì gọi obj.func2())
-   └─ arrow trong setTimeout: this = this của func2 = obj ✅
-
-func3 (arrow ngay trong object literal):
-   this = this của scope ngoài object = global ❌ (không phải obj!)
+```d2 title="Arrow lấy this từ scope bao ngoài"
+direction: down
+func2: "func2 (function thường)\nthis = obj vì gọi obj.func2()"
+arrow: "arrow trong setTimeout\nthis = this của func2 = obj"
+func3: "func3 (arrow ngay trong object literal)"
+outer: "this của scope ngoài object = global\nkhông phải obj!"
+func2 -> arrow: kế thừa lexical this
+func3 -> outer: kế thừa lexical this
 ```
 
 > [!WARNING]
@@ -199,17 +201,27 @@ func3 (arrow ngay trong object literal):
 
 ## Cây quyết định this
 
-```mermaid
-flowchart TD
-    A[Xac dinh this khi goi ham] --> B{La arrow function?}
-    B -- Co --> C[this = lexical this cua scope bao ngoai]
-    B -- Khong --> D{Goi voi new?}
-    D -- Co --> E[this = object moi tao]
-    D -- Khong --> F{Goi voi call/apply/bind?}
-    F -- Co --> G[this = object duoc chi dinh]
-    F -- Khong --> H{Goi dang obj.fn?}
-    H -- Co --> I[this = obj]
-    H -- Khong --> J[this = global hoac undefined neu strict]
+```d2 title="Xác định this theo cách gọi hàm"
+direction: down
+a: Xac dinh this khi goi ham
+b: La arrow function? {shape: diamond}
+c: this = lexical this cua scope bao ngoai
+d: Goi voi new? {shape: diamond}
+e: this = object moi tao
+f: Goi voi call/apply/bind? {shape: diamond}
+g: this = object duoc chi dinh
+h: Goi dang obj.fn? {shape: diamond}
+i: this = obj
+j: this = global hoac undefined neu strict
+a -> b
+b -> c: Co
+b -> d: Khong
+d -> e: Co
+d -> f: Khong
+f -> g: Co
+f -> h: Khong
+h -> i: Co
+h -> j: Khong
 ```
 
 ---

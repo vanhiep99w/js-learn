@@ -1,5 +1,11 @@
 import { defineDocs, defineConfig } from 'fumadocs-mdx/config';
 import { visit } from 'unist-util-visit';
+import { remarkD2 } from '@vanhiep99w/docs-kit/d2';
+import { remarkCodeWalkthrough } from '@vanhiep99w/docs-kit/code-walkthrough';
+import { remarkCodeDiff } from '@vanhiep99w/docs-kit/code-diff';
+import { remarkTerminalSession } from '@vanhiep99w/docs-kit/terminal-session';
+import { remarkProtocolExchange } from '@vanhiep99w/docs-kit/protocol-exchange';
+import { remarkSpanWaterfall } from '@vanhiep99w/docs-kit/span-waterfall';
 
 const admonitionTypeMap: Record<string, string> = {
   note: 'info',
@@ -45,32 +51,20 @@ function remarkGithubCallouts() {
   };
 }
 
-function remarkMermaid() {
-  return (tree: import('mdast').Root) => {
-    visit(tree, 'code', (node, index, parent) => {
-      if (node.lang !== 'mermaid' || index === undefined || !parent) return;
-      (parent.children as unknown[])[index] = {
-        type: 'mdxJsxFlowElement',
-        name: 'MermaidDiagram',
-        attributes: [
-          {
-            type: 'mdxJsxAttribute',
-            name: 'chart',
-            value: node.value,
-          },
-        ],
-        children: [],
-      };
-    });
-  };
-}
-
 export const docs = defineDocs({
   dir: 'content/docs',
 });
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [remarkGithubCallouts, remarkMermaid],
+    remarkPlugins: [
+      remarkGithubCallouts,
+      [remarkD2, { assetsRoot: 'content/icons' }],
+      remarkCodeWalkthrough,
+      remarkCodeDiff,
+      remarkTerminalSession,
+      remarkProtocolExchange,
+      remarkSpanWaterfall,
+    ],
   },
 });

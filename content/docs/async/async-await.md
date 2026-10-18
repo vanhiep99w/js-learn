@@ -28,18 +28,26 @@ description: "Đào sâu async/await từ trực giác đến internal: async fu
 
 `async/await` cho ta viết code bất đồng bộ **trông như đồng bộ** — đọc tuần tự từ trên xuống, không còn `.then()` lồng nhau:
 
-```js
-// Promise thuần
-function layData() {
-  return dangNhap().then((t) => layHoSo(t)).then((h) => h.ten);
-}
-
-// async/await — cùng logic, đọc như sync
-async function layData() {
-  const t = await dangNhap();
-  const h = await layHoSo(t);
-  return h.ten;
-}
+```code-diff
+title: Từ Promise chain sang async/await
+language: javascript
+view: split
+before:
+  label: Promise thuần
+  code: |
+    // Promise thuần
+    function layData() {
+      return dangNhap().then((t) => layHoSo(t)).then((h) => h.ten);
+    }
+after:
+  label: async/await
+  code: |
+    // async/await — cùng logic, đọc như sync
+    async function layData() {
+      const t = await dangNhap();
+      const h = await layHoSo(t);
+      return h.ten;
+    }
 ```
 
 Cùng một thứ, nhưng bản `async/await` gần với cách ta *suy nghĩ* hơn: "đăng nhập, rồi lấy hồ sơ, rồi lấy tên".
@@ -201,7 +209,7 @@ async function layData() {
 
 ## Tuần tự vs Đồng thời vs Song song
 
-Đây là phần dễ sai nhất. Cùng hai tác vụ (chậm 2s, nhanh 1s), ba cách viết cho ba kết quả thời gian khác nhau.
+Đây là phần dễ sai nhất. Cùng hai tác vụ (chậm 2s, nhanh 1s), cách khởi tạo quyết định chúng nối tiếp hay chồng thời gian chờ. Các mốc dưới đây là minh họa, không phải benchmark; timer thực tế có thể chạy muộn hơn.
 
 **1) Tuần tự (sequential) — chậm nhất (~3s):** `await` cái đầu *trước khi cả khởi tạo* cái sau.
 
@@ -225,7 +233,9 @@ async function concurrent() {
 }
 ```
 
-**3) Song song (parallel) với `Promise.all` — ~2s, gọn & an toàn nhất:**
+**3) Gom kết quả đồng thời với `Promise.all` — ~2s:**
+
+`Promise.all` không tạo thread và không khiến code JS CPU-bound chạy song song. Nó gắn handler cho các Promise đầu vào và gom kết quả; một Promise reject sẽ làm Promise tổng reject, nhưng không tự hủy các tác vụ còn lại.
 
 ```js
 async function parallel() {
@@ -239,13 +249,66 @@ async function parallel() {
 
 Hình dung trên trục thời gian (timer 2s và 1s):
 
-```text
-Tuần tự (~3s):   slow ████████ (2s) ─→ fast ████ (1s)
-                 0s              2s          3s
+```d2 title="Timer tuần tự và đồng thời"
+direction: down
+sequential: "Tuần tự (~3s)" {
+  slow: "slow: 0s–2s (2s)"
+  fast: "fast: 2s–3s (1s)"
+  slow -> fast: slow xong mới bắt đầu fast
+}
+concurrent: "Đồng thời (~2s)" {
+  start: 0s — khởi tạo cả hai
+  slow: "slow: 0s–2s (2s)"
+  fast: "fast: 0s–1s (1s)"
+  finish: 2s — cả hai đã xong
+  start -> slow -> finish
+  start -> fast -> finish: chồng lên slow
+}
+```
 
-Đồng thời (~2s): slow ████████ (2s)
-                 fast ████ (1s)          ← chạy CHỒNG lên nhau
-                 0s          1s   2s
+Các span sau dùng cùng mốc 0 để so sánh hai lần chạy **giả định**. Nhánh tuần tự kết thúc ở 3s; nhánh đồng thời kết thúc ở 2s. Không cộng thời lượng hai nhánh hoặc các span chồng nhau.
+
+```span-waterfall
+title: Thời gian chờ timer — tuần tự và đồng thời
+unit: s
+provenance:
+  kind: illustrative
+  description: Mốc lý tưởng của timer 2s và 1s để giải thích overlap, không đo từ trình duyệt hay Node.
+spans:
+  - id: sequential
+    name: Tuần tự (~3s)
+    service: sequential
+    start: 0
+    duration: 3
+  - id: sequential-slow
+    parent: sequential
+    name: slow (2s)
+    service: timer
+    start: 0
+    duration: 2
+  - id: sequential-fast
+    parent: sequential
+    name: fast (1s), bắt đầu sau slow
+    service: timer
+    start: 2
+    duration: 1
+  - id: concurrent
+    name: Đồng thời (~2s)
+    service: concurrent
+    start: 0
+    duration: 2
+  - id: concurrent-slow
+    parent: concurrent
+    name: slow (2s)
+    service: timer
+    start: 0
+    duration: 2
+  - id: concurrent-fast
+    parent: concurrent
+    name: fast (1s), khởi tạo cùng slow
+    service: timer
+    start: 0
+    duration: 1
 ```
 
 Khác biệt mấu chốt: bản tuần tự chỉ *bắt đầu* timer của `fast` **sau khi** `slow` đã xong (vì `await` chặn ngay dòng đó), nên hai timer nối đuôi nhau (2+1=3s). Bản đồng thời *khởi tạo cả hai timer ngay*, nên chúng chạy chồng lên nhau và tổng thời gian chỉ bằng cái lâu nhất (~2s).

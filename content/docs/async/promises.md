@@ -113,10 +113,13 @@ Bài học: muốn nhiều tác vụ chạy song song, **khởi tạo Promise s�
 
 Một Promise luôn ở **đúng một** trong ba trạng thái:
 
-```
-            ┌─────────── resolve(value) ──────────►  fulfilled  (đã có value)
- pending ───┤
-            └─────────── reject(error)  ──────────►  rejected   (đã có error)
+```d2 title="Promise chỉ settle một lần"
+direction: right
+pending: pending
+fulfilled: fulfilled (đã có value)
+rejected: rejected (đã có error)
+pending -> fulfilled: resolve(value)
+pending -> rejected: reject(error)
 ```
 
 - **pending**: chưa `resolve` cũng chưa `reject` (đang chờ).
@@ -162,12 +165,20 @@ Cơ chế:
 2. Khi `resolve(v)`: đặt state = `fulfilled`, result = `v`, rồi **lên lịch** mọi `onFulfilled` đang chờ vào **microtask queue**.
 3. Nếu `.then` được gọi *sau khi* Promise đã settle, callback được lên lịch microtask *ngay* (không chạy đồng bộ).
 
-```
- p.then(onF)
-     │  state == pending?  → push onF vào [[PromiseFulfillReactions]]
-     │  state == fulfilled? → lên lịch onF([[PromiseResult]]) vào microtask Q ngay
-     ▼
- (khi resolve) → drain reactions → microtask queue → Event Loop chạy onF
+```d2 title="Đăng ký và lên lịch Promise reaction"
+direction: down
+then: p.then(onF)
+state: state? {shape: diamond}
+store: "push onF vào [[PromiseFulfillReactions]]"
+resolve: khi resolve
+drain: drain reactions
+queue: microtask queue
+run: Event Loop chạy onF
+then -> state
+state -> store: pending
+store -> resolve -> drain -> queue
+state -> queue: "fulfilled — lên lịch onF([[PromiseResult]]) ngay"
+queue -> run
 ```
 
 ---

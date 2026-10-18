@@ -100,11 +100,22 @@ const result = withNumber(arr2, 3);   // result = [1,2,3]
 console.log(arr2);                      // [1, 2] — gốc nguyên vẹn
 ```
 
-```text
-Mutate (side effect):              Pure (immutable):
-  arr ─┐                             arr ─────────▶ [1,2]  (không đổi)
-       ▼                             return ──────▶ [1,2,3] (mảng mới)
-  push → [1,2,1]  ← cùng 1 mảng
+```d2 title="Mutate mảng cũ hay trả mảng mới?"
+direction: down
+mutate: Mutate (side effect) {
+  arr: arr
+  push: push
+  data: "[1,2,1]\ncùng 1 mảng"
+  arr -> push -> data
+}
+pure: Pure (immutable) {
+  arr: arr
+  old: "[1,2]\nkhông đổi"
+  ret: return
+  new: "[1,2,3]\nmảng mới"
+  arr -> old
+  ret -> new
+}
 ```
 
 > [!WARNING]

@@ -73,16 +73,18 @@ function demo() {
 
 Hình dung phạm vi mỗi biến:
 
-```text
-function demo() {
-  if (true) {
-    ┌──────────────── block scope (let b, const c) ────────────────┐
-    │  var a = 1;     ← a KHÔNG bị nhốt ở đây                      │
-    │  let b = 2;     ← b chỉ sống trong khung này                 │
-    │  const c = 3;   ← c chỉ sống trong khung này                 │
-    └──────────────────────────────────────────────────────────────┘
+```d2 title="var thuộc function, let và const thuộc block"
+direction: down
+fn: "function demo() — function scope" {
+  a: "var a = 1\na vẫn còn sau if"
+  block: "if (true) — block scope" {
+    b: let b = 2
+    c: const c = 3
+    declaration: var a = 1 được khai báo tại đây
   }
-  // a vẫn còn (function scope), b & c đã "chết"
+  block.declaration -> a: a KHÔNG bị nhốt trong block
+  after: "Sau if: b và c không còn truy cập được"
+  block -> after: kết thúc block
 }
 ```
 
@@ -121,15 +123,17 @@ console.log(y);  // ReferenceError: Cannot access 'y' before initialization
 let y = 10;
 ```
 
-```text
-{
-  ─── bắt đầu scope ───────────────────────────────┐
-  │  ❌ TDZ: y tồn tại nhưng chưa khởi tạo          │  ← chạm vào → ReferenceError
-  │     console.log(y)  → ReferenceError            │
-  let y = 10;  ←── kết thúc TDZ, y khởi tạo         │
-  │  ✅ y dùng bình thường = 10                      │
-  └──────────────────────────────────────────────────┘
-}
+```d2 title="Temporal Dead Zone kết thúc khi khởi tạo"
+direction: down
+start: Bắt đầu scope
+uninit: "TDZ: y tồn tại nhưng chưa khởi tạo"
+read: "console.log(y) → ReferenceError\nchạm vào y trong TDZ gây lỗi"
+init: "let y = 10 — kết thúc TDZ, y khởi tạo"
+use: "y dùng bình thường = 10"
+start -> uninit
+uninit -> read: nếu đọc trước khai báo
+uninit -> init: thực thi tới khai báo
+init -> use
 ```
 
 > [!IMPORTANT]
@@ -146,19 +150,33 @@ let y = 10;
 
 Mỗi binding của `let`/`const` có một cờ trạng thái nội bộ: **uninitialized → initialized**. TDZ chính là khoảng thời gian binding ở trạng thái *uninitialized*: tên đã tồn tại trong Environment Record (nên không "rơi" ra scope ngoài), nhưng truy cập sẽ ném `ReferenceError`. Dòng khai báo `let y = ...` mới chuyển nó sang *initialized*.
 
-```text
- var x   → Variable Env:  { x: undefined }          ← khởi tạo undefined ngay (creation)
- let y   → Lexical Env:   { y: <uninitialized> }    ← tồn tại nhưng cấm chạm (TDZ)
-           ...gặp `let y = 1`→ { y: 1 }              ← initialized
+```d2 title="Creation và initialization của var và let"
+direction: right
+var: var x
+ve: "Variable Env\n{x: undefined}\nkhởi tạo undefined ngay (creation)"
+let: let y
+le: "Lexical Env\n{y: <uninitialized>}\ntồn tại nhưng cấm chạm (TDZ)"
+init: "{y: 1}\ninitialized"
+var -> ve
+let -> le
+le -> init: gặp let y = 1
 ```
 
 ### Vì sao `let` trong vòng lặp tạo binding mới mỗi vòng
 
 Điểm "thần kỳ" của `for (let i...)`: theo spec, mỗi lần lặp engine chạy **CreatePerIterationEnvironment** — tạo một *Lexical Environment mới* cho vòng đó và **copy** giá trị `i` sang. Nhờ vậy mỗi closure "chụp" một ô `i` riêng. `var` thì chỉ có một binding duy nhất trong Variable Environment dùng chung cho mọi vòng.
 
-```text
-for (let i...)   vòng 0: Env₀{ i:0 }   vòng 1: Env₁{ i:1 }   vòng 2: Env₂{ i:2 }
-for (var i...)              VarEnv{ i }  ← MỘT ô duy nhất, sau loop = 3
+```d2 title="Môi trường biến trong vòng lặp"
+direction: down
+let: "for (let i...)" {
+  e0: "vòng 0: Env₀ {i: 0}"
+  e1: "vòng 1: Env₁ {i: 1}"
+  e2: "vòng 2: Env₂ {i: 2}"
+  e0 -> e1 -> e2: môi trường riêng mỗi vòng
+}
+var: "for (var i...)" {
+  env: "VarEnv {i}\nMỘT ô duy nhất, sau loop = 3"
+}
 ```
 
 ---
@@ -209,12 +227,13 @@ console.log(user);       // { name: "An", age: 30 }
 user = { name: "B" };    // ❌ TypeError — đây mới là re-assign
 ```
 
-```text
-const user  ─────▶  ┌─────────────────────┐
-   (tham chiếu       │  { name, age, ... } │  ← const KHÔNG khoá ô này (mutate OK)
-    bị khoá)         └─────────────────────┘
-                     ▲
-   user = {...}  ────┘  ← const CHẶN việc trỏ tham chiếu sang object khác
+```d2 title="const khóa binding, không khóa object"
+direction: right
+user: "const user\ntham chiếu bị khóa"
+obj: "{name, age, ...}\nconst KHÔNG khóa ô này — mutate OK"
+other: "user = {...}\nobject khác"
+user -> obj: tham chiếu
+user -> other: const CHẶN việc đổi tham chiếu {style.stroke-dash: 3}
 ```
 
 Muốn đóng băng *nội dung* thật sự, dùng `Object.freeze` (nông — chỉ một cấp):
@@ -250,12 +269,28 @@ Vì sao?
 - `var i` chỉ có **một** biến duy nhất, dùng chung cho cả vòng lặp (function scope). Khi callback `setTimeout` chạy (sau khi vòng lặp kết thúc), `i` đã là `3`. Cả 3 closure cùng nhìn vào *một* `i`.
 - `let j` tạo **một binding mới cho mỗi lần lặp** (block scope). Mỗi closure "chụp" lại một `j` riêng với giá trị `0`, `1`, `2`.
 
-```text
-var:  i ──┐
-          ├── (cùng 1 ô nhớ) ──▶ sau loop = 3  →  cả 3 callback đọc ra 3
-          ┘
-
-let:  j₀=0   j₁=1   j₂=2   ← mỗi vòng một ô riêng  →  callback đọc 0, 1, 2
+```d2 title="Closure trong loop đọc ô biến nào?"
+direction: down
+var: var {
+  i: "i — cùng 1 ô nhớ\nsau loop = 3"
+  cb0: callback 0 đọc 3
+  cb1: callback 1 đọc 3
+  cb2: callback 2 đọc 3
+  cb0 -> i
+  cb1 -> i
+  cb2 -> i
+}
+let: let {
+  j0: j₀ = 0
+  j1: j₁ = 1
+  j2: j₂ = 2
+  cb0: callback đọc 0
+  cb1: callback đọc 1
+  cb2: callback đọc 2
+  cb0 -> j0
+  cb1 -> j1
+  cb2 -> j2
+}
 ```
 
 > [!NOTE]
@@ -280,12 +315,17 @@ console.log(window.b); // undefined — let không làm bẩn global
 
 ## Quy tắc chọn từ khoá
 
-```mermaid
-flowchart TD
-    A[Khai bao mot bien] --> B{Gia tri co can gan lai khong?}
-    B -- Khong --> C[Dung const]
-    B -- Co --> D[Dung let]
-    A -.- E[Khong bao gio dung var trong code moi]
+```d2 title="Chọn const hay let"
+direction: down
+a: Khai bao mot bien
+b: Gia tri co can gan lai khong? {shape: diamond}
+c: Dung const
+d: Dung let
+e: Khong bao gio dung var trong code moi
+a -> b
+b -> c: Khong
+b -> d: Co
+a -- e: ghi nhớ {style.stroke-dash: 3}
 ```
 
 Thứ tự ưu tiên thực tế:

@@ -47,15 +47,21 @@ Câu hỏi cốt lõi: **`makeFunc` đã return, sao biến `name` vẫn sống?
 
 Hãy hình dung mỗi hàm khi sinh ra được phát kèm một "ba lô" (backpack) chứa tất cả biến trong tầm nhìn lexical của nó. Dù bạn mang hàm đi đâu — gán vào biến, truyền qua nơi khác, gọi sau 10 giây — nó vẫn đeo ba lô đó.
 
-```text
-makeFunc() chạy:
-   tạo biến name = "Mozilla"
-   tạo displayName ──┐
-                     ├──🎒 ba lô: { name }   ← displayName mang theo
-   return displayName┘
-
-makeFunc() kết thúc... nhưng ba lô vẫn còn vì displayName còn cầm nó.
-myFunc() = displayName()  →  mở ba lô, đọc name → "Mozilla"
+```d2 title="displayName giữ môi trường sau khi makeFunc trả về"
+direction: down
+make: makeFunc() chạy
+name: "Tạo biến name = \"Mozilla\""
+fn: Tạo displayName
+ret: return displayName
+bag: "Ba lô: {name}\ndisplayName mang theo"
+end: makeFunc() kết thúc
+call: myFunc() = displayName()
+read: "Mở ba lô, đọc name → \"Mozilla\""
+make -> name -> fn -> ret -> end
+fn -> bag: giữ tham chiếu
+end -> bag: ba lô vẫn còn vì displayName còn cầm nó {style.stroke-dash: 3}
+ret -> call -> read
+read -> bag: truy cập
 ```
 
 ---
@@ -68,27 +74,27 @@ myFunc() = displayName()  →  mở ba lô, đọc name → "Mozilla"
 - Khi một hàm được **tạo**, engine lưu vào thuộc tính nội bộ `[[Environment]]` của hàm một tham chiếu tới Lexical Environment *hiện tại* (nơi hàm được định nghĩa).
 - Khi hàm được **gọi**, scope chain của nó bắt đầu từ chính `[[Environment]]` đã lưu — *không* phải từ nơi gọi. Đó là lý do closure theo *nơi định nghĩa*, không theo *nơi gọi*.
 
-```text
-Global Lexical Environment
-  └─ makeFunc            outer: null
-        │
-        ▼ (khi makeFunc() chạy)
-  makeFunc Lexical Environment
-     record: { name: "Mozilla", displayName: <fn> }
-     outer: Global
-        ▲
-        │ displayName.[[Environment]] trỏ vào đây
-        │
-  displayName được return ra ngoài, nhưng vẫn giữ [[Environment]]
-  → Lexical Environment của makeFunc KHÔNG bị giải phóng
+```d2 title="[[Environment]] giữ Lexical Environment sống"
+direction: down
+global: "Global Lexical Environment\nmakeFunc; outer: null"
+make: "makeFunc Lexical Environment\nrecord: {name: \"Mozilla\", displayName: <fn>}\nouter: Global"
+display: displayName được return ra ngoài
+alive: Lexical Environment của makeFunc KHÔNG bị giải phóng
+global -> make: khi makeFunc() chạy
+make -> global: outer
+display -> make: "displayName.[[Environment]]"
+make -> alive: vẫn được tham chiếu
 ```
 
-```mermaid
-flowchart TD
-    G[Global Env] --> M[makeFunc Env: name, displayName]
-    M -. "[[Environment]]" .- D[displayName function object]
-    D -->|khi goi, scope chain bat dau tu day| M
-    M -->|outer| G
+```d2 title="Closure và scope chain"
+direction: down
+g: Global Env
+m: "makeFunc Env: name, displayName"
+d: displayName function object
+g -> m
+d -- m: "[[Environment]]" {style.stroke-dash: 3}
+d -> m: khi goi, scope chain bat dau tu day
+m -> g: outer
 ```
 
 > [!IMPORTANT]
@@ -111,12 +117,19 @@ userName = "Manuel";   // đổi giá trị SAU khi định nghĩa hàm
 greetUser();            // "Hi Manuel"  — lấy giá trị mới nhất
 ```
 
-```text
-greetUser.[[Environment]] ──▶ ô biến [ userName ]
-                                         │
-   lúc định nghĩa: "Hiệp"  ───────────────┤  (cùng một ô)
-   trước khi gọi:  "Manuel" ──────────────┘
-   → greetUser() đọc ô đó NGAY LÚC GỌI → "Manuel"
+```d2 title="Closure đọc giá trị hiện tại của binding"
+direction: down
+fn: "greetUser.[[Environment]]"
+cell: "ô biến [userName]"
+initial: "lúc định nghĩa: \"Hiệp\""
+later: "trước khi gọi: \"Manuel\""
+read: greetUser() đọc ô đó NGAY LÚC GỌI
+result: "\"Manuel\""
+fn -> cell
+initial -> cell: cùng một ô
+later -> cell: cập nhật cùng ô
+read -> cell: đọc hiện tại
+read -> result
 ```
 
 Hệ quả thực tế: counter dùng chung một biến và cập nhật qua các lần gọi:
@@ -165,13 +178,23 @@ Garbage Collector (GC) thu hồi vùng nhớ **không còn ai tham chiếu tới
 
 Nhưng nếu một hàm con (còn sống) vẫn giữ `[[Environment]]` trỏ vào đó, thì Lexical Environment ấy **vẫn còn người tham chiếu** → GC *không* dọn → biến tiếp tục sống trong heap.
 
-```text
-Bình thường:
-  outer() return ──▶ không ai giữ env của outer ──▶ GC dọn ✅
-
-Có closure:
-  inner (đang sống) ──[[Environment]]──▶ env của outer
-  ──▶ env vẫn được tham chiếu ──▶ GC GIỮ LẠI ──▶ biến sống tiếp
+```d2 title="Khi nào environment được GC giữ lại?"
+direction: down
+normal: Bình thường {
+  ret: outer() return
+  nobody: không ai giữ env của outer
+  gc: GC dọn
+  ret -> nobody -> gc
+}
+closure: Có closure {
+  inner: inner (đang sống)
+  env: env của outer
+  referenced: env vẫn được tham chiếu
+  keep: GC GIỮ LẠI
+  alive: biến sống tiếp
+  inner -> env: "[[Environment]]"
+  env -> referenced -> keep -> alive
+}
 ```
 
 > [!NOTE]

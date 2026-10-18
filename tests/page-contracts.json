@@ -1,0 +1,785 @@
+{
+  "content/docs/advanced/event-driven.md": {
+    "frontmatter": "---\ntitle: \"Event-Driven & EventEmitter\"\ndescription: \"Mô hình event-driven, observer pattern, addEventListener, custom event và Node EventEmitter.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#observer-pattern",
+      "#addeventlistener",
+      "#custom-events",
+      "#node-eventemitter"
+    ]
+  },
+  "content/docs/advanced/generators-iterators.md": {
+    "frontmatter": "---\ntitle: \"Generators & Iterators\"\ndescription: \"Iterator protocol, iterable protocol, function* & yield, next/return/throw và use case lazy/infinite.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#iterator-protocol",
+      "#iterable-protocol",
+      "#function-yield",
+      "#next-return-throw",
+      "#use-cases"
+    ]
+  },
+  "content/docs/advanced/meta.json": {
+    "sha256": "d02b87aa6667ff58e841c7ba615c74278ec3bb7aef069416b515ad21b91f3114"
+  },
+  "content/docs/advanced/storage.md": {
+    "frontmatter": "---\ntitle: \"localStorage vs sessionStorage\"\ndescription: \"So sánh localStorage / sessionStorage / cookie: API, vòng đời, giới hạn và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#localstorage-vs-sessionstorage-vs-cookie",
+      "#api",
+      "#giới-hạn",
+      "#pitfalls"
+    ]
+  },
+  "content/docs/advanced/symbol.md": {
+    "frontmatter": "---\ntitle: \"Symbol\"\ndescription: \"Symbol là gì, dùng làm unique key, well-known symbols (Symbol.iterator...) và Symbol registry.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#unique-key",
+      "#well-known-symbols",
+      "#symbol-registry"
+    ]
+  },
+  "content/docs/advanced/weakmap-weakset.md": {
+    "frontmatter": "---\ntitle: \"WeakMap & WeakSet\"\ndescription: \"Map vs WeakMap, weak reference & garbage collection, use case (private data, cache).\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#map-vs-weakmap",
+      "#weak-references-gc",
+      "#use-cases"
+    ]
+  },
+  "content/docs/advanced/web-workers.md": {
+    "frontmatter": "---\ntitle: \"Web Workers\"\ndescription: \"Hiểu Web Workers từ mô hình main thread và worker thread đến postMessage, structured clone, Transferable, xử lý lỗi, hủy tác vụ, worker pool và các giới hạn trong production.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#web-worker-giải-quyết-vấn-đề-gì",
+      "#khi-nào-không-cần-worker",
+      "#mô-hình-thực-thi",
+      "#main-thread-và-worker-thread",
+      "#so-sánh-với-java-thread",
+      "#worker-có-event-loop-riêng",
+      "#dedicated-worker-đầu-tiên",
+      "#tạo-worker-trên-main-thread",
+      "#nhận-và-xử-lý-dữ-liệu-trong-worker",
+      "#vòng-đời-của-dedicated-worker",
+      "#thiết-kế-giao-thức-postmessage",
+      "#gắn-id-cho-từng-request",
+      "#đóng-gói-worker-thành-hàm-trả-promise",
+      "#structured-clone-và-chi-phí-truyền-dữ-liệu",
+      "#dữ-liệu-nào-có-thể-gửi",
+      "#transferable-chuyển-quyền-sở-hữu",
+      "#sharedarraybuffer-chia-sẻ-bộ-nhớ",
+      "#xử-lý-lỗi-và-messageerror",
+      "#hủy-tác-vụ-và-giải-phóng-tài-nguyên",
+      "#hủy-cưỡng-bức-bằng-terminate",
+      "#hủy-hợp-tác-bằng-thông-điệp",
+      "#classic-worker-và-module-worker",
+      "#các-loại-worker-khác",
+      "#use-case-thực-tế",
+      "#xử-lý-dữ-liệu-lớn-theo-lô",
+      "#xử-lý-ảnh-với-offscreencanvas",
+      "#worker-pool",
+      "#giới-hạn-và-bẫy-thường-gặp",
+      "#đo-hiệu-năng-trước-và-sau",
+      "#checklist-production",
+      "#tự-kiểm-tra",
+      "#câu-1",
+      "#câu-2",
+      "#câu-3",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "#tài-liệu-tham-khảo",
+      "#sharedarraybuffer-chia-sẻ-bộ-nhớ",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Transferable_objects",
+      "https://html.spec.whatwg.org/multipage/workers.html"
+    ]
+  },
+  "content/docs/async/async-await.md": {
+    "frontmatter": "---\ntitle: \"async / await\"\ndescription: \"Đào sâu async/await từ trực giác đến internal: async function luôn trả Promise (resolve theo return, reject theo throw), await tạm dừng (suspend) hàm và trả quyền cho caller, desugar await thành .then microtask, mô hình thực thi theo event loop, try/catch/finally bắt lỗi async, phân biệt tuần tự vs đồng thời vs song song (sequential/concurrent/parallel), await trong vòng lặp và forEach, top-level await, cùng anti-patterns. Kèm trace table và ví dụ chạy được.\"\n---",
+    "links": [
+      "/async/promises/",
+      "/async/event-loop/",
+      "#trực-giác-viết-async-như-sync",
+      "#async-function-luôn-trả-về-promise",
+      "#await-tạm-dừng-và-trả-quyền",
+      "#internal-await-desugar-thành-then",
+      "#mô-hình-thực-thi-theo-event-loop",
+      "#try-catch-finally",
+      "#tuần-tự-vs-đồng-thời-vs-song-song",
+      "#await-trong-vòng-lặp-foreach",
+      "#top-level-await",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "#top-level-await",
+      "/async/promises/",
+      "/async/callbacks/",
+      "/async/event-loop/",
+      "/function-closure/function-basics/"
+    ]
+  },
+  "content/docs/async/callbacks.md": {
+    "frontmatter": "---\ntitle: \"Callbacks & Callback Hell\"\ndescription: \"Hiểu callback từ trực giác đến internal: hàm là first-class value, sync callback chạy ngay trên Call Stack vs async callback đi qua Web API → queue → Event Loop, error-first callback của Node, callback hell (pyramid of doom), inversion of control, và vì sao Promise ra đời. Kèm trace table, sơ đồ và anti-patterns.\"\n---",
+    "links": [
+      "/async/event-loop/",
+      "#trực-giác-gọi-món-rồi-được-gọi-lại",
+      "#callback-là-gì-và-vì-sao-js-làm-được",
+      "#sync-callback-vs-async-callback",
+      "#internal-async-callback-đi-đường-nào",
+      "#error-first-callback-quy-ước-node",
+      "#callback-hell-kim-tự-tháp-của-sự-tuyệt-vọng",
+      "#inversion-of-control-vấn-đề-sâu-hơn-cú-pháp",
+      "#đường-tới-promise",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "#inversion-of-control-vấn-đề-sâu-hơn-cú-pháp",
+      "/function-closure/function-basics/",
+      "/function-closure/higher-order-functions/",
+      "/async/event-loop/",
+      "/async/promises/",
+      "/async/event-loop/",
+      "/async/promises/",
+      "/async/async-await/",
+      "/function-closure/function-basics/",
+      "/function-closure/higher-order-functions/"
+    ]
+  },
+  "content/docs/async/event-loop.md": {
+    "frontmatter": "---\ntitle: \"Event Loop — Deep Dive\"\ndescription: \"Hiểu Event Loop trong JavaScript từ trực giác đến internal: vì sao JS single-threaded vẫn không block, Call Stack & execution context, Web APIs/host offload, Macrotask vs Microtask queue, thuật toán event loop theo HTML spec (1 macrotask → drain microtask → render), async/await desugar, requestAnimationFrame, setTimeout 4ms clamping, Node.js libuv phases, process.nextTick vs Promise, setImmediate vs setTimeout, microtask starvation và anti-patterns. Kèm ví dụ chạy được, trace table từng bước và bài tự kiểm tra dự đoán output.\"\n---",
+    "links": [
+      "#bắt-đầu-từ-trực-giác-quán-ăn-một-đầu-bếp",
+      "#bản-đồ-toàn-cảnh-event-loop",
+      "#hai-câu-hỏi-mở-đầu",
+      "#js-single-threaded-nghĩa-là-gì--call-stack",
+      "#vì-sao-single-thread-vẫn-không-block--web-apis-offload",
+      "#single-threaded-nói-chính-xác-là-gì",
+      "#host-làm-phần-việc-nào",
+      "#host-có-thật-sự-dùng-thread-không",
+      "#fetch-diễn-ra-từng-bước",
+      "#callback-vẫn-chạy-trên-main-js-thread",
+      "#hai-hàng-đợi-macrotask-vs-microtask",
+      "#khi-có-5-microtask-và-3-task",
+      "#event-loop-chạy-ra-sao--thuật-toán-4-bước",
+      "#mổ-xẻ-ví-dụ-a-d-c-b--trace-từng-bước",
+      "#microtask-sinh-ra-microtask--quy-tắc-vét-sạch",
+      "#async--await-dưới-mui-xe",
+      "#rendering--requestanimationframe--fix-bug-spinner",
+      "#settimeoutfn-0--sự-thật-về-4ms-clamping",
+      "#nodejs-event-loop--libuv-phases",
+      "#browser-vs-node--bảng-khác-biệt",
+      "#microtask-starvation--đói-macrotask--render",
+      "#anti-patterns--production-pitfalls",
+      "#tự-kiểm-tra--dự-đoán-output",
+      "#tóm-tắt--cheat-sheet--nguyên-tắc-vàng",
+      "https://html.spec.whatwg.org/multipage/webappapis.html#event-loops",
+      "/advanced/web-workers/",
+      "/async/promises/",
+      "/async/async-await/",
+      "/async/callbacks/",
+      "/advanced/web-workers/"
+    ]
+  },
+  "content/docs/async/meta.json": {
+    "sha256": "a5b0ac8982bbfb56655d43d4cbb9924dadd7492fa36fd0963062e2de5f643e4c"
+  },
+  "content/docs/async/promises.md": {
+    "frontmatter": "---\ntitle: \"Promises\"\ndescription: \"Đào sâu Promise từ trực giác đến internal: producing vs consuming code, executor chạy đồng bộ ngay khi new, 3 trạng thái pending/fulfilled/rejected và tính bất biến, internal slots ([[PromiseState]], [[PromiseResult]], [[PromiseFulfillReactions]]), then/catch/finally luôn trả Promise mới và quy tắc giá trị trả về, chaining & flattening, then-callback chạy như microtask, deferred pattern, combinator all/allSettled/any/race, xử lý lỗi và unhandledrejection. Kèm trace table và anti-patterns.\"\n---",
+    "links": [
+      "/async/callbacks/",
+      "/async/event-loop/",
+      "#trực-giác-lời-hứa",
+      "#producing-code-vs-consuming-code",
+      "#new-promise-executor-chạy-đồng-bộ",
+      "#ba-trạng-thái-tính-bất-biến",
+      "#internal-promise-trông-như-thế-nào-bên-trong",
+      "#then-catch-finally",
+      "#chaining-flattening",
+      "#then-callback-là-microtask",
+      "#deferred-pattern",
+      "#combinator-all-allsettled-any-race",
+      "#xử-lý-lỗi",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/async/event-loop/",
+      "/async/callbacks/",
+      "/async/async-await/",
+      "/async/event-loop/",
+      "/function-closure/function-basics/"
+    ]
+  },
+  "content/docs/function-closure/call-apply-bind.md": {
+    "frontmatter": "---\ntitle: \"call / apply / bind\"\ndescription: \"call, apply, bind trong JavaScript: ba cách set this tường minh, khác biệt giữa gọi-ngay (call/apply) và trả-hàm-mới (bind), call truyền tham số rời còn apply truyền mảng, partial application với bind, bind không tác dụng lên arrow function, và tự cài đặt lại bind/call để hiểu internal. Kèm bảng so sánh, ví dụ chạy được và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#call--gọi-ngay-tham-số-rời",
+      "#apply--gọi-ngay-tham-số-mảng",
+      "#bind--trả-về-hàm-mới",
+      "#partial-application-với-bind",
+      "#bảng-so-sánh",
+      "#không-tác-dụng-lên-arrow-function",
+      "#tự-cài-đặt-để-hiểu-internal",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/function-closure/this-keyword/",
+      "/function-closure/this-keyword/",
+      "...args",
+      "/function-closure/this-keyword/",
+      "/function-closure/function-basics/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/factory-functions/",
+      "/objects-prototypes/prototype/"
+    ]
+  },
+  "content/docs/function-closure/closures.md": {
+    "frontmatter": "---\ntitle: \"Closures\"\ndescription: \"Closure trong JavaScript đi sâu vào cơ chế internal: lexical environment, [[Environment]] reference, closure giữ địa chỉ biến (không copy giá trị) trong heap, ba scope của closure, vì sao biến không bị garbage collect, use case (data privacy, function factory, memoize, module pattern, currying), bẫy closure trong vòng lặp với var, và đánh đổi bộ nhớ/hiệu năng. Kèm sơ đồ bộ nhớ, trace và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#trực-giác-trước",
+      "#closure-giữ-địa-chỉ-không-copy-giá-trị",
+      "#ba-scope-của-một-closure",
+      "#vì-sao-biến-không-bị-garbage-collect",
+      "#use-cases",
+      "#bẫy-closure-trong-vòng-lặp",
+      "#đánh-đổi-bộ-nhớ--hiệu-năng",
+      "#self-check",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/scope/",
+      "/fundamentals/scope/",
+      "/fundamentals/var-let-const/",
+      "/objects-prototypes/prototype/",
+      "/fundamentals/scope/",
+      "/function-closure/factory-functions/",
+      "/function-closure/higher-order-functions/",
+      "/fundamentals/var-let-const/",
+      "/objects-prototypes/constructor-function/"
+    ]
+  },
+  "content/docs/function-closure/factory-functions.md": {
+    "frontmatter": "---\ntitle: \"Factory Functions\"\ndescription: \"Factory function trong JavaScript: hàm trả về object (hoặc function), khác biệt factory function vs function factory vs constructor/class, dùng closure để tạo biến private và encapsulation, factory không cần new và không dính bẫy this, đánh đổi bộ nhớ so với prototype, khi nào chọn factory vs class. Kèm ví dụ chạy được, bảng so sánh và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#factory-function-vs-function-factory",
+      "#factory-tạo-object-với-biến-private",
+      "#factory-vs-constructor--class",
+      "#đánh-đổi-bộ-nhớ",
+      "#khi-nào-dùng-factory",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/function-closure/closures/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/closures/",
+      "/objects-prototypes/prototype/",
+      "/function-closure/closures/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/this-keyword/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/class/"
+    ]
+  },
+  "content/docs/function-closure/function-basics.md": {
+    "frontmatter": "---\ntitle: \"Hàm cơ bản\"\ndescription: \"Hàm trong JavaScript: function declaration vs function expression vs arrow function, hoisting của từng dạng, execution context & call stack khi gọi hàm, tham số (default, rest), arguments object, giá trị trả về, first-class functions. Đào sâu cách engine tạo execution context và quản lý call stack. Kèm sơ đồ, ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#ba-cách-tạo-hàm",
+      "#hoisting-khác-nhau-giữa-các-dạng",
+      "#internal-execution-context--call-stack",
+      "#tham-số-default-rest-arguments",
+      "#first-class-functions",
+      "#arrow-function-khác-gì",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/hoisting/",
+      "/fundamentals/hoisting/",
+      "/async/event-loop/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/closures/",
+      "/function-closure/this-keyword/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/closures/",
+      "/function-closure/this-keyword/",
+      "/fundamentals/hoisting/",
+      "/objects-prototypes/constructor-function/"
+    ]
+  },
+  "content/docs/function-closure/higher-order-functions.md": {
+    "frontmatter": "---\ntitle: \"Higher-order Functions\"\ndescription: \"Higher-order function (HOF) trong JavaScript: hàm nhận hàm làm tham số hoặc trả về hàm, callback, map/filter/reduce hoạt động internal ra sao, function composition, currying, partial application và point-free style. Đào sâu cách reduce là khối xây dựng cho map/filter. Kèm sơ đồ, ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#hai-loại-hof",
+      "#map--filter--reduce-hoạt-động-thế-nào",
+      "#reduce-là-khối-xây-dựng",
+      "#function-composition",
+      "#currying--partial-application",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/function-closure/function-basics/",
+      "/function-closure/closures/",
+      "/function-closure/pure-functions/",
+      "/function-closure/factory-functions/",
+      "/function-closure/function-basics/",
+      "/function-closure/closures/",
+      "/function-closure/factory-functions/",
+      "/function-closure/pure-functions/",
+      "/objects-prototypes/prototype/"
+    ]
+  },
+  "content/docs/function-closure/meta.json": {
+    "sha256": "12e5846e57ed0f2874448b31d3aa4e31ac94c997fd6b54a1976d4bcf9352690b"
+  },
+  "content/docs/function-closure/pure-functions.md": {
+    "frontmatter": "---\ntitle: \"Pure Functions & Side Effects\"\ndescription: \"Pure function và side effect trong JavaScript: hàm thuần khiết luôn cho cùng output với cùng input và không gây tác dụng phụ, referential transparency, các loại side effect (mutate biến ngoài, I/O, HTTP, DOM), vì sao mutate tham số object/array là side effect ẩn, lợi ích (test, cache, đoán trước), và cách cô lập side effect ra rìa chương trình. Kèm ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#hai-điều-kiện-của-pure-function",
+      "#side-effect-là-gì",
+      "#mutate-tham-số--side-effect-ẩn",
+      "#referential-transparency",
+      "#lợi-ích-của-pure-function",
+      "#cô-lập-side-effect",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/data-types/",
+      "/function-closure/higher-order-functions/",
+      "/function-closure/higher-order-functions/",
+      "/fundamentals/data-types/",
+      "/function-closure/function-basics/",
+      "/function-closure/factory-functions/",
+      "/objects-prototypes/object/"
+    ]
+  },
+  "content/docs/function-closure/this-keyword.md": {
+    "frontmatter": "---\ntitle: \"Từ khoá this\"\ndescription: \"Từ khoá this trong JavaScript: this được quyết định lúc gọi (call-site) chứ không phải lúc định nghĩa, 4 quy tắc binding (default, implicit, explicit, new), this bị mất khi tách method, this trong callback (setTimeout, addEventListener), arrow function lấy this theo lexical context, this trong strict mode. Đào sâu thuật toán xác định this. Kèm sơ đồ quyết định, ví dụ chạy được và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#nguyên-tắc-cốt-lõi-this-theo-call-site",
+      "#4-quy-tắc-binding-của-this",
+      "#this-bị-mất-khi-tách-method",
+      "#this-trong-callback",
+      "#arrow-function-this-theo-lexical",
+      "#cây-quyết-định-this",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/function-closure/call-apply-bind/",
+      "/function-closure/call-apply-bind/",
+      "/function-closure/call-apply-bind/",
+      "/function-closure/function-basics/",
+      "/function-closure/closures/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/constructor-function/"
+    ]
+  },
+  "content/docs/fundamentals/data-types.md": {
+    "frontmatter": "---\ntitle: \"Kiểu dữ liệu & null / undefined / NaN\"\ndescription: \"Kiểu dữ liệu trong JavaScript: 7 primitive (string, number, boolean, null, undefined, symbol, bigint) vs object/reference type, lưu theo giá trị vs theo tham chiếu, pass-by-value vs pass-by-reference, phân biệt null/undefined/NaN, typeof và các cách kiểm tra kiểu chính xác, đặc thù số floating point IEEE-754, MAX_SAFE_INTEGER và BigInt. Kèm sơ đồ bộ nhớ stack/heap, bảng typeof và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#primitive-vs-reference",
+      "#lưu-trong-bộ-nhớ-stack-vs-heap",
+      "#copy--so-sánh",
+      "#null-vs-undefined-vs-nan",
+      "#typeof--kiểm-tra-kiểu-đúng-cách",
+      "#đặc-thù-của-number",
+      "#đào-sâu-internal-primitive-có-method-như-thế-nào",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/truthy-falsy/",
+      "/fundamentals/operators/",
+      "/fundamentals/var-let-const/"
+    ]
+  },
+  "content/docs/fundamentals/hoisting.md": {
+    "frontmatter": "---\ntitle: \"Hoisting\"\ndescription: \"Hiểu hoisting trong JavaScript từ mô hình tạo binding đến lúc thực thi: var, let, const, function, class, import, Temporal Dead Zone và cách phân biệt các lỗi thường gặp.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#mô-hình-đúng-code-không-bị-di-chuyển",
+      "#ba-thao-tác-dễ-bị-nhầm",
+      "#hoisting-với-var",
+      "#hoisting-với-let-và-const",
+      "#function-declaration-và-function-expression",
+      "#hoisting-với-class-và-import",
+      "#hoisting-xảy-ra-trong-scope-nào",
+      "#khi-var-và-function-trùng-tên",
+      "#phân-biệt-undefined-và-các-loại-lỗi",
+      "#pitfalls-thực-tế",
+      "#best-practices",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/var-let-const/",
+      "/fundamentals/scope/",
+      "/function-closure/function-basics/",
+      "/function-closure/closures/",
+      "/modules/import-export/"
+    ]
+  },
+  "content/docs/fundamentals/meta.json": {
+    "sha256": "b67570c75006ed263cb6ef10b0b4b7f83e6ff7696d4974f62dbeb13266209759"
+  },
+  "content/docs/fundamentals/operators.md": {
+    "frontmatter": "---\ntitle: \"Toán tử & == vs ===\"\ndescription: \"Toán tử trong JavaScript: so sánh == (abstract equality, type coercion) vs === (strict equality), thuật toán ép kiểu khi so sánh, optional chaining ?., nullish coalescing ?? và ??=, &&= / ||=, spread vs rest (...), toán tử đặc biệt typeof / instanceof / in / void / delete, operator precedence, và các pitfall kinh điển như [] == ![]. Kèm bảng quy tắc coercion, ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan--phân-nhóm",
+      "#-vs---coercion",
+      "#quy-tắc-ép-kiểu-khi-so-sánh",
+      "#optional-chaining-",
+      "#nullish-coalescing--và-",
+      "#logical-assignment--",
+      "#spread-vs-rest-",
+      "#toán-tử-đặc-biệt-typeof-instanceof-in-void-delete",
+      "#operator-precedence",
+      "#đào-sâu-internal--và-toprimitive",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/data-types/",
+      "#quy-tắc-ép-kiểu-khi-so-sánh",
+      "/fundamentals/truthy-falsy/",
+      "/fundamentals/data-types/",
+      "/fundamentals/var-let-const/"
+    ]
+  },
+  "content/docs/fundamentals/scope.md": {
+    "frontmatter": "---\ntitle: \"Scope & Scope Chain\"\ndescription: \"Scope trong JavaScript: global / function / block scope, lexical (static) scope, scope chain và cách engine resolve biến từ trong ra ngoài, variable shadowing, mối liên hệ với closure, IIFE và module scope. Kèm sơ đồ scope chain, ví dụ chạy được và anti-patterns.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#ba-loại-scope",
+      "#lexical-scope-static-scope",
+      "#scope-chain--cách-resolve-biến",
+      "#đào-sâu-internal-lexical-environment",
+      "#variable-shadowing",
+      "#scope--closure",
+      "#iife-và-module-scope",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/function-closure/closures/",
+      "/function-closure/closures/",
+      "/fundamentals/hoisting/",
+      "/fundamentals/var-let-const/"
+    ]
+  },
+  "content/docs/fundamentals/truthy-falsy.md": {
+    "frontmatter": "---\ntitle: \"Truthy & Falsy\"\ndescription: \"Truthy và Falsy trong JavaScript: đầy đủ 8 giá trị falsy (false, 0, -0, 0n, '', null, undefined, NaN), boolean coercion trong if và toán tử logic, short-circuit evaluation của &&/||, nullish coalescing ?? khác || ra sao, ép kiểu boolean tường minh với Boolean()/!!, và các pitfall khi 0/'' bị coi là falsy. Kèm bảng giá trị, ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#danh-sách-8-giá-trị-falsy",
+      "#mọi-thứ-khác-đều-truthy",
+      "#boolean-coercion-khi-nào-xảy-ra",
+      "#toán-tử-logic--short-circuit",
+      "#-vs----khác-biệt-sống-còn",
+      "#ép-kiểu-boolean-tường-minh",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "#danh-sách-8-giá-trị-falsy",
+      "/fundamentals/operators/",
+      "/fundamentals/data-types/"
+    ]
+  },
+  "content/docs/fundamentals/var-let-const.md": {
+    "frontmatter": "---\ntitle: \"var, let, const\"\ndescription: \"Phân biệt var / let / const trong JavaScript: function scope vs block scope, hoisting & Temporal Dead Zone (TDZ), re-declare & re-assign, const không bất biến (immutable) mà chỉ chặn re-binding, var trong vòng lặp & closure, global object pollution, và quy tắc chọn từ khoá. Kèm bảng so sánh, ví dụ chạy được và anti-patterns.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#bảng-so-sánh-nhanh",
+      "#function-scope-vs-block-scope",
+      "#hoisting--temporal-dead-zone",
+      "#đào-sâu-internal-binding-sống-ở-đâu",
+      "#re-declare--re-assign",
+      "#const-không-phải-bất-biến",
+      "#cái-bẫy-kinh-điển-var-trong-vòng-lặp",
+      "#var-làm-ô-nhiễm-global-object",
+      "#quy-tắc-chọn-từ-khoá",
+      "#anti-patterns",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/hoisting/",
+      "/fundamentals/scope/",
+      "/fundamentals/data-types/",
+      "/function-closure/closures/"
+    ]
+  },
+  "content/docs/interview/copy-object.md": {
+    "frontmatter": "---\ntitle: \"Copy object trong JavaScript\"\ndescription: \"Câu hỏi phỏng vấn về reference, shallow copy, deep copy, structuredClone và các giới hạn của JSON.\"\n---",
+    "links": [
+      "#câu-trả-lời-ngắn-khi-phỏng-vấn",
+      "#vì-sao-gán-object-không-tạo-bản-sao",
+      "#shallow-copy--copy-nông",
+      "#spread-syntax",
+      "#objectassign",
+      "#giới-hạn-của-shallow-copy",
+      "#deep-copy--copy-sâu",
+      "#structuredclone--lựa-chọn-mặc-định-hiện-đại",
+      "#json-stringifyparse--chỉ-cho-dữ-liệu-json-thuần",
+      "#thư-viện-và-hàm-tự-viết",
+      "#cập-nhật-bất-biến-object-lồng-nhau",
+      "#so-sánh-các-cách-copy",
+      "#câu-hỏi-phỏng-vấn-thường-gặp",
+      "#checklist-trả-lời",
+      "#bài-liên-quan",
+      "#cập-nhật-bất-biến-object-lồng-nhau"
+    ]
+  },
+  "content/docs/interview/event-loop-microtask-macrotask.md": {
+    "frontmatter": "---\ntitle: \"Phân tích luồng chạy Event Loop: Microtask và Macrotask\"\ndescription: \"Cách phân loại tác vụ, mô phỏng hàng đợi và giải chính xác các câu hỏi phỏng vấn JavaScript về Event Loop, Promise, setTimeout và async/await.\"\n---",
+    "links": [
+      "#câu-hỏi-phỏng-vấn",
+      "#câu-trả-lời-ngắn-gọn",
+      "#mô-hình-cần-nhớ",
+      "#code-đồng-bộ",
+      "#microtask",
+      "#macrotask",
+      "#quy-trình-phân-tích-từng-bước",
+      "#ví-dụ-cơ-bản",
+      "#bài-toán-tổng-hợp",
+      "#đề-bài",
+      "#pha-chạy-code-đồng-bộ",
+      "#pha-xử-lý-microtask",
+      "#pha-xử-lý-macrotask",
+      "#bảng-trace-hoàn-chỉnh",
+      "#các-bẫy-thường-gặp",
+      "#settimeout-0-không-chạy-ngay",
+      "#promise-executor-chạy-đồng-bộ",
+      "#then-nối-chuỗi-không-vào-queue-cùng-lúc",
+      "#code-sau-await-là-microtask",
+      "#microtask-được-tạo-trong-macrotask",
+      "#microtask-có-thể-làm-event-loop-bị-đói",
+      "#browser-và-nodejs-khác-nhau-ở-đâu",
+      "#cách-trình-bày-câu-trả-lời-trong-phỏng-vấn",
+      "#câu-hỏi-mở-rộng-thường-gặp",
+      "#tổng-kết",
+      "#bài-liên-quan"
+    ]
+  },
+  "content/docs/interview/js-interview-questions.md": {
+    "frontmatter": "---\ntitle: \"Tổng hợp câu hỏi JS phỏng vấn\"\ndescription: \"Checklist câu hỏi phỏng vấn JavaScript theo chủ đề, link tới bài chi tiết tương ứng.\"\n---",
+    "links": [
+      "#nền-tảng",
+      "#hàm-closure",
+      "#object-prototype",
+      "#bất-đồng-bộ",
+      "#nâng-cao",
+      "#typescript",
+      "/interview/event-loop-microtask-macrotask/",
+      "/async/event-loop/",
+      "/async/promises/",
+      "/async/async-await/"
+    ]
+  },
+  "content/docs/interview/meta.json": {
+    "sha256": "c96a00fabc6cd2694ca37b0edaccfda1e89bc6852e3bb299308a7dccd42cfe33"
+  },
+  "content/docs/meta.json": {
+    "sha256": "61a884dee99f33591b2d1a04ff66efb181827175a0b9aa3c22672ce034e4bb66"
+  },
+  "content/docs/modules/es6-features.md": {
+    "frontmatter": "---\ntitle: \"Tính năng JavaScript hiện đại (ES6+)\"\ndescription: \"Hướng dẫn ES6+: destructuring, spread/rest, arrow function, template literal, default parameter, optional chaining, Map/Set và các cú pháp hiện đại kèm ví dụ thực tế.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#khai-báo-biến-let-và-const",
+      "#arrow-function",
+      "#template-literals",
+      "#destructuring",
+      "#array-destructuring",
+      "#object-destructuring",
+      "#destructuring-trong-tham-số-hàm",
+      "#spread-và-rest-cùng-là--khác-ngữ-cảnh",
+      "#spread-syntax",
+      "#rest-parameter-và-rest-property",
+      "#shallow-copy-giới-hạn-quan-trọng",
+      "#default-parameters",
+      "#cú-pháp-object-hiện-đại",
+      "#optional-chaining-và-nullish-coalescing",
+      "#collections-map-set-symbol",
+      "#các-tính-năng-nên-học-tiếp",
+      "#pitfalls-thường-gặp",
+      "#cheat-sheet",
+      "#bài-liên-quan"
+    ]
+  },
+  "content/docs/modules/import-export.md": {
+    "frontmatter": "---\ntitle: \"import / export\"\ndescription: \"Named vs default export, các dạng import, dynamic import(), module scope và ESM vs CommonJS.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#named-vs-default-export",
+      "#các-dạng-import",
+      "#dynamic-import",
+      "#module-scope",
+      "#esm-vs-commonjs"
+    ]
+  },
+  "content/docs/modules/meta.json": {
+    "sha256": "f21b1d46e04cbd3d2fa689c87250d6659aca1303319a50c4383775297495a2e6"
+  },
+  "content/docs/objects-prototypes/class.md": {
+    "frontmatter": "---\ntitle: \"Class\"\ndescription: \"Class trong JavaScript: syntactic sugar trên constructor function + prototype, class declaration vs expression, hoisting của class khác function (TDZ), constructor, method đặt trên prototype, instance field vs method (field là arrow gây nhân bản), public/private field (#), static method/property/block, kế thừa với extends và super, getter/setter trong class. Đào sâu cách class biên dịch về prototype. Kèm ví dụ chạy được, bảng và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#khai-báo-class-declaration-vs-expression",
+      "#hoisting-của-class-khác-function",
+      "#class-chỉ-là-sugar-trên-prototype",
+      "#field-vs-method-bẫy-nhân-bản",
+      "#public--private-field",
+      "#static-method-property-block",
+      "#kế-thừa-extends--super",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/objects-prototypes/constructor-function/",
+      "/fundamentals/var-let-const/",
+      "/fundamentals/hoisting/",
+      "/objects-prototypes/prototype/",
+      "/function-closure/factory-functions/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/constructor-function/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/getter-setter/",
+      "/fundamentals/hoisting/"
+    ]
+  },
+  "content/docs/objects-prototypes/constructor-function.md": {
+    "frontmatter": "---\ntitle: \"Constructor Function\"\ndescription: \"Constructor function trong JavaScript: hàm thường dùng với new để tạo object, 4 bước new làm bên trong (tạo object rỗng, gán __proto__, bind this, return this ngầm), vì sao quên new gây bug this = global, đặt method lên prototype thay vì trong constructor, new.target, mối liên hệ constructor function là tiền thân của class. Kèm sơ đồ 4 bước của new, ví dụ chạy được và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#new-làm-gì-bên-trong-4-bước",
+      "#vì-sao-không-cần-return-mà-vẫn-trả-object",
+      "#bẫy-quên-this",
+      "#bẫy-quên-new",
+      "#method-nên-đặt-lên-prototype",
+      "#constructor-function-là-tiền-thân-của-class",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/class/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/class/",
+      "/function-closure/this-keyword/",
+      "/function-closure/factory-functions/"
+    ]
+  },
+  "content/docs/objects-prototypes/getter-setter.md": {
+    "frontmatter": "---\ntitle: \"Getter & Setter\"\ndescription: \"Getter/setter trong JavaScript: dùng get/set để bind hàm khi đọc/ghi property (accessor property), this trong getter/setter trỏ về object chứa, quy tắc (getter 0 tham số, setter 1 tham số, không trùng getter, không getter cho property đã có), getter trong class, định nghĩa bằng Object.defineProperty, computed property cache, backing field, xoá getter. So sánh accessor vs data property. Kèm ví dụ chạy được, bảng và pitfalls.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#getter-get",
+      "#setter-set",
+      "#this-trong-gettersetter",
+      "#quy-tắc-của-gettersetter",
+      "#gettersetter-trong-class",
+      "#định-nghĩa-bằng-objectdefineproperty",
+      "#accessor-property-vs-data-property",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/objects-prototypes/class/",
+      "/objects-prototypes/object/",
+      "/objects-prototypes/class/",
+      "/objects-prototypes/prototype/",
+      "/function-closure/this-keyword/"
+    ]
+  },
+  "content/docs/objects-prototypes/meta.json": {
+    "sha256": "516c509ff101682f90d7a2ad182bcc9d6445d95abc57c45ae7338c5853dc296a"
+  },
+  "content/docs/objects-prototypes/object.md": {
+    "frontmatter": "---\ntitle: \"Object\"\ndescription: \"Object trong JavaScript: tạo object (literal, computed key, shorthand), truy cập property (dot vs bracket), thêm/sửa/xoá property, thứ tự property (key số bị sắp xếp), property descriptor (writable/enumerable/configurable), Object.keys/values/entries, copy nông & sâu, so sánh tham chiếu, đóng băng với Object.freeze. Kèm ví dụ chạy được, bảng và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#tạo-object",
+      "#truy-cập-property-dot-vs-bracket",
+      "#thêm--sửa--xoá-property",
+      "#thứ-tự-property",
+      "#property-descriptor",
+      "#duyệt-object",
+      "#copy--so-sánh-object",
+      "#đóng-băng-object",
+      "#pitfalls",
+      "#tự-kiểm-tra",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/fundamentals/data-types/",
+      "/objects-prototypes/prototype/",
+      "/fundamentals/data-types/",
+      "/objects-prototypes/prototype/",
+      "/objects-prototypes/getter-setter/",
+      "/fundamentals/data-types/",
+      "/objects-prototypes/constructor-function/"
+    ]
+  },
+  "content/docs/objects-prototypes/prototype.md": {
+    "frontmatter": "---\ntitle: \"Prototype & kế thừa\"\ndescription: \"Prototype trong JavaScript đi sâu internal: [[Prototype]] / __proto__ vs thuộc tính prototype của hàm, cơ chế property lookup đi lên prototype chain cho tới Object.prototype rồi null, vì sao method nên đặt trên prototype (chia sẻ giữa instance) thay vì trong constructor (nhân bản tốn bộ nhớ), p1.__proto__ === Person.prototype, kế thừa qua prototype, Object.create, shadowing, hasOwnProperty. Kèm sơ đồ chuỗi prototype, ví dụ chạy được và best practices.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#trực-giác-chuỗi-tra-cứu",
+      "#property-lookup-đi-lên-prototype-chain",
+      "#prototype-của-hàm-khác-__proto__-của-object",
+      "#vì-sao-đặt-method-lên-prototype",
+      "#objectprototype-là-đỉnh-chuỗi",
+      "#kế-thừa-qua-prototype",
+      "#shadowing--hasownproperty",
+      "#self-check",
+      "#cheat-sheet",
+      "#bài-liên-quan",
+      "/objects-prototypes/class/",
+      "/objects-prototypes/constructor-function/",
+      "/objects-prototypes/class/",
+      "/objects-prototypes/object/",
+      "/function-closure/closures/"
+    ]
+  },
+  "content/docs/typescript/meta.json": {
+    "sha256": "95992cd85b3f7a12c737be7e3f6630cd6697e401696c4d7b58af790e61c36c63"
+  },
+  "content/docs/typescript/type-vs-interface.md": {
+    "frontmatter": "---\ntitle: \"type vs interface\"\ndescription: \"So sánh type alias và interface: extends vs intersection, declaration merging, khi nào dùng gì.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#giống-khác",
+      "#extends-vs-intersection",
+      "#declaration-merging",
+      "#khi-nào-dùng-gì"
+    ]
+  },
+  "content/docs/typescript/typescript-overview.md": {
+    "frontmatter": "---\ntitle: \"TypeScript — Tổng quan\"\ndescription: \"Vì sao dùng TS, type system, compile-time checking, tsconfig và lợi ích.\"\n---",
+    "links": [
+      "#tổng-quan",
+      "#vì-sao-dùng-ts",
+      "#type-system",
+      "#compile-time-vs-runtime",
+      "#tsconfig"
+    ]
+  }
+}

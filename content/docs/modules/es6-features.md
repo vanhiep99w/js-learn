@@ -34,12 +34,15 @@ description: "Hướng dẫn ES6+: destructuring, spread/rest, arrow function, t
 
 Các tính năng trong bài này giúp code ngắn gọn hơn, nhưng mục tiêu không phải là “viết ít ký tự”. Chúng giúp biểu diễn rõ ý định: lấy dữ liệu cần dùng, tạo dữ liệu mới mà không mutate dữ liệu cũ, và xử lý giá trị có thể vắng mặt an toàn hơn.
 
-```text
-Dữ liệu API / state
-        │
-        ├── destructuring ──► lấy đúng field cần dùng
-        ├── spread/rest ────► copy, ghép hoặc tách dữ liệu
-        └── ?. / ?? ────────► xử lý dữ liệu có thể thiếu
+```d2 title="Chọn cú pháp theo mục tiêu xử lý dữ liệu"
+direction: down
+data: Dữ liệu API / state
+fields: lấy đúng field cần dùng
+copy: copy, ghép hoặc tách dữ liệu
+missing: xử lý dữ liệu có thể thiếu
+data -> fields: destructuring
+data -> copy: spread/rest
+data -> missing: ?. / ??
 ```
 
 > [!IMPORTANT]

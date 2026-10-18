@@ -215,9 +215,14 @@ d instanceof Animal;   // true — chuỗi prototype nối tới Animal
 > [!IMPORTANT]
 > Trong constructor của class con có `extends`, **phải gọi `super()` trước khi truy cập `this`** — nếu không sẽ `ReferenceError`. `super(...)` chạy constructor lớp cha; `super.method()` gọi method lớp cha. Cơ chế bên dưới chính là nối `Dog.prototype.__proto__ = Animal.prototype` (xem [Prototype](/objects-prototypes/prototype/)).
 
-```text
-d ──▶ Dog.prototype ──▶ Animal.prototype ──▶ Object.prototype ──▶ null
-       (speak override)   (speak, constructor)
+```d2 title="Chuỗi prototype của Dog"
+direction: down
+d: d
+dog: "Dog.prototype\n(speak override)"
+animal: "Animal.prototype\n(speak, constructor)"
+object: Object.prototype
+end: null
+d -> dog -> animal -> object -> end
 ```
 
 ---

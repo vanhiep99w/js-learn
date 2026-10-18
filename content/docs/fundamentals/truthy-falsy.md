@@ -128,14 +128,22 @@ isLoggedIn && <Dashboard />;
 const port = config.port || 3000;
 ```
 
-```mermaid
-flowchart LR
-    A["a || b"] --> B{a truthy?}
-    B -- Co --> RA[tra a]
-    B -- Khong --> RB[tra b]
-    C["a && b"] --> D{a falsy?}
-    D -- Co --> RC[tra a]
-    D -- Khong --> RD[tra b]
+```d2 title="Short-circuit trả operand, không ép kết quả thành boolean"
+direction: down
+or: "a || b"
+truthy: a truthy? {shape: diamond}
+a1: tra a
+b1: tra b
+and: "a && b"
+falsy: a falsy? {shape: diamond}
+a2: tra a
+b2: tra b
+or -> truthy
+truthy -> a1: Co
+truthy -> b1: Khong
+and -> falsy
+falsy -> a2: Co
+falsy -> b2: Khong
 ```
 
 ---

@@ -43,18 +43,17 @@ outer();
 
 ## Ba loại scope
 
-```text
-┌─────────────────────────── Global scope ───────────────────────────┐
-│  const g = 1;                                                      │
-│                                                                    │
-│   ┌───────────────────── Function scope (fn) ──────────────────┐   │
-│   │  const f = 2;                                              │   │
-│   │                                                            │   │
-│   │     ┌──────────────── Block scope (if/for/{}) ─────────┐   │   │
-│   │     │  let b = 3;   const c = 4;                       │   │   │
-│   │     └──────────────────────────────────────────────────┘   │   │
-│   └────────────────────────────────────────────────────────────┘   │
-└────────────────────────────────────────────────────────────────────┘
+```d2 title="Các scope lồng nhau"
+global: Global scope {
+  g: const g = 1
+  fn: Function scope (fn) {
+    f: const f = 2
+    block: "Block scope (if/for/{})" {
+      b: let b = 3
+      c: const c = 4
+    }
+  }
+}
 ```
 
 ### 1. Global scope
@@ -143,15 +142,21 @@ function level1() {
 level1();
 ```
 
-```mermaid
-flowchart LR
-    A[Tra bien trong level2] --> B{Co trong scope hien tai?}
-    B -- Co --> R[Dung gia tri]
-    B -- Khong --> C{Co trong scope cha?}
-    C -- Co --> R
-    C -- Khong --> D{Den global chua?}
-    D -- Chua --> C
-    D -- Roi van khong thay --> E[ReferenceError]
+```d2 title="Tra biến qua scope cha"
+direction: down
+a: Tra bien trong level2
+b: Co trong scope hien tai? {shape: diamond}
+r: Dung gia tri
+c: Co trong scope cha? {shape: diamond}
+d: Den global chua? {shape: diamond}
+e: ReferenceError
+a -> b
+b -> r: Co
+b -> c: Khong
+c -> r: Co
+c -> d: Khong
+d -> c: Chua
+d -> e: Roi van khong thay
 ```
 
 > [!NOTE]
@@ -166,9 +171,15 @@ flowchart LR
 - **Environment Record** — bảng binding (tên biến → giá trị) của scope hiện tại.
 - **`[[OuterEnv]]`** — con trỏ tới Lexical Environment của scope **cha từ-vị-trí-viết** (không phải scope gọi!). Chính con trỏ này làm nên tính *lexical*.
 
-```text
- level2 Env { c }  ──[[OuterEnv]]──▶  level1 Env { b }  ──[[OuterEnv]]──▶  Global Env { a }  ──▶ null
-        ▲ tìm `a` ở đây trước, không có → leo theo [[OuterEnv]] cho tới khi thấy hoặc hết
+```d2 title="Chuỗi [[OuterEnv]]"
+direction: down
+l2: "level2 Env {c}\ntìm a ở đây trước"
+l1: "level1 Env {b}"
+g: "Global Env {a}"
+n: null
+l2 -> l1: "[[OuterEnv]] — không có thì leo lên"
+l1 -> g: "[[OuterEnv]] — cho tới khi thấy"
+g -> n: "[[OuterEnv]] — hoặc hết chuỗi"
 ```
 
 Khi engine cần giá trị một biến, nó chạy thủ tục **ResolveBinding**: tra Environment Record hiện tại; không thấy thì nhảy theo `[[OuterEnv]]` lên cha; lặp tới Global; vẫn không thấy → `ReferenceError`. Vì `[[OuterEnv]]` được "chốt" theo nơi hàm được **định nghĩa** (lúc tạo function object), nên dù gọi hàm ở đâu, chuỗi tra cứu vẫn theo cấu trúc code gốc → đó là lý do JS là lexical scope. Closure chính là việc function object giữ sống `[[OuterEnv]]` này ngay cả sau khi hàm cha return.

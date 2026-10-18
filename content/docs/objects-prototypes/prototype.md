@@ -38,14 +38,13 @@ Câu hỏi cốt lõi: **`obj` chỉ có `age`, sao gọi được `toString()`?
 
 Hình dung mỗi object có một "mũi tên đi lên" trỏ tới object cha (prototype). Khi bạn hỏi một property, JS hỏi chính object trước; không có thì lần theo mũi tên lên cha, lên ông, ... cho tới khi gặp hoặc hết chuỗi (`null`).
 
-```text
-obj { age: 10 }
-   │  __proto__
-   ▼
-Object.prototype { toString, hasOwnProperty, valueOf, ... }
-   │  __proto__
-   ▼
-null   (hết chuỗi → trả undefined nếu vẫn chưa thấy)
+```d2 title="Tra cứu qua __proto__ tới hết chuỗi"
+direction: down
+obj: "obj {age: 10}"
+proto: "Object.prototype\n{toString, hasOwnProperty, valueOf, ...}"
+end: "null\nhết chuỗi → trả undefined nếu vẫn chưa thấy"
+obj -> proto: __proto__
+proto -> end: __proto__
 ```
 
 ---
@@ -71,14 +70,20 @@ Bản thân prototype cũng là object, nên nó cũng có `__proto__` của ri�
 
 Thuật toán khi đọc `obj.x`:
 
-```mermaid
-flowchart TD
-    A["doc obj.x"] --> B{x co trong chinh obj?}
-    B -- Co --> R[tra ve gia tri]
-    B -- Khong --> C["di len: obj = obj.__proto__"]
-    C --> D{obj === null?}
-    D -- Co --> U[tra ve undefined]
-    D -- Khong --> B
+```d2 title="Đọc property obj.x"
+direction: down
+a: doc obj.x
+b: x co trong chinh obj? {shape: diamond}
+r: tra ve gia tri
+c: "di len: obj = obj.__proto__"
+d: obj === null? {shape: diamond}
+u: tra ve undefined
+a -> b
+b -> r: Co
+b -> c: Khong
+c -> d
+d -> u: Co
+d -> b: Khong
 ```
 
 Minh hoạ từ ghi chú gốc:
@@ -117,16 +122,13 @@ p1.__proto__ === Person.prototype;              // true
 Object.getPrototypeOf(p1) === Person.prototype; // true
 ```
 
-```text
-Person (function)              p1 (instance)
-  ┌─────────────┐               ┌──────────────┐
-  │ prototype ──┼──────┐        │ name: "Hiệp" │
-  └─────────────┘      │        │ __proto__ ───┼──┐
-                       │        └──────────────┘  │
-                       ▼                          │
-              Person.prototype  ◀─────────────────┘
-              { constructor: Person }
-              (p1.__proto__ trỏ vào ĐÂY)
+```d2 title="Constructor và instance trỏ tới cùng prototype"
+direction: down
+person: Person (function)
+p1: "p1 (instance)\n{name: \"Hiệp\"}"
+proto: "Person.prototype\n{constructor: Person}\np1.__proto__ trỏ vào ĐÂY"
+person -> proto: prototype
+p1 -> proto: __proto__
 ```
 
 > [!NOTE]
@@ -158,12 +160,22 @@ const b2 = new PersonB("B");
 b1.talk === b2.talk;   // true — cùng một hàm trên PersonB.prototype
 ```
 
-```text
-Cách 1 (lãng phí):           Cách 2 (chia sẻ):
- a1 { name, talk:fn1 }         b1 { name } ─┐
- a2 { name, talk:fn2 }         b2 { name } ─┤ __proto__
-   → 2 hàm talk riêng                       ▼
-                              PersonB.prototype { talk }  ← 1 hàm chung
+```d2 title="Hai method riêng hay một method chia sẻ?"
+direction: down
+own: Cách 1 (lãng phí) {
+  a1: "a1 {name, talk: fn1}"
+  a2: "a2 {name, talk: fn2}"
+  note: 2 hàm talk riêng
+  a1 -> note
+  a2 -> note
+}
+shared: Cách 2 (chia sẻ) {
+  b1: "b1 {name}"
+  b2: "b2 {name}"
+  proto: "PersonB.prototype {talk}\n1 hàm chung"
+  b1 -> proto: __proto__
+  b2 -> proto: __proto__
+}
 ```
 
 > [!TIP]
@@ -189,9 +201,13 @@ Object.prototype.__proto__ === null;                // true — đỉnh chuỗi
 
 Với mảng, instance của class extends... chuỗi dài hơn (thêm `Array.prototype`, prototype của lớp cha...) trước khi tới `Object.prototype`:
 
-```text
-[1,2,3] ──▶ Array.prototype ──▶ Object.prototype ──▶ null
-           (map, filter, push...)
+```d2 title="Prototype chain của array"
+direction: down
+arr: "[1,2,3]"
+array: "Array.prototype\n(map, filter, push...)"
+object: Object.prototype
+end: null
+arr -> array -> object -> end
 ```
 
 ---

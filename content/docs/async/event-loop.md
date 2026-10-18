@@ -50,26 +50,24 @@ Giữ hình ảnh quán ăn này trong đầu — phần còn lại của bài c
 
 ### Bản đồ toàn cảnh Event Loop
 
-```mermaid
-flowchart LR
-    subgraph HOST[Host: Browser hoặc Node và OS]
-        IO[Timer · Network I/O · File I/O · UI event]
-    end
-
-    subgraph RUNTIME[Main runtime thread]
-        TQ[Task queue]
-        EL[Event loop<br/>host runtime]
-        CS[V8 / JS engine<br/>Call Stack]
-        MQ[Microtask queue<br/>Promise · await]
-    end
-
-    IO -->|I/O hoàn tất hoặc event xảy ra| TQ
-    TQ -->|lấy 1 task khi stack rỗng| EL
-    EL -->|chạy task| CS
-    CS -->|task xong, stack rỗng| EL
-    EL -->|vét hết microtask| MQ
-    MQ -->|chạy từng callback| CS
-    CS -->|stack rỗng| EL
+```d2 title="Host và main runtime thread"
+direction: right
+host: "Host: Browser hoặc Node và OS" {
+  io: "Timer · Network I/O · File I/O · UI event"
+}
+runtime: Main runtime thread {
+  tq: Task queue
+  el: "Event loop\nhost runtime"
+  cs: "V8 / JS engine\nCall Stack"
+  mq: "Microtask queue\nPromise · await"
+  tq -> el: lấy 1 task khi stack rỗng
+  el -> cs: chạy task
+  cs -> el: task xong, stack rỗng
+  el -> mq: vét hết microtask
+  mq -> cs: chạy từng callback
+  cs -> el: stack rỗng
+}
+host.io -> runtime.tq: I/O hoàn tất hoặc event xảy ra
 ```
 
 Đọc theo chiều mũi tên: host/OS làm phần chờ; khi xong, nó đưa việc vào **task queue**. Event loop chạy trên main runtime thread, chỉ giao callback cho V8 khi **call stack rỗng**. Sau một task, event loop phải chạy hết **microtask queue** rồi mới lấy task kế tiếp.
@@ -126,12 +124,14 @@ printSquare(5);
 
 Diễn biến stack (đỉnh ở trên, đáy ở dưới):
 
-```text
-(1) push    (2) push      (3) push & pop     (4) pop dần     (5) xong
-                         multiply(5,5)→25
-            square(5)    square(5)          → 25
-printSquare printSquare  printSquare        printSquare      → stack rỗng
-─────────────────────────────────────────────────────────────────────────
+```d2 title="Call Stack khi tính printSquare(5)"
+direction: right
+s1: "1. push\nprintSquare"
+s2: "2. push\nsquare(5)\nprintSquare"
+s3: "3. push & pop\nmultiply(5,5) → 25\nsquare(5)\nprintSquare"
+s4: "4. pop dần\nsquare trả 25\nprintSquare"
+s5: "5. xong\nstack rỗng"
+s1 -> s2 -> s3 -> s4 -> s5
 ```
 
 Hai hệ quả cực kỳ quan trọng:
@@ -148,6 +148,27 @@ Hai hệ quả cực kỳ quan trọng:
 > Gọi hàm đệ quy quá sâu làm stack đầy → `RangeError: Maximum call stack size exceeded`. Đó là khi "tờ order chồng cao quá giới hạn".
 
 ---
+
+Bạn có thể kiểm tra thứ tự cơ bản trong Node bằng phiên lệnh sau. Output bên dưới là kỳ vọng của ví dụ, không phải trace hiệu năng. Ví dụ này không kiểm chứng các phase Node hoặc render của browser; hai host có chi tiết scheduling khác nhau.
+
+```terminal-session
+title: Tự kiểm tra sync, Promise microtask và timer trong Node
+context:
+  kind: local
+  label: Node.js, không cần dependency
+steps:
+  - id: ordering
+    title: Chạy ví dụ tối thiểu
+    command: >-
+      node -e "console.log('sync'); setTimeout(() => console.log('timer'), 0); Promise.resolve().then(() => console.log('microtask'));"
+    outputs:
+      - stream: stdout
+        text: |-
+          sync
+          microtask
+          timer
+    expected: sync trước microtask; timer sau checkpoint microtask.
+```
 
 ## Vì sao single-thread vẫn không block? — Web APIs offload
 
@@ -188,20 +209,14 @@ Không nên hiểu bảng này là “mỗi `fetch` chiếm một thread riêng�
 
 Tuy nhiên, “host dùng nhiều thread” không có nghĩa **mỗi I/O có một thread ngồi chờ**. Nếu 1.000 lệnh `fetch` cùng lúc đều cần một thread, hệ thống sẽ cạn thread rất nhanh. Với network I/O, host thường đăng ký 1.000 socket với OS. Card mạng và kernel báo khi socket nào có dữ liệu; host chỉ xử lý socket đã sẵn sàng rồi đưa việc tiếp tục vào queue.
 
-```text
-1.000 fetch
-    │
-    ▼
-Host đăng ký 1.000 socket với OS
-    │
-    ▼
-OS/network stack báo socket nào có dữ liệu
-    │
-    ▼
-Host xếp callback/Promise continuation tương ứng
-    │
-    ▼
-Main JS thread chạy từng callback một
+```d2 title="Một nghìn fetch không cần một nghìn JS thread"
+direction: down
+calls: 1.000 fetch
+sockets: Host đăng ký 1.000 socket với OS
+ready: OS/network stack báo socket nào có dữ liệu
+queue: Host xếp callback/Promise continuation tương ứng
+main: Main JS thread chạy từng callback một
+calls -> sockets -> ready -> queue -> main
 ```
 
 Một số việc thực sự cần CPU hoặc có API đồng bộ/blocking thì host có thể dùng **thread pool**. Trong Node, `fs`, nhiều API crypto, zlib và một số DNS API thường đi qua libuv worker pool; ngược lại, network I/O như `fetch` thường dùng cơ chế thông báo sự kiện của OS thay vì giữ một worker thread chỉ để chờ mạng.
@@ -209,14 +224,18 @@ Một số việc thực sự cần CPU hoặc có API đồng bộ/blocking th�
 > [!NOTE]
 > Có thể hình dung: host/OS có nhiều người để **chờ và báo tin**; main JS thread là người duy nhất chạy code callback của ứng dụng. Dù host dùng thread nào bên dưới, callback JS vẫn không tự chạy song song.
 
-```mermaid
-flowchart LR
-    A[JS gọi API async] --> B[Host bắt đầu timer/I-O]
-    B --> C[JS nhận Promise/callback và chạy tiếp]
-    B -. Host/OS chờ ở nền .-> D[Hoàn tất]
-    D --> E[Đưa việc tiếp tục vào queue]
-    E --> F[Event loop chờ Call Stack rỗng]
-    F --> G[Main JS thread chạy callback]
+```d2 title="Async API trả quyền trước khi I/O hoàn tất"
+direction: down
+a: JS gọi API async
+b: Host bắt đầu timer/I-O
+c: JS nhận Promise/callback và chạy tiếp
+d: Hoàn tất
+e: Đưa việc tiếp tục vào queue
+f: Event loop chờ Call Stack rỗng
+g: Main JS thread chạy callback
+a -> b -> c
+b -> d: Host/OS chờ ở nền {style.stroke-dash: 3}
+d -> e -> f -> g
 ```
 
 ### `fetch` diễn ra từng bước
@@ -240,13 +259,57 @@ console.log('B');
 5. Khi response sẵn sàng, browser resolve Promise. Hàm `.then(...)` được đưa vào **microtask queue**.
 6. Khi call stack rỗng, event loop lấy microtask đó. Main JS thread chạy `.then`, gọi `response.json()`, rồi chạy `.then` kế tiếp khi việc đọc/parse body hoàn tất.
 
-```text
-Main JS thread                         Browser / OS
-──────────────────────────────────     ───────────────────────────────
-gọi fetch('/api/users')                gửi HTTP request
-nhận Promise, chạy console.log('B')    chờ server và nhận response
-... tiếp tục làm việc khác ...          báo Promise đã sẵn sàng
-chạy .then(...)
+```d2 title="fetch chia việc giữa main thread và Browser / OS"
+shape: sequence_diagram
+main: Main JS thread
+host: Browser / OS
+main -> host: gọi fetch('/api/users') — gửi HTTP request
+main -> main: nhận Promise, chạy console.log('B')
+host -> host: chờ server và nhận response
+main -> main: tiếp tục làm việc khác
+host -> main: báo Promise đã sẵn sàng
+main -> main: chạy .then(...)
+```
+
+Để tách **HTTP status** khỏi việc Promise của `fetch` settle, xem hai response giả định cho cùng `/api/users`. Đây là transcript minh họa, không gọi API thật. Với 503, `fetch` vẫn có thể fulfill bằng một `Response`; cần kiểm tra `response.ok` hoặc `response.status`. Lỗi mạng mới khiến `fetch` reject.
+
+```protocol-exchange
+title: fetch /api/users — HTTP thành công và lỗi dịch vụ
+variants:
+  - id: ok
+    title: Có danh sách người dùng
+    request:
+      method: GET
+      url: /api/users
+      headers:
+        - id: accept
+          name: Accept
+          value: application/json
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - id: type
+          name: Content-Type
+          value: application/json
+      body:
+        kind: json
+        json: '[{"id":1,"name":"An"}]'
+  - id: unavailable
+    title: Dịch vụ chưa sẵn sàng
+    request:
+      method: GET
+      url: /api/users
+    response:
+      status: 503
+      statusText: Service Unavailable
+      headers:
+        - id: type
+          name: Content-Type
+          value: application/json
+      body:
+        kind: json
+        json: '{"error":"temporarily_unavailable"}'
 ```
 
 ### Callback vẫn chạy trên main JS thread
@@ -324,16 +387,16 @@ Task queue:      [T1, T2, T3]
 
 Event loop **không đưa cả 5 microtask vào call stack cùng lúc**. Call stack chỉ chạy được một callback tại một thời điểm. Nó lấy từng microtask ra, chạy xong thì mới lấy cái tiếp theo:
 
-```text
-Call Stack       Microtask queue        Task queue
-───────────      ─────────────────      ───────────
-rỗng             M1 M2 M3 M4 M5         T1 T2 T3
-M1 đang chạy     M2 M3 M4 M5            T1 T2 T3
-M2 đang chạy     M3 M4 M5               T1 T2 T3
-M3 đang chạy     M4 M5                  T1 T2 T3
-M4 đang chạy     M5                     T1 T2 T3
-M5 đang chạy     rỗng                   T1 T2 T3
-T1 đang chạy     rỗng                   T2 T3
+```d2 mode=steps title="Vét microtask trước khi lấy T1"
+state: "Call Stack: rỗng\nMicrotask queue: M1 M2 M3 M4 M5\nTask queue: T1 T2 T3"
+steps: {
+  m1: {state: "Call Stack: M1 đang chạy\nMicrotask queue: M2 M3 M4 M5\nTask queue: T1 T2 T3"}
+  m2: {state: "Call Stack: M2 đang chạy\nMicrotask queue: M3 M4 M5\nTask queue: T1 T2 T3"}
+  m3: {state: "Call Stack: M3 đang chạy\nMicrotask queue: M4 M5\nTask queue: T1 T2 T3"}
+  m4: {state: "Call Stack: M4 đang chạy\nMicrotask queue: M5\nTask queue: T1 T2 T3"}
+  m5: {state: "Call Stack: M5 đang chạy\nMicrotask queue: rỗng\nTask queue: T1 T2 T3"}
+  t1: {state: "Call Stack: T1 đang chạy\nMicrotask queue: rỗng\nTask queue: T2 T3"}
+}
 ```
 
 Kết quả: `M1 → M2 → M3 → M4 → M5 → T1`. `T2` và `T3` tiếp tục phải chờ đến các vòng sau.
@@ -364,16 +427,23 @@ Event Loop bản chất là một vòng `while (true)` chạy mãi. Bốn bướ
 3. **Render (chỉ browser)** — nếu tới nhịp (~60fps), chạy `requestAnimationFrame` callbacks → `style → layout → paint`. Render *không* xen vào giữa microtask.
 4. **Quay lại bước 1** — hết việc thì "ngủ" chờ task mới (không busy-loop), có việc thì lặp lại.
 
-```text
-   ┌────────────────────────────────────────────────────────────┐
-   │  while (true):                                             │
-   │    1. task = lấy 1 macrotask cũ nhất đã sẵn sàng           │
-   │       run(task)               // chạy tới khi stack rỗng   │
-   │    2. while (microtask queue chưa rỗng)                    │
-   │         run(microtask)        // vét SẠCH, kể cả cái mới   │
-   │    3. if (tới nhịp render) → rAF callbacks; paint          │
-   │    4. (hết việc thì ngủ chờ)                               │
-   └────────────────────────────────────────────────────────────┘
+```d2 title="Mô hình event loop trình duyệt giản lược"
+direction: down
+task: "1. Lấy 1 macrotask cũ nhất đã sẵn sàng"
+run: "run(task) — chạy tới khi stack rỗng"
+micro: "2. Microtask queue chưa rỗng?" {shape: diamond}
+drain: "run(microtask) — vét SẠCH, kể cả cái mới"
+render: "3. Tới nhịp render?" {shape: diamond}
+paint: "rAF callbacks; paint"
+wait: "4. Hết việc thì ngủ chờ"
+task -> run -> micro
+micro -> drain: Có
+drain -> micro
+micro -> render: Không
+render -> paint: Có
+render -> wait: Không
+paint -> wait
+wait -> task: while (true)
 ```
 
 Ba bất biến rút ra từ thuật toán này — học thuộc là giải được mọi câu đố:
@@ -498,8 +568,15 @@ Promise.resolve().then(() => console.log(5));
 
 Trong trình duyệt, **repaint là một bước riêng** trong event loop, thường nhịp ~60fps (mỗi ~16.7ms). Thứ tự trong một "frame":
 
-```text
-[1 macrotask] → [drain HẾT microtask] → [requestAnimationFrame callbacks] → [style → layout → paint]
+```d2 title="Thứ tự trước một cơ hội render"
+direction: down
+task: 1 macrotask
+micro: drain HẾT microtask
+raf: requestAnimationFrame callbacks
+styling: style
+laying: layout
+paint: paint
+task -> micro -> raf -> styling -> laying -> paint
 ```
 
 `requestAnimationFrame(cb)` đăng ký `cb` chạy **ngay trước lần paint kế tiếp** — đúng chỗ để cập nhật animation cho mượt và đồng bộ với màn hình.
@@ -589,25 +666,20 @@ function scheduleMacrotask(fn) {
 
 Trên Node, event loop do **libuv** cài đặt và chi tiết hơn trình duyệt: macrotask được chia thành nhiều **phase**, chạy theo vòng, mỗi phase có queue riêng.
 
-```text
-   ┌───────────────────────────┐
-┌─▶│           timers          │  callback setTimeout / setInterval đã hết hạn
-│  └─────────────┬─────────────┘
-│  ┌─────────────▼─────────────┐
-│  │     pending callbacks     │  vài callback I/O bị hoãn từ vòng trước
-│  └─────────────┬─────────────┘
-│  ┌─────────────▼─────────────┐
-│  │       idle, prepare       │  (nội bộ)
-│  └─────────────┬─────────────┘
-│  ┌─────────────▼─────────────┐      ┌───────────────┐
-│  │           poll            │◀────▶│  I/O đến / chờ│  lấy I/O event, chạy callback
-│  └─────────────┬─────────────┘      └───────────────┘
-│  ┌─────────────▼─────────────┐
-│  │           check           │  callback setImmediate()
-│  └─────────────┬─────────────┘
-│  ┌─────────────▼─────────────┐
-└──┤      close callbacks      │  vd socket.on('close', ...)
-   └───────────────────────────┘
+```d2 title="Các phase Node.js — mô hình vòng lặp khái niệm"
+direction: down
+node: Node.js {icon: ../../icons/nodejs.svg}
+timers: "timers\ncallback setTimeout / setInterval đã hết hạn"
+pending: "pending callbacks\nvài callback I/O bị hoãn từ vòng trước"
+idle: "idle, prepare\n(nội bộ)"
+poll: "poll\nlấy I/O event, chạy callback"
+io: I/O đến / chờ
+check: "check\ncallback setImmediate()"
+close: "close callbacks\nvd socket.on('close', ...)"
+node -> timers: Các phase
+timers -> pending -> idle -> poll -> check -> close
+poll <-> io
+close -> timers: vòng tiếp theo
 ```
 
 > [!IMPORTANT]
@@ -757,8 +829,15 @@ console.log('F');
 
 **Một vòng event loop (browser):**
 
-```text
-[1 macrotask] → [drain HẾT microtask] → [rAF callbacks] → [style/layout/paint]
+```d2 title="Macrotask, microtask và rAF trước render"
+direction: down
+task: 1 macrotask
+micro: drain HẾT microtask
+raf: requestAnimationFrame callbacks
+styling: style
+laying: layout
+paint: paint
+task -> micro -> raf -> styling -> laying -> paint
 ```
 
 **Phân loại nhanh từng dòng code:**

@@ -55,14 +55,19 @@ JavaScript của một trang web thường chạy trên **main thread**. Thread 
 
 **Web Worker** là API cho phép chạy một file JavaScript trong background thread. Main thread và Worker không gọi trực tiếp hàm hoặc đọc trực tiếp biến của nhau. Hai phía giao tiếp bằng thông điệp qua `postMessage()`.
 
-```mermaid
-flowchart LR
-    U[Người dùng] --> M[Main thread]
-    M -->|postMessage: input| W[Worker thread]
-    W -->|tính toán CPU-bound| W
-    W -->|postMessage: result| M
-    M --> R[Render kết quả]
-    M -->|trong lúc Worker chạy| I[Xử lý click, scroll, animation]
+```d2 title="Worker xử lý CPU trong lúc main thread phục vụ UI"
+direction: down
+u: Người dùng
+m: Main thread
+w: Worker thread
+r: Render kết quả
+i: Xử lý click, scroll, animation
+u -> m
+m -> w: "postMessage: input"
+w -> w: tính toán CPU-bound
+w -> m: "postMessage: result"
+m -> r
+m -> i: trong lúc Worker chạy
 ```
 
 ### Web Worker giải quyết vấn đề gì
@@ -187,27 +192,25 @@ Main thread và Worker cùng nhìn thấy vùng nhớ này. Khi nhiều phía đ
 
 Worker không phải một hàm đặc biệt chạy chen vào event loop của trang. Nó là một môi trường thực thi khác và có event loop riêng.
 
-```mermaid
-flowchart TB
-    subgraph MAIN[Main thread]
-        ME[Event loop]
-        MC[Call stack]
-        MQ[Task và microtask queues]
-        DOM[DOM và render]
-        ME --> MC
-        MQ --> ME
-        MC --> DOM
-    end
-
-    subgraph WORKER[Worker thread]
-        WE[Event loop]
-        WC[Call stack]
-        WQ[Task và microtask queues]
-        WE --> WC
-        WQ --> WE
-    end
-
-    MAIN <-->|message events| WORKER
+```d2 title="Main thread và Worker có runtime riêng"
+direction: down
+main: Main thread {
+  event: Event loop
+  stack: Call stack
+  queue: Task và microtask queues
+  dom: DOM và render
+  event -> stack
+  queue -> event
+  stack -> dom
+}
+worker: Worker thread {
+  event: Event loop
+  stack: Call stack
+  queue: Task và microtask queues
+  event -> stack
+  queue -> event
+}
+main <-> worker: message events
 ```
 
 Một vòng lặp đồng bộ nặng trong Worker sẽ block **event loop của Worker**, nhưng không trực tiếp block event loop của main thread. Hệ quả là Worker đó chưa thể nhận message mới cho đến khi vòng lặp kết thúc.
@@ -291,17 +294,24 @@ Luồng chạy của ví dụ:
 
 ### Vòng đời của Dedicated Worker
 
-```mermaid
-stateDiagram-v2
-    [*] --> Creating: new Worker(url)
-    Creating --> Running: script tải thành công
-    Creating --> Failed: lỗi tải hoặc parse
-    Running --> Running: message qua lại
-    Running --> Closing: self.close()
-    Running --> Terminated: worker.terminate()
-    Closing --> [*]
-    Terminated --> [*]
-    Failed --> [*]
+```d2 title="Vòng đời Worker và các đường kết thúc"
+direction: down
+start: Bắt đầu {shape: circle}
+creating: Creating
+running: Running
+failed: Failed
+closing: Closing
+terminated: Terminated
+end: Kết thúc {shape: circle}
+start -> creating: new Worker(url)
+creating -> running: script tải thành công
+creating -> failed: lỗi tải hoặc parse
+running -> running: message qua lại
+running -> closing: self.close()
+running -> terminated: worker.terminate()
+closing -> end
+terminated -> end
+failed -> end
 ```
 
 Có hai cách kết thúc Worker:
@@ -816,15 +826,18 @@ Khả năng cụ thể của `OffscreenCanvas` và context phụ thuộc trình 
 
 Tạo một Worker cho mỗi item có thể tiêu tốn quá nhiều memory và thời gian khởi tạo. **Worker pool** tạo một số Worker cố định rồi phân phối job qua queue.
 
-```mermaid
-flowchart LR
-    J[Job queue] --> D{Dispatcher}
-    D --> W1[Worker 1]
-    D --> W2[Worker 2]
-    D --> W3[Worker 3]
-    W1 --> R[Result handler]
-    W2 --> R
-    W3 --> R
+```d2 title="Dispatcher phân phối job cho Worker pool"
+direction: down
+j: Job queue
+d: Dispatcher {shape: diamond}
+w1: Worker 1
+w2: Worker 2
+w3: Worker 3
+r: Result handler
+j -> d
+d -> w1 -> r
+d -> w2 -> r
+d -> w3 -> r
 ```
 
 Một pool tối giản:

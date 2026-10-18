@@ -65,17 +65,21 @@ thành một file nguồn mới có dòng `var total` ở trên. Thay vào đó,
 
 Có thể học theo mô hình hai bước:
 
-```mermaid
-flowchart LR
-    A[Đi vào script hoặc function] --> B[Chuẩn bị môi trường]
-    B --> B1[Tạo binding cho các khai báo]
-    B1 --> B2[var: khởi tạo undefined]
-    B1 --> B3[let const class: chưa khởi tạo]
-    B1 --> B4[function declaration: gắn function object]
-    B2 --> C[Thực thi từng dòng]
-    B3 --> C
-    B4 --> C
-    C --> D[Chạy initializer và phép gán]
+```d2 title="Chuẩn bị binding trước khi thực thi"
+direction: down
+a: Đi vào script hoặc function
+b: Chuẩn bị môi trường
+b1: Tạo binding cho các khai báo
+b2: "var: khởi tạo undefined"
+b3: "let const class: chưa khởi tạo"
+b4: "function declaration: gắn function object"
+c: Thực thi từng dòng
+d: Chạy initializer và phép gán
+a -> b -> b1
+b1 -> b2 -> c
+b1 -> b3 -> c
+b1 -> b4 -> c
+c -> d
 ```
 
 ### Bước 1: chuẩn bị môi trường
@@ -228,17 +232,19 @@ Khoảng thời gian đó gọi là **Temporal Dead Zone (TDZ)**.
 }
 ```
 
-```text
-Bắt đầu block
-│
-├── discount đã thuộc block nhưng chưa khởi tạo
-│   └── đọc / ghi / typeof discount → ReferenceError
-│
-├── const discount = 0.1
-│   ├── tính initializer 0.1
-│   └── khởi tạo binding
-│
-└── discount dùng bình thường
+```d2 title="Binding discount và TDZ trong block"
+direction: down
+start: Bắt đầu block
+tdz: discount đã thuộc block nhưng chưa khởi tạo
+error: đọc / ghi / typeof discount → ReferenceError
+declare: const discount = 0.1
+calc: tính initializer 0.1
+init: khởi tạo binding
+use: discount dùng bình thường
+start -> tdz
+tdz -> error: nếu truy cập trong TDZ
+tdz -> declare: thực thi đến khai báo
+declare -> calc -> init -> use
 ```
 
 ### Bằng chứng let và const đã ảnh hưởng tới scope
@@ -575,16 +581,25 @@ Hoisting thường được hỏi thông qua loại lỗi. Chỉ cần xác đ�
 
 Quy trình debug nhanh:
 
-```mermaid
-flowchart TD
-    A[Gặp một tên trước dòng khai báo] --> B{Binding có thuộc scope này không?}
-    B -- Không --> C[ReferenceError: is not defined]
-    B -- Có --> D{Binding đã khởi tạo chưa?}
-    D -- Chưa --> E[ReferenceError: before initialization]
-    D -- Rồi --> F{Giá trị hiện tại là gì?}
-    F -- undefined --> G[Đọc: undefined]
-    F -- undefined nhưng bị gọi --> H[TypeError: is not a function]
-    F -- function object --> I[Gọi được]
+```d2 title="Chẩn đoán truy cập trước khai báo"
+direction: down
+a: Gặp một tên trước dòng khai báo
+b: Binding có thuộc scope này không? {shape: diamond}
+c: "ReferenceError: is not defined"
+d: Binding đã khởi tạo chưa? {shape: diamond}
+e: "ReferenceError: before initialization"
+f: Giá trị hiện tại là gì? {shape: diamond}
+g: "Đọc: undefined"
+h: "TypeError: is not a function"
+i: Gọi được
+a -> b
+b -> c: Không
+b -> d: Có
+d -> e: Chưa
+d -> f: Rồi
+f -> g: undefined
+f -> h: undefined nhưng bị gọi
+f -> i: function object
 ```
 
 ---

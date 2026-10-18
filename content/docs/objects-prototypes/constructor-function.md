@@ -51,14 +51,18 @@ Khi bạn viết `new Person("Hiệp")`, engine thực hiện 4 bước:
    tự return một object khác):     return obj
 ```
 
-```mermaid
-flowchart TD
-    A["new Person('Hiep')"] --> B["1. tao object rong {}"]
-    B --> C["2. obj.__proto__ = Person.prototype"]
-    C --> D["3. chay Person voi this = obj"]
-    D --> E{"ham return 1 object?"}
-    E -- Khong --> F["4. tra ve obj (ngam)"]
-    E -- Co --> G["tra ve object do thay the"]
+```d2 title="Các bước của new Person"
+direction: down
+a: "new Person('Hiep')"
+b: "1. tao object rong {}"
+c: "2. obj.__proto__ = Person.prototype"
+d: "3. chay Person voi this = obj"
+e: ham return 1 object? {shape: diamond}
+f: "4. tra ve obj (ngam)"
+g: tra ve object do thay the
+a -> b -> c -> d -> e
+e -> f: Khong
+e -> g: Co
 ```
 
 Có thể hình dung `new` "viết lại" hàm thành:

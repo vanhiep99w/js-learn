@@ -1,0 +1,3429 @@
+[
+  {
+    "file": "advanced/event-driven.md",
+    "line": 25,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/event-driven.md",
+    "line": 33,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/event-driven.md",
+    "line": 41,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/event-driven.md",
+    "line": 49,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/event-driven.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 34,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 42,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 50,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 58,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/generators-iterators.md",
+    "line": 66,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/storage.md",
+    "line": 25,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/storage.md",
+    "line": 33,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/storage.md",
+    "line": 41,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/storage.md",
+    "line": 49,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/storage.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/symbol.md",
+    "line": 24,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/symbol.md",
+    "line": 32,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/symbol.md",
+    "line": 40,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/symbol.md",
+    "line": 48,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/weakmap-weakset.md",
+    "line": 24,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/weakmap-weakset.md",
+    "line": 32,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/weakmap-weakset.md",
+    "line": 40,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/weakmap-weakset.md",
+    "line": 48,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 58,
+    "language": "mermaid",
+    "sha256": "ad5ad0ef23b3668ebde9593f97d2f183e18a2a19764ea54d7ab1fc1dc7480a7d",
+    "action": "D2",
+    "title": "Worker xử lý CPU trong lúc main thread phục vụ UI"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 72,
+    "language": "js",
+    "sha256": "2a6173e8100b3906389e382a72c5b1544318a5163dd3cd0b9fc51e794ee7e332",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 124,
+    "language": "js",
+    "sha256": "550b4dffafa257d516a9f66087c37cb9ffca7cc2546575ef570cc15a7d5be33a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 148,
+    "language": "js",
+    "sha256": "804c5405ccb2b853a31bcbd4841de8eba929569bb4fe11279603b602af1cc8b3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 159,
+    "language": "java",
+    "sha256": "c62223dc919c7efbafaed18f68a57e5301b426ec8624841ee8061a1ea14f7bd9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 173,
+    "language": "js",
+    "sha256": "30c68dfa2f7504d218eb9889595573cfb1e97932dd4f8b849261a2f5e2aecbd7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 190,
+    "language": "mermaid",
+    "sha256": "27cf04329f6816ac25f4531116d83d57758e37581037cb8aec5371d9f5d8f0c4",
+    "action": "D2",
+    "title": "Main thread và Worker có runtime riêng"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 223,
+    "language": "text",
+    "sha256": "7adc081fad49790738b68e7dc2fd9faabfe503bc15d98e9286630aef8f6930c5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 231,
+    "language": "js",
+    "sha256": "c681318c2ccd30db031ab177ebec8d7de155b886d056d6104764fc18d6a02dad",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 261,
+    "language": "js",
+    "sha256": "4bdbd074a51506247c75cc072313d6eb83f880e34d89b39d4c7530e0be2b1c55",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 294,
+    "language": "mermaid",
+    "sha256": "765d119af3aa6d0affe7a5cd7a41e3d92ea137650496416e29654b179a3b8754",
+    "action": "D2",
+    "title": "Vòng đời Worker và các đường kết thúc"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 309,
+    "language": "js",
+    "sha256": "5c2358b6edc29b2f59edea70edb26d7ae743ab12eb2e5814b8f1730dd705cde9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 314,
+    "language": "js",
+    "sha256": "7d820035c79a81ae6794f7e18f6f245969ff8fb256dae675a23f127fb77e371f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 327,
+    "language": "js",
+    "sha256": "86bf607f704e1f29f070b0f46a852153335b2000fa25d658f99d53fd230a5726",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 361,
+    "language": "js",
+    "sha256": "ea592705237d6cf5a006800514c45feb60fc4bde3bdea64ee37ae898a849d5d2",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 374,
+    "language": "js",
+    "sha256": "1bfb02abc7bbb72e20d009e3429c5378a1f0958a57de24d2ac5cea55c13f7d85",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 398,
+    "language": "js",
+    "sha256": "bdf5e0d764a5da491a9f50e2c00a394a91e7ac4f70db75bb1ef7711c9cd92eb4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 413,
+    "language": "js",
+    "sha256": "d5c8b16307ca68c09df47c8fab45117a3857d1c63ed184463682c201f821b306",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 443,
+    "language": "js",
+    "sha256": "ec1f7a6df131bde3aa9d8df9a779373450bbdbb1265dcb7e6e640eab526478d2",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 452,
+    "language": "js",
+    "sha256": "9eba05de8eb5a0da4053c2c90aef3fcb248bb9bdeb7af37638b72d5203af7fd5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 477,
+    "language": "js",
+    "sha256": "6fb1a70083178295f42abdf084ad49833107ec4d3984047d4eacdb5cbe5ec90d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 492,
+    "language": "js",
+    "sha256": "e61a3674988bab1b69661cbd8b43c7705288e86c4247f020d5aec63b15c81190",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 507,
+    "language": "js",
+    "sha256": "0c09ad5cf7317d96d092228f2879c1e957c7a75b4c2cce9f1fd1b669074ff376",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 528,
+    "language": "js",
+    "sha256": "87b679caf174dd4330c3c6ae7115123593103a77ff75db0b983f8e6ebba54f63",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 550,
+    "language": "js",
+    "sha256": "b5dff70d60799dd2dc826914b28a460ab4cb04990eae9fa6c7c91f90cd78370f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 573,
+    "language": "js",
+    "sha256": "b016b27e15d13401110490c6313485e3efb848845f49430c676afba992f7839c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 591,
+    "language": "js",
+    "sha256": "dace2a1120b7eabd3ddc622f86d6d54d95a1e6d80700f7ae90ae9162cb9ecf3e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 609,
+    "language": "js",
+    "sha256": "5caece220300486dce42a98d755932eec51456f14c5c4c2351bc5756bd3e9b03",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 614,
+    "language": "js",
+    "sha256": "4f79453764f073cc6b9df78aefa58728ca5403e3f8b55d8d9817ec8930cf8d39",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 670,
+    "language": "js",
+    "sha256": "ad7eb3777904c8736e90f04b438cc4346177088c54d0e8fb0afee2da505cf8ef",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 678,
+    "language": "js",
+    "sha256": "27fb54d2ece9e519979c01c675a4e94a4d2304bb9d104aa55b7e9845d5d171c4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 690,
+    "language": "js",
+    "sha256": "b36a540f0b9885ca91cefea97ae6980db6514e2b122e2f220dcf12851472c9a0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 714,
+    "language": "js",
+    "sha256": "b9902ac08e07220ac6e12a40bbe3c34aca59937162e6f682d5c246a343a49a8f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 721,
+    "language": "js",
+    "sha256": "7ac0ada6bf43739e3b73c72d2e2f9bf7bd7cf9449c402cf041b542ce00f9dbbc",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 757,
+    "language": "js",
+    "sha256": "f105c0fff423c905bcccdd26ea39d21550f9dd97af051cd192405afa32e9a6ab",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 789,
+    "language": "js",
+    "sha256": "d8a746de1105cf33414e81642ecdc46f477aed44a0c48c84a28b8f27247752a6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 800,
+    "language": "js",
+    "sha256": "49dc935fe79c14f2b7ebbdf378b272cee42c4918aaa5ccd8eb71e249f68843d5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 819,
+    "language": "mermaid",
+    "sha256": "e99d9c32d6b4c311621a090db6f75cc2800c5190e3764b13b9f10be3ee19d7de",
+    "action": "D2",
+    "title": "Dispatcher phân phối job cho Worker pool"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 832,
+    "language": "js",
+    "sha256": "284d9e188ea1215813322d19bf9e4006eef53201387e452acf062677f761c0e4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 898,
+    "language": "js",
+    "sha256": "d9f95b8c7b93bd2f9b4b01f9be8b67bd74919018c5e3b549caad4ed636f0992d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 941,
+    "language": "js",
+    "sha256": "6d5047470c69289e352343952b568b58741eb515913b8947d5ee5f0d3a4bd53c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 987,
+    "language": "js",
+    "sha256": "bd913269857222218f87b46d2aa0aa507512e51e64b4822a2ad13eca347a6126",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 1006,
+    "language": "js",
+    "sha256": "c406eeab8c734200be1774b3c5ea69d781be3a7117eb4ca5494dd5ebd0ea463d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "advanced/web-workers.md",
+    "line": 1019,
+    "language": "js",
+    "sha256": "a32f882e32ffaeb8c4afcb1870d7b3e02197a1d3961da4e0cddc149d4ed98bab",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 31,
+    "language": "js",
+    "sha256": "de190439030c8cb18b219e5ff75f280e7c517d643045c92f343fb4956272c41e",
+    "action": "code-diff",
+    "codeSha256": "77c523a59fcf2ee0bd42f5f03b7879d7d690cfef44871b052742bbb5da202cfd"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "986a9c369f8962a768b38b0a716d088ad8e54d86994b3e3ebd949466ef3006a9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 80,
+    "language": "js",
+    "sha256": "2c02d637b402fae5ed90fdd5097898f5cef8f2bf950b28de310f4e14d21557c8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 107,
+    "language": "js",
+    "sha256": "5d926f3b25d4ada339633af6e352f0cd5fe203ea5200b33db49035fbba63034e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 136,
+    "language": "js",
+    "sha256": "5f798c88a6c4db9325692bf51d124fc451ee3dcb64b8c126ac00e0638f5115ef",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 158,
+    "language": "js",
+    "sha256": "c7730faf6d3c8d7a345a7020bfc336ec414eeab191220651a683ac7f5d125f79",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 182,
+    "language": "js",
+    "sha256": "11f20413ba05a0e6159c31a3debfd5546bef6c7ea9647cef37320f3af8821933",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 208,
+    "language": "js",
+    "sha256": "822c55b04271437f7a93ad93c5982a7766dfab3f1a0f3cecd3aaa2c37549fdb8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 218,
+    "language": "js",
+    "sha256": "d4d4fd187e0acee942a00c93f290d4a3ed8322c1e26e20fd86b27bee87bc0705",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 230,
+    "language": "js",
+    "sha256": "847da810045bab43a8a58a748db5a2db1bb3bd621d99e01e063d9aeb4ac76a60",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 242,
+    "language": "text",
+    "sha256": "d8c83a495a69a98438e1735544d3b218cb5c10822a4f509837c6d3ec00f95ba4",
+    "action": "D2",
+    "title": "Timer tuần tự và đồng thời"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 268,
+    "language": "js",
+    "sha256": "240f852eb10a1eed13dc117d76bf659eed14ddafdd9512b3e63bd6e755a54096",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 277,
+    "language": "js",
+    "sha256": "a665174b7b69273a28c4a87bab532ac85ba48c98359e55e4a40c8c9426614bd0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 298,
+    "language": "js",
+    "sha256": "1cf0d7da83d5fcac706ee9fe34dfb267fdee468d97792ac2208c085eabb1a1bd",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/async-await.md",
+    "line": 320,
+    "language": "js",
+    "sha256": "54cb26d17a29e6683ad7bffe1b125f4ff6da5b15e733d4e0fae9d48670511a4c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 38,
+    "language": "js",
+    "sha256": "91645daf11fbbcdd237732f8617f181edbc3ff1a54b879c231a86f0db3b7e932",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 67,
+    "language": "js",
+    "sha256": "5b724e00632ec3be75f4c3088662c0462796507c53c19748eeb79147e196fc39",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 76,
+    "language": "js",
+    "sha256": "d76262f7120194a347bc3c544a60a53148eb0e6555ebfe29bc1ff35a5be9a94b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 99,
+    "language": "",
+    "sha256": "d92871989f69fed8b9062c94db054f5cdb7c8645ad2f8f6762a8bf307731de41",
+    "action": "D2",
+    "title": "Timer không chạy callback ngay trong stack hiện tại"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 131,
+    "language": "js",
+    "sha256": "0ef633353a2a5195ad6e256b755c0e8f59cdafa7ac9b0e7c28d47a9a4a6ea2ee",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 163,
+    "language": "js",
+    "sha256": "017c74ed5064c5ba34d53725b1491fc56e1a1d2cbbc03568e26223c967d59a24",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 186,
+    "language": "js",
+    "sha256": "91fdd0507a235c224e4f24be4a0abbb6a024d8c2d31f48df3d78074f913376a8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 202,
+    "language": "js",
+    "sha256": "2e1abfeb012e5f1ea8add2f67023fda5361a9395a1f1fda7c18c76e895c9b39f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/callbacks.md",
+    "line": 223,
+    "language": "js",
+    "sha256": "829b147be0ffdfb746aca041c2c0b374c14c3bc46b1aa650527653645626c185",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 53,
+    "language": "mermaid",
+    "sha256": "e0d2852eb2d3204ed74e12c25c95eac8a9f191b17094027caed140a07e786b97",
+    "action": "D2",
+    "title": "Host và main runtime thread"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 88,
+    "language": "js",
+    "sha256": "ab8a846114593562fa685b0189bd20b3e20fecfbc8f8ea8fa19372545866a18f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 102,
+    "language": "js",
+    "sha256": "6ee54951123297c5b3827d025e5e90d2a390681e69a0ba600f03fc53e051ba6f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 120,
+    "language": "js",
+    "sha256": "372fc5e0c394e97e8531ddf57df86f928027643624769509bd5f83378ef5985b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 129,
+    "language": "text",
+    "sha256": "49816d83409ce85a22779b4d339db9e4f7644739fb556c0f68ee16c9d79c72d8",
+    "action": "D2",
+    "title": "Call Stack khi tính printSquare(5)"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 162,
+    "language": "js",
+    "sha256": "1ab0dfddfe39abd7807655e4edf966bc2fb13bce07cf0d0e42dd9f11bc4d14a6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 191,
+    "language": "text",
+    "sha256": "21d3ff9fa2b0324513413366b3f224118019a45a30c997d0dcdc640816307165",
+    "action": "D2",
+    "title": "Một nghìn fetch không cần một nghìn JS thread"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 212,
+    "language": "mermaid",
+    "sha256": "fe3d3d7bf1a1850d1d248fc49734bdeaceeec492c75f796d123be91d124ad6f4",
+    "action": "D2",
+    "title": "Async API trả quyền trước khi I/O hoàn tất"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 224,
+    "language": "js",
+    "sha256": "023b79fe210ec57ac10864922c10601c82d2779e0ac819c2589f0975b6fbec33",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 243,
+    "language": "text",
+    "sha256": "0c05ce871a5555c265d7868b6f7451bf6e4faad2cb6809003460286dd64511f3",
+    "action": "D2",
+    "title": "fetch chia việc giữa main thread và Browser / OS"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 256,
+    "language": "js",
+    "sha256": "df8ecb1a1c69769eee47176fa4e9995494821e5f013099c25968f2fb13f3961f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 265,
+    "language": "js",
+    "sha256": "35c91a9b3a3d858c1fe042658b053e3f649a172d17a033485e33d38605abd702",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 278,
+    "language": "js",
+    "sha256": "a2b5bc080ab195a1ff6848ba4e03b36601d8b36b94f3c2483df0305d1df94baf",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 320,
+    "language": "text",
+    "sha256": "5ddcce39349f80996089a94b20c548cb98a6db5eacae72b894a34503e787309a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 327,
+    "language": "text",
+    "sha256": "452b4cd8a7296af818ed523b98a17975ee2394bd9c5fe547539bdd9014761abe",
+    "action": "D2",
+    "title": "Vét microtask trước khi lấy T1"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 343,
+    "language": "js",
+    "sha256": "b66dddfa0f23c5337f536d229c5fe009052a2c54f8a81b26c2db1f86966b376c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 367,
+    "language": "text",
+    "sha256": "0cbb492ed4c90f821ab20cfe45a4e35afed4684249fb61d97e5f895647e04e41",
+    "action": "D2",
+    "title": "Mô hình event loop trình duyệt giản lược"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 391,
+    "language": "js",
+    "sha256": "0b65c45043f7402b3aed7959ecc9c52f6aefb2698175df1bf91d768703d562df",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 419,
+    "language": "js",
+    "sha256": "1d21ac94c02cf92a006e45c2f24d8c4a7308eb4d05b1cc89cd68188c5fa4ab16",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 442,
+    "language": "js",
+    "sha256": "0fffd00ef71ef5b84e51b4d34cff8518b07df09ae3536c9a40adc36b292ee4eb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 452,
+    "language": "js",
+    "sha256": "a2901ee44c9c7db128fd4a52c64c59672cd4e0315ff37d12c0b0e54ac9e1f1f5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 468,
+    "language": "js",
+    "sha256": "6e47b94060e86072e72de48af5ceb43cb2bf77380cf1e72f5b287103e237c710",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 501,
+    "language": "text",
+    "sha256": "41c9e485f1570bae9383eb056a3df0c9a6f46852851d5e0573cf7094fb728bd0",
+    "action": "D2",
+    "title": "Thứ tự trước một cơ hội render"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 507,
+    "language": "js",
+    "sha256": "b56a4a080089be8a6a8bb17b82994c5a89986eba6f0e82724a7c23ca7eabd424",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 521,
+    "language": "js",
+    "sha256": "d795bb1d759ecc7a5f664c697e8ccfcc415a0cc239379928aa4f68e2cb1ebcba",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 531,
+    "language": "js",
+    "sha256": "07e35ba14547fb4fa292efbd719fb7d71c8f0642f0dcfa9457849581ec2827f8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 543,
+    "language": "js",
+    "sha256": "d19166a304e9b94631ee4274b1a893afeaa98ef07eb17dc338fd63a1be04e727",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 567,
+    "language": "js",
+    "sha256": "e26d0ca4498d5b0c50758edd0caaf49de117c3d9ba244c1fc8e6ad9833c3ee6c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 578,
+    "language": "js",
+    "sha256": "9d2e5b2b2ab77a4f473281f5d26cc211059fbbf6bc6ea7acf45d710613f32494",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 592,
+    "language": "text",
+    "sha256": "f31cb3a106e1292e48013c0e280353b4de77b53a5ca42438983c16510d759c1b",
+    "action": "D2",
+    "title": "Các phase Node.js — mô hình vòng lặp khái niệm"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 623,
+    "language": "js",
+    "sha256": "ff183bba186f557175ccae44350018eb3a210119721a580322dcc933bf6c3f3a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 634,
+    "language": "js",
+    "sha256": "a150880b34093f88a381709a72aee167c2721bc2643bbea55622bf70157703c3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 641,
+    "language": "js",
+    "sha256": "72c15c5f3fa5f533a54556fe3913f34e06184241e96aa3757066d215ec176a11",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 671,
+    "language": "js",
+    "sha256": "5289735a5ebaa041408ca172190e15ee64af348f4cbeb3c200d642b53f836545",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 707,
+    "language": "js",
+    "sha256": "12d628aefd678de49cf75857918a22ba497e871ae80e8eccb78b2b47b7ace2f5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 719,
+    "language": "js",
+    "sha256": "784ad32fefb05401fef2803761bedeaf11a67c4ff2388c161627b89559403af5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 738,
+    "language": "js",
+    "sha256": "8c665f796eb0e73b3886a95ac834cf14ebf4f973297473378700c9f279944529",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/event-loop.md",
+    "line": 760,
+    "language": "text",
+    "sha256": "bdaa987b96f5b75778f6d05cc8f3d183a71ba2ae1d8fd92f18b4c56e9d51229b",
+    "action": "D2",
+    "title": "Macrotask, microtask và rAF trước render"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 51,
+    "language": "js",
+    "sha256": "847ab1e6da41e95f3a525f2c24d0415db68bf007f30169c0a1de369eb3174a57",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 74,
+    "language": "js",
+    "sha256": "5e2ee0d9f013fe2686431e889670fad3efa77f4627d02a0127c2fa9af6d3ecfa",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 94,
+    "language": "js",
+    "sha256": "bedb317f660316e74f5c22558f06be8e3cf2d525c4018282f3d69a418bda39c9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 116,
+    "language": "",
+    "sha256": "fbb11f391f7a93861e695530c09a0932479ec22c4a43d08e29e885b7ae8aa808",
+    "action": "D2",
+    "title": "Promise chỉ settle một lần"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 126,
+    "language": "js",
+    "sha256": "0b80aa9b0a36ee19b9c1e449c64ed2f46cc3fc750d520ebcaa39080a92fce8f3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 165,
+    "language": "",
+    "sha256": "e6a29d97b7fc309992205ddd3b16b8b0b7b2f011116b6f507e982c3cfd06e324",
+    "action": "D2",
+    "title": "Đăng ký và lên lịch Promise reaction"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 179,
+    "language": "js",
+    "sha256": "b28ce4a7fb8bd166bb64deccf6d8f2a78df7ddb633561d35db7b43eb3225a340",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 198,
+    "language": "js",
+    "sha256": "c08a81a4c527f72651f7376541f428e68a2b09a71e864816180d521c1c06b548",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 215,
+    "language": "js",
+    "sha256": "72625dd18603a60cc72571eec0cbb1e0e85937ecf5407d892f8c034a2da2e454",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 227,
+    "language": "js",
+    "sha256": "8cd43e79b456a973984bd043019aed6611737860f085745ba7667b602e0e6d1f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 239,
+    "language": "js",
+    "sha256": "039ee650ffaac2ac3e0ccfcaaa44a4521041d58cc2f215076d03d26a3162b5d4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 255,
+    "language": "js",
+    "sha256": "c77fcd62b47e52ceb2646eee27e9341d39cb619976a59ed0b4e1db939d3bd64d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 282,
+    "language": "js",
+    "sha256": "a96ed45dabe7dbc12702c471e67cc6e70e29400e9b25ff95b81ca758c80a1804",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 307,
+    "language": "js",
+    "sha256": "fca9f7a9846cf864f0086b681212446e60b534a34e1b6a3219dee782a4b64b31",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 336,
+    "language": "js",
+    "sha256": "c3b74c39f963816f9aaf367b045d2b317a0b1bda4e5fbf438f6d1334dbd3b595",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "async/promises.md",
+    "line": 362,
+    "language": "js",
+    "sha256": "08691c02c29e5ff8c564239eb20122f9d4e6a850b379fd34780d9a6bff2c9505",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 27,
+    "language": "js",
+    "sha256": "f84396093bb2d68e0671eb226b1c9894c064a7751dd7476a6fe9b33e2a6902cf",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 48,
+    "language": "js",
+    "sha256": "87bb271eec43ce2bd7d60730a547aba1f493ff260cab56426a1315633e7ed1b0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 63,
+    "language": "js",
+    "sha256": "1a9a4a2743ae924e662831f2226bba0b018a028bfc7fc78f0914ff65f14498d1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 81,
+    "language": "js",
+    "sha256": "bcaf4bfb627f04e0a0448a5846f9c688791254773569ca5107e67328194616c0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 91,
+    "language": "js",
+    "sha256": "2cd054e7bd1221ec8ac142625a79048ad88617183d384533957542b9bf8773ea",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 107,
+    "language": "js",
+    "sha256": "1edabb5f4e748920981eff3aa2843fc45101fe3d9e558c09ac7260df1672af0d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 128,
+    "language": "text",
+    "sha256": "77471a71e96d2af72ac769d86892654bbc5c96a790420bdc2f9d84a92a5a3145",
+    "action": "D2",
+    "title": "call/apply chạy ngay, bind trả hàm mới"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 139,
+    "language": "js",
+    "sha256": "b06478fd732e11f47a826d11a293f63caa4f2a28f205d183ee5a7b8ca8888cd5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/call-apply-bind.md",
+    "line": 155,
+    "language": "js",
+    "sha256": "ebe2f19327e3bd53791766494d895a9975f551d6d1b17647540758167edad39d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 29,
+    "language": "js",
+    "sha256": "261e1d4c3d13f328a9867450088c31b5bcacb6898de9d0aa73efe762e56d53fb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 50,
+    "language": "text",
+    "sha256": "64c0a5f34f90515c0412ead3f07e9ce093bbd06be0d0595ed1f006c333534db1",
+    "action": "D2",
+    "title": "displayName giữ môi trường sau khi makeFunc trả về"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 71,
+    "language": "text",
+    "sha256": "e8a19930ca38b27806d807dfb2b252aceff2b89b5ae2e07828e0ac5e94a1fbcf",
+    "action": "D2",
+    "title": "[[Environment]] giữ Lexical Environment sống"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 86,
+    "language": "mermaid",
+    "sha256": "f26513aea4d74cee584b915d8ae41423caa6eb73193551e0e2d2d1a443fd0904",
+    "action": "D2",
+    "title": "Closure và scope chain"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 103,
+    "language": "js",
+    "sha256": "9210fc43415116512fb4b9142134ae0eb31923ec69ad201b9de47a596b2a4907",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 114,
+    "language": "text",
+    "sha256": "6fb91a6bf815d4ad61ff5e6abfa9918755530cc79981fbde067edbceb56bb86e",
+    "action": "D2",
+    "title": "Closure đọc giá trị hiện tại của binding"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 124,
+    "language": "js",
+    "sha256": "1bcf832460e24e5a04edf097aeb7f5310e94bbab02184e2b6b6ba90c25e54e40",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 145,
+    "language": "js",
+    "sha256": "43cafd489a73c99723ae6bebcac02a0ac4c760d9cb19676c25a53e5571c89753",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 168,
+    "language": "text",
+    "sha256": "cab07a4309c1892006f4a3a4e0af6cef8d649116b4402d14fcf17ff18b6068a5",
+    "action": "D2",
+    "title": "Khi nào environment được GC giữ lại?"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 188,
+    "language": "js",
+    "sha256": "90b5bd0ce60ec5307472822825ca9e2bad5c925d1cdcd411ee9476de019f570b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 204,
+    "language": "js",
+    "sha256": "f85a3d8e74b512e2db105bd6be5717863ef1f87c35ff7a4feed16dec341e0fe8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 215,
+    "language": "js",
+    "sha256": "a414ba765c47644fc704e71c4f168e5ec5140a682aa4ee84f6852097c63e7d76",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 233,
+    "language": "js",
+    "sha256": "2af978a422e70acb3f23cb6573d3c796a397fc8e34a9e8d71e71fb147e53a177",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 251,
+    "language": "js",
+    "sha256": "c8d0aed48c5bd84263dab73062d0624db4b8b7f76e7376d0470bd7af52dc98e1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 267,
+    "language": "js",
+    "sha256": "3890cf056105896562e246e2965fc46179abb464f9d59ff359f04e694c7382ea",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/closures.md",
+    "line": 285,
+    "language": "js",
+    "sha256": "d4e7745da6c4898de8dea19d94b15a76d44b03e64f27a8c10017fd0688fe7352",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 25,
+    "language": "js",
+    "sha256": "6506160a093013147d0121ae9d8dc3b7405af24e1050680b68295ec6934f9662",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 53,
+    "language": "js",
+    "sha256": "cc048348c599f9d38dc5d4d00d16dc245dc238219da3b026ce9acdeed59e1485",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 77,
+    "language": "js",
+    "sha256": "27be21b6a2e39c20dea5a926191c74c80a2aef217f38345c0775918f8bfe350a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 94,
+    "language": "text",
+    "sha256": "9bf9e4be53da11ac5b2d5916c44b7660425c0c25fee73a373c534e5666d81871",
+    "action": "D2",
+    "title": "Các method cùng giữ count private"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 108,
+    "language": "js",
+    "sha256": "7b612e04d6068359ab7925f0ee244b287c695d530ac822b2c627af7748a39fef",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 144,
+    "language": "js",
+    "sha256": "6801cc790798bb704485e04b09c9c9428066fb73d2ff18492e62348f5887d46a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 152,
+    "language": "js",
+    "sha256": "7d2ec76fa2b0866e5a1c4591ab9228bd1d508ec4283a2aec9de2cf869de6e261",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/factory-functions.md",
+    "line": 170,
+    "language": "js",
+    "sha256": "d246b89faf47547b3ab994bb6971e8ad537e0d97e2069aac9db3ca2f61b157eb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "5be89a644861829793ac2c80d0d545840e2e11ab2476dde52a6a3997ebea3522",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 39,
+    "language": "js",
+    "sha256": "9b0b1f384898535e70b6a2987705a9b0d592639828427019c610ff83ed99d9e3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 66,
+    "language": "js",
+    "sha256": "1132a1f41da8d48271e88ff3a6f1dcce2e1768e111099a9320cd5bb8177dc2cf",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 91,
+    "language": "js",
+    "sha256": "8e32db092d306a4c6df3f29360f57652ed0e18803b589a0344694fae27dceb4e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 104,
+    "language": "text",
+    "sha256": "466e9b432e069f38d28ba4a83ca15f7d525d0f9b43fa78f1552502505be9a4c0",
+    "action": "D2",
+    "title": "Execution Context được push và pop"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 113,
+    "language": "mermaid",
+    "sha256": "fb6a69be6c2898549f64425ea371f519c73fbc7282cf0508840a30068d850811",
+    "action": "D2",
+    "title": "Vòng đời một Execution Context"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 135,
+    "language": "js",
+    "sha256": "4921d7797b73320040049a0a5164087cf5d7e6690e8d78ad0a9740c0c7a07d8e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 147,
+    "language": "js",
+    "sha256": "ea5d597b7ec18b0748de6162eb203d37a40d27fbfaa5c856c5f3706c1037cf85",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 159,
+    "language": "js",
+    "sha256": "e0f268179c42be5c5c7e138131e1bb9b08bd775c7ab21e57e6f73426ee5e2cd8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 170,
+    "language": "js",
+    "sha256": "778f312e45a973378f23d81f89d56819b45ee85597583e2bae6b2e5aadcb7b38",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 187,
+    "language": "js",
+    "sha256": "2a5520e01655a6ca17059f460f99d8c988c438c53253b01ff680bf5732972fac",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/function-basics.md",
+    "line": 205,
+    "language": "js",
+    "sha256": "6e6a249438bef286a12d2a394301e0a9285903e6f5c9cd3eb3080ac560d05c9b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 30,
+    "language": "js",
+    "sha256": "43d49d2546fc3d4573513e26e7424f576d0c522c9f45e5679cb2ae5583133ca5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 44,
+    "language": "js",
+    "sha256": "220780d7cfa51948d87c69a5a0b96202a932a0386f9fecbb24b08282783afb31",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 68,
+    "language": "js",
+    "sha256": "a8e025cd3c41462f5a972a85480d1d89efdd800ec98a4572ec66b71cfc7b83a8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 78,
+    "language": "js",
+    "sha256": "b61c2d4bd55894d1dd43513e1af00d576db0440c3e58702639445a21f1615932",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 88,
+    "language": "text",
+    "sha256": "a2259df17c7a56acb43918b9911a6fa0dfff368a898d57c21e56dc8ed40ad1ff",
+    "action": "D2",
+    "title": "map, filter và reduce khác nhau ở đầu ra"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 103,
+    "language": "js",
+    "sha256": "d4bd7ddc11e251423214eb466f7aa203d6047269983103c77a0610cdb28706f8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 124,
+    "language": "js",
+    "sha256": "2425f60c4f4a9e9b0f469cb35ba297053017fe445d4be3278c20fd512c723ac9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 135,
+    "language": "mermaid",
+    "sha256": "d6a24f6b3236f03d9378fb926d08e17148f8ac311e046aee4adf37fd819bbd6c",
+    "action": "D2",
+    "title": "Pipeline addOne rồi double"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 148,
+    "language": "js",
+    "sha256": "621adb554a2851df8fdfdcd3ca2faccadb7f55aaa50b6b0405022b2b7ee87349",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/higher-order-functions.md",
+    "line": 158,
+    "language": "js",
+    "sha256": "0f07dc300a2a9ed349e3a5e5a4123b8f576904c6df16d87d9c169722d725222b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "b64f39ca2e96e0cbb9d2568b0974f28dc2667b96363ce2c107cd3d7ccaa15ce6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 45,
+    "language": "js",
+    "sha256": "4c6dd86467f7d4c7c299e7fd735c02dc75dcb8bc67e8e2da319d5add90dcc89c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 69,
+    "language": "js",
+    "sha256": "fbaccd466f1b6c842d086af0966f75efe2de2afe6bc026b606f30dc891f4ef17",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 86,
+    "language": "js",
+    "sha256": "2cb9aa1d5485d884599bf7990a9628954b46140e4fa32e8c40319b529a8d5937",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 103,
+    "language": "text",
+    "sha256": "b8b721f2b1d1d9014c682b49818adbd00c30818210af62849e670685192c0dde",
+    "action": "D2",
+    "title": "Mutate mảng cũ hay trả mảng mới?"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 119,
+    "language": "js",
+    "sha256": "c77b8c7288761ef19d8feae93c7b465dd1b5ae1db2e81cf4a74e29e4de7ecf46",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/pure-functions.md",
+    "line": 146,
+    "language": "js",
+    "sha256": "fe4d9f51ad994811ccda6d924a2e0791b826e3df9837c102b0816d70ae4400ec",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "ef0c42e9f588bc5c1ff45a71098854f178c361584575ff9d590c8405e0ac37cd",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 47,
+    "language": "js",
+    "sha256": "9382d376151cf955039da5aef4a2134112dd06844614f7c93509efd3ffc7d56b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 69,
+    "language": "js",
+    "sha256": "3c1efdbefdbc531c540716f1c95c8eb5978cf0d416502731971726510cb3bf93",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 81,
+    "language": "js",
+    "sha256": "fce1bbbd2735923d76c00002d2ea67fac02138edea27e22a99249198df0f81b1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 91,
+    "language": "js",
+    "sha256": "9ab99ef11b51fbdc9e21dc7b75d86de555a1c0fc66ae8da49caac06f3a26c65a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 100,
+    "language": "js",
+    "sha256": "12ae68a6fe6efbcce9fa49ce43046275600315db0a40c06c6061801680192e43",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 118,
+    "language": "js",
+    "sha256": "91d70fa90e2d01436f690840140b3e799618ebbbe6e510e3661813ec944ecdb6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 138,
+    "language": "js",
+    "sha256": "5683ecdefbf4ebf503bd862358f20d171b3295183f3a5e487aa0c7884fdecb88",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 154,
+    "language": "js",
+    "sha256": "e9abebca4814c32fa0e3ae94b2627e85eb488f6fbaad6940255f3f17391d718e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 169,
+    "language": "js",
+    "sha256": "6d8300e4bac310a0a1d34d4ba7c4c4f301cec2cdecd063b6306dd580f7b3b841",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 187,
+    "language": "text",
+    "sha256": "37df0a5d356bf449b69f81fbcb0a489331297036fe9212f5bdafe576fd930657",
+    "action": "D2",
+    "title": "Arrow lấy this từ scope bao ngoài"
+  },
+  {
+    "file": "function-closure/this-keyword.md",
+    "line": 202,
+    "language": "mermaid",
+    "sha256": "eee659574091ee95877ce770080e959d60e600e7d4a81a44cf2135eb7aa559ae",
+    "action": "D2",
+    "title": "Xác định this theo cách gọi hàm"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 47,
+    "language": "js",
+    "sha256": "86c3646be4ce5598e2532f64f687963732035bfb2166cea9a1a59dd53a7a7159",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 65,
+    "language": "text",
+    "sha256": "956a78980b9f7fa938c2f00403235ce718af6e3598c8aa2148ff7484343c5bea",
+    "action": "D2",
+    "title": "Giá trị primitive và tham chiếu dùng chung"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 89,
+    "language": "js",
+    "sha256": "3807d2d79e6119ab476292d2b6ab4355e02e529d0347117f674fb3a3d6ba24e4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 104,
+    "language": "js",
+    "sha256": "4c70ea567e8f889d9c9dc91951a0d579f53ed02d847605ea474f8ccafdf818b9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 137,
+    "language": "js",
+    "sha256": "63c7e17f8479a0df3c4887461b79728a61bc13f9780500806aad9d6fa6d18064",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 152,
+    "language": "js",
+    "sha256": "0471d98e431da7e69ec043480852b2d5d4ca49ad9f93bb101f355944cb792d61",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 169,
+    "language": "js",
+    "sha256": "c75d1e2ba85358b5693d8d9ed6b5508872b692db8b7c99077fab6537d51fafe8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 184,
+    "language": "js",
+    "sha256": "c9512180d7a81ea9da77217ee2c6cc0e4fd1ea9e6e288433820b9e8360115db0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 203,
+    "language": "js",
+    "sha256": "4575b04c4570f972bc971b5ae87a88ea3fc595393242f4c65da4e1402543672d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 212,
+    "language": "js",
+    "sha256": "385669ca18df852065bb36d9004c621f04272756b79040c62f0ebf52a2f50a27",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 220,
+    "language": "js",
+    "sha256": "1d8e39cfeb270fa787255fd9783f5a3bd0c322a2005750d192b5842e5cd03e05",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 229,
+    "language": "js",
+    "sha256": "9a5afea3afe3e03c82a8aeef20f885d4c87a63e76313ebb768fb4c2a35125f17",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 237,
+    "language": "js",
+    "sha256": "9ab5cf1f3a8fe5674ad663951e9a4eacb1de7ece284ce35970a58503fc80951f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 247,
+    "language": "js",
+    "sha256": "5bb5f08598f0e5a2c3675d9ee3322ce2d6c5ab7f6c4888f47f6f8c70f5129b64",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 262,
+    "language": "text",
+    "sha256": "f916e3f71842fb1887f72747f535e942f07b667dee10bfbad6e6b7f44b7851a7",
+    "action": "D2",
+    "title": "Autoboxing của string — mô hình khái niệm"
+  },
+  {
+    "file": "fundamentals/data-types.md",
+    "line": 271,
+    "language": "js",
+    "sha256": "383b825bdb4af75c8adc57de11c71df9e2acf966d34a0d16b404790ecd6325b5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 32,
+    "language": "js",
+    "sha256": "3df17ad90f4b3d76751dea1b40fe11a3ac56eaae68ad3919e6d2d3c30a14ed28",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 59,
+    "language": "js",
+    "sha256": "693a16ef80ef467dd708e04d97f127bf18983215a256be87ee384f8d4b8f2067",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 68,
+    "language": "mermaid",
+    "sha256": "c7c749895e17333ccdad6ad5d253a3ec03b9a4fc0ad5ac2bb2d821f10344cd37",
+    "action": "D2",
+    "title": "Chuẩn bị binding trước khi thực thi"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 97,
+    "language": "js",
+    "sha256": "c7c44c5d7ff5a1470546c250b1a2e6c760133f18c4c46a86731c52b644399b2b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 115,
+    "language": "js",
+    "sha256": "4947e4bc925e2caed5cb72008e7111d45f1ede66bf597adebda9db98f446f7bf",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 130,
+    "language": "js",
+    "sha256": "ce7654094897786fbdddeed6b33cb3dee80806d94342cf32a992b63492d289f0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 140,
+    "language": "js",
+    "sha256": "78c1e602a31de9d9ec6ea90441ea30ff80ae953190f949c9f6c0a8ef4c068d3f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 153,
+    "language": "js",
+    "sha256": "a62fcb75aa66a18b9eb326777653efcfad5f555ef0c25914b171ac75c7a659b6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 170,
+    "language": "js",
+    "sha256": "4df43b8d9fabea3debf52c466c78a846cc8b64c6cc8d89fe1fddc17285d74071",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 179,
+    "language": "js",
+    "sha256": "e0d878cc05bfee5d403f619b0b708e40160c356ef480e31a3809edc2f8e852b7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 189,
+    "language": "text",
+    "sha256": "c573920fe89dbb9d867b88292b4c0bd36f62251cebd12dcde48fc6fa6358c706",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 198,
+    "language": "js",
+    "sha256": "9fcd906d5ae50fdd25d0ee0f6fa8a08032a8e5e16561f5e273bb0a838afa8b57",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 223,
+    "language": "js",
+    "sha256": "068a9e708d178e31068ad4900090ca5e5542d65938dd868555d44b084b5fee83",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 231,
+    "language": "text",
+    "sha256": "59daa9f3aa2fbb774ecb4b92fabb903eaa003d764ca0764da74a1bcf46279779",
+    "action": "D2",
+    "title": "Binding discount và TDZ trong block"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 246,
+    "language": "js",
+    "sha256": "32ce3be9306430681c629091ca051d86bbef1ad0149cbddf5994640b22225905",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 266,
+    "language": "js",
+    "sha256": "052854632b987f20f4f1b5de2df7fff5f5153d8bd71ac8769f3030c1ae01671d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 279,
+    "language": "js",
+    "sha256": "a96d78f24e6641be2311dab6c20e6e91fd3b58743adeb07bda6729fa6aae02dc",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 292,
+    "language": "js",
+    "sha256": "18a8a2b8ae2e349b986e80b21d9ed611287326434ad4e1b8b2f8235b6967def0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 298,
+    "language": "js",
+    "sha256": "5b985a3c3dc95ecfe22eaef317da1ed21c8101527a06ceaf3b01a43475e61c36",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 316,
+    "language": "js",
+    "sha256": "77ff63edb175c2d2e098d1cb5c393b3e4367486bb38b7a7840120dc1fa2e4c06",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 331,
+    "language": "js",
+    "sha256": "34195dd02d338d8b63a71710b60c0fba545fda1124e65f7f905e79a8a77dd495",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 341,
+    "language": "text",
+    "sha256": "53d51d1412bcdbd8c202e7ef808d6f7714439b35632207c0b231622191673515",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 349,
+    "language": "js",
+    "sha256": "cb3c5a0a9c81c3a2223f605bd2c033a46a4f5615996982d6403b1370ba3d5055",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 359,
+    "language": "js",
+    "sha256": "2d6fffe38e316c674c8381d6ddb4ed0b18d02e892ce25e1ef38af3651e237321",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 379,
+    "language": "js",
+    "sha256": "56ec94fe8179f87d78625fc37ffae494ec5565e428f48840fb3590705651ef35",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 395,
+    "language": "js",
+    "sha256": "cb7e22924cf875babf4bc118253005c79443d689e060a24b04cb2b7f51b11273",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 414,
+    "language": "js",
+    "sha256": "085b0f185e5e83985ce0d6f4a9b5bf1fefe9046133dd9bbf3274d427231aa85e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 426,
+    "language": "js",
+    "sha256": "0a623d72407201a335c456bbe8f2cfaac3fa809aa9a2620fe457f8996dd83a64",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 433,
+    "language": "js",
+    "sha256": "63e2263dff96fcb799f3b529744ef2ffddc66ef9b4cf9a99af75e95c89957833",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 444,
+    "language": "js",
+    "sha256": "f72594c3e539ddf535a12338414180c64c83d8dfb1a5ab491cd939c7d3bab0a9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 461,
+    "language": "js",
+    "sha256": "a50c1561c44e4927660b82729eb8856428cf80e089078e0918ba8e1cef520e27",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 485,
+    "language": "js",
+    "sha256": "bd88d5009d439081b1a7bd5946ae48aabe51c0201333244f2f9ef3e09b1eec18",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 515,
+    "language": "js",
+    "sha256": "0ca2847962b96c921e7f702b549ec76757a89329c470573903d8427d68b55180",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 526,
+    "language": "js",
+    "sha256": "5875559a713680879b15c13ec3b29b8cb1200c9e48140cc436c1ffdf36b30e50",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 548,
+    "language": "js",
+    "sha256": "e6f96dd95e1881b4a8fcddccfcc0843de1cb9b877625ebd61c655cf672d256e8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 578,
+    "language": "mermaid",
+    "sha256": "dfae6410e988dc0b501e085a52a983e04772472d00a76c7eec69b4f37710b41a",
+    "action": "D2",
+    "title": "Chẩn đoán truy cập trước khai báo"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 596,
+    "language": "js",
+    "sha256": "a50a353e762a49283ac4ceb124d82808b0af9d8c455a3ded8bcb137c5f582d56",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 608,
+    "language": "js",
+    "sha256": "f3ef3ec99cc1d1f37f331642b0ba5b63a0f81ec30f113cae6df15883f14597e4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 618,
+    "language": "js",
+    "sha256": "8f11c5d01c19b086c92d6193db33df1ba8583fb9c6ab39a80bc702d21633a919",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 629,
+    "language": "js",
+    "sha256": "b1ff7235618eb6a583ed808aef28534c6264884a927b90d9715242c7f2a9e229",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 642,
+    "language": "js",
+    "sha256": "5f1717302a2a0cb46d77263bc135bf9f3492a29b2fe4ad43719e342a788fb5a2",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 650,
+    "language": "js",
+    "sha256": "c1c76e972f9d1d688fccf342955eab483e6e1ed966134799c4f940c72a5fa530",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 660,
+    "language": "js",
+    "sha256": "cbd89067ff97f63892d18458be6f81b013b69146211c2f5fd0620666857f7aa8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 699,
+    "language": "js",
+    "sha256": "22c9ae93062ef58d08c329948386794df2f813c9ab1a0b19ecdad400fa58da21",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 710,
+    "language": "js",
+    "sha256": "c7d96d06ac53bc2bd7a89516ff3454c01536b86b9005e797d302dac841c4a3fc",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 725,
+    "language": "js",
+    "sha256": "8002e1aa3b56c461f6394893b33daefd936c95f909e16d2cc87f03ba8309f894",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 742,
+    "language": "js",
+    "sha256": "cc4c057d042f7a36369629a1a857c02fc7fe6104c13358a7741b01f8a1a5cda9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/hoisting.md",
+    "line": 754,
+    "language": "js",
+    "sha256": "d82afc6f1c9b76361a81e4c3af3734fa9aa3bc92d4cde63f0859ec8f6b7933d1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 50,
+    "language": "js",
+    "sha256": "3b4c9d663a16021cc7c2847a2505b96a6716d1b0c91cfab0d17ff24c34353b0c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 76,
+    "language": "js",
+    "sha256": "6253100570aee106567ec450146b2a764861c5df65160ee9d580bf07313066e6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 86,
+    "language": "text",
+    "sha256": "bf5db05bcd16a9d1ec0bfa595cecf605430598acdace1c11eb9813a0165fb8d6",
+    "action": "D2",
+    "title": "Từng bước ép kiểu của [] == ![]"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 104,
+    "language": "js",
+    "sha256": "30a1cdd2fd5f793ca394062c3df9936d7e397144d16c348ec77ae626c11beb02",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 127,
+    "language": "js",
+    "sha256": "665312d53e1ba68cc1bfe92662f2f9b85e7bcb2f9938fc5b55a2d4edfcf0254c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 138,
+    "language": "js",
+    "sha256": "b90802fe35d856db71597566fe474b1795956e231e43959d57e1472b908d2cb7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 151,
+    "language": "js",
+    "sha256": "1ddf91614979d3ee203cffd99348a375aa908a60938a55325930060f98a8520c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 178,
+    "language": "js",
+    "sha256": "c59a3533b290e43cb64356bca1e8bd006662a02804e7f4143a5e0ffd39e21fa8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 207,
+    "language": "js",
+    "sha256": "441ae3063bc489ca6f5579748ed63278fc1e80be160d3bdf64b13037eef79a0a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 251,
+    "language": "text",
+    "sha256": "e0ea7dd6ad02df6051b27bd2bae6ef215abc909e0d861ae963cc4e079a60b6f3",
+    "action": "D2",
+    "title": "Độ ưu tiên toán tử từ cao xuống thấp"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 263,
+    "language": "js",
+    "sha256": "0ce9bfc5f603d615e60c1e120e5e0b491d91b0d9de0b6f66367f5addef0b3b3b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 281,
+    "language": "js",
+    "sha256": "82d2ad7ca4f7d958085674e8ac77c79ebd3fb6d1e83a8e48460ee0b51eaa7d18",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 291,
+    "language": "text",
+    "sha256": "1f8d9f578ec943c9f9d508f35a536d6895dd055fa4db9ee2e1b6277c66804c2e",
+    "action": "D2",
+    "title": "Ép kiểu khi cộng array với number"
+  },
+  {
+    "file": "fundamentals/operators.md",
+    "line": 301,
+    "language": "js",
+    "sha256": "983a93fbf96da326b8131e81e81948a332f5c5888873407dfe74ef36c66cef0e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 29,
+    "language": "js",
+    "sha256": "5b3a044f04d792e780e09e69d443ce88375eee07b403e3f76dae55fc461c7b4f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 46,
+    "language": "text",
+    "sha256": "74072f3ecff6d8cc7b54fe45aa128f6e009d603390198ba5d01a778c5cd91b0b",
+    "action": "D2",
+    "title": "Các scope lồng nhau"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 64,
+    "language": "js",
+    "sha256": "6f1863505cccb028590687ccef3f5c436bc7c0320a0b8c920551711a158dfd82",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 73,
+    "language": "js",
+    "sha256": "39d8620fe825a18925a1ee84f71506220d1bad0475d2dda5aaa71e00f41cb6f2",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 84,
+    "language": "js",
+    "sha256": "030fe39b4c5b5958fc31c9b159cccd6e08e8fb8f0f1e06423c07528335f021d0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 102,
+    "language": "js",
+    "sha256": "84be837f9a98e53af4089655fe6441968129e8995e570f3450114e8a61406cc8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 117,
+    "language": "js",
+    "sha256": "7176767b4423fb08dd04138da532e389db74d9f35a0162bc564d4131a02ac3b5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 133,
+    "language": "js",
+    "sha256": "c8e25150e7a268f7734e13aaab7168e9742915e22183b329720eed40f50b84c7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 146,
+    "language": "mermaid",
+    "sha256": "3b0f1ddbbbd1f0b3941f4bd364fa7a7c120eb89a594a0e6c41abeda170574e0c",
+    "action": "D2",
+    "title": "Tra biến qua scope cha"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 169,
+    "language": "text",
+    "sha256": "e0246a6abc397a35897fd2d14cae6090144b9d684f7a5b99cce1cc73bc58952d",
+    "action": "D2",
+    "title": "Chuỗi [[OuterEnv]]"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 182,
+    "language": "js",
+    "sha256": "f5b44cdf6b13dac1db6de667cf9d5c081b22682baccfeafa1d1ad45ef33e415e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 194,
+    "language": "js",
+    "sha256": "87070992433de25f214fe04e7893c3dbadcfce5be5c7c1cba56af9e6249a9504",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 209,
+    "language": "js",
+    "sha256": "8bca7e248605e6a004fd5f27d9eb1fd02ea846ded255c0dba9a8842f5588b96a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/scope.md",
+    "line": 231,
+    "language": "js",
+    "sha256": "cbff0f2b6ae144924cc23685d03e89336db3ab8dee236afa7e5a03b507cd3a5b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 46,
+    "language": "js",
+    "sha256": "5642941ffab1fbab69faed329a6bdc4d229693c9162c913ad6dffa5e66fb656e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 61,
+    "language": "js",
+    "sha256": "4b2744932c470d073c87c067bd90b2131bfb40e82b57cead991b836e6c0c0107",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 80,
+    "language": "js",
+    "sha256": "d3117d7538ed557e894aa5bc1701bd2d525bedc99e33afef524f2f653acd7bfa",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 102,
+    "language": "js",
+    "sha256": "1be613bd99072149d873395309fcd58df6e152c36f7134bc3c49fd741191ac2b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 112,
+    "language": "js",
+    "sha256": "8cf39ac367f4647f6a30453479f6da9931a936d867e12d8d523d091e6718ec7b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 120,
+    "language": "js",
+    "sha256": "38a300691f68ae4950dd15beb956eeb0cf97aa0eb78a4e9dc1562356144f06bf",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 131,
+    "language": "mermaid",
+    "sha256": "21937ab6e32a957c1844b716ca8e36ce9f638a6a6f769d08cfafe10eb5a63e41",
+    "action": "D2",
+    "title": "Short-circuit trả operand, không ép kết quả thành boolean"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 147,
+    "language": "js",
+    "sha256": "51bf1317cceb917fa1c6c6d3370f9da438a9d5f9b4d032a99f3238b3f65638ad",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/truthy-falsy.md",
+    "line": 176,
+    "language": "js",
+    "sha256": "4a2540669395449ffa488c3cf808a5f520006a324d204a6e298a66d35542881a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 62,
+    "language": "js",
+    "sha256": "74e26b63acd6dd72acf7e2b565557198b1ec08b7a722ccf32ef7417b35f12f57",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 76,
+    "language": "text",
+    "sha256": "1c0b80df05f810a0d8ae9fc4c2429fe5aa52fef8811b71b2faaad243b276ff63",
+    "action": "D2",
+    "title": "var thuộc function, let và const thuộc block"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 100,
+    "language": "js",
+    "sha256": "1171e0a9d8b77780b8f5e9957dd0be61cbf9c2d135c5f9eb1d547f88767972a7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 108,
+    "language": "js",
+    "sha256": "eec5d3c6ff5d079dee6bac9fb92a61fc3af1b97d3c6f9314d15a74fe14c373d1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 119,
+    "language": "js",
+    "sha256": "8d4012232b177e0ca9f42d875e4210a0252da7e4700729f7c12b1a1f69a740e3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 124,
+    "language": "text",
+    "sha256": "5bf4005fb0ea68a6286013c6384efc26559b1f1a203934b2759997a3e9396669",
+    "action": "D2",
+    "title": "Temporal Dead Zone kết thúc khi khởi tạo"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 149,
+    "language": "text",
+    "sha256": "6d6bfcd6b2a21819a9acc137f0fb317c3e2311e0778158a4d870c2d33cad378c",
+    "action": "D2",
+    "title": "Creation và initialization của var và let"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 159,
+    "language": "text",
+    "sha256": "534900b0880d22ce559e413444d60700833ae19c22a6d52f43ac49c6ffeb99d3",
+    "action": "D2",
+    "title": "Môi trường biến trong vòng lặp"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 173,
+    "language": "js",
+    "sha256": "a85528c0594e98d9f245cdadcf05a35b22a75c1cc79531162f733519b7cd182f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 203,
+    "language": "js",
+    "sha256": "50118674c8bbbd020072dff2bd26db6fa0aa7cc61334cf3a989eb0b12f5f3749",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 212,
+    "language": "text",
+    "sha256": "88c1b1ee32e2a034882dd6ff0edb6fc0dfc056c04846fec5d79a69e894b574e8",
+    "action": "D2",
+    "title": "const khóa binding, không khóa object"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 222,
+    "language": "js",
+    "sha256": "bc0e3e742b67094035061da0d7dc4bc5fe1fb715adeafcb6ae0d0ab9e8364767",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 237,
+    "language": "js",
+    "sha256": "1f20bfa52db1632fb09cbe132d919924a82a6da36fc1568ec17f9185d6596568",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 253,
+    "language": "text",
+    "sha256": "6dcb05142905c1412448a84dc2c3d3c5d099110c7a7afee8d708f2cd2f63419c",
+    "action": "D2",
+    "title": "Closure trong loop đọc ô biến nào?"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 270,
+    "language": "js",
+    "sha256": "8a9f4bb9f2f21c64007dc01c7a53a93692a1b2e20ca82e88ea4b94caf4c19eb1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "fundamentals/var-let-const.md",
+    "line": 283,
+    "language": "mermaid",
+    "sha256": "e61d2ea8e11161ca23d3d24ab6dfc4f8ab73e38b24b316eed27419f721357f55",
+    "action": "D2",
+    "title": "Chọn const hay let"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 39,
+    "language": "text",
+    "sha256": "c0cfaed2f6f507beb3972f5dfe847b10753bad2cbff3af7222f822bc543b4966",
+    "action": "D2",
+    "title": "Phép gán chỉ sao chép tham chiếu"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 50,
+    "language": "js",
+    "sha256": "a6464088f1e8631c56cdf8d1cce902c065fb4fa6b3b2160f9b6c107ddff1dff7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 71,
+    "language": "text",
+    "sha256": "828a5f635da44987839b6a6fccbe6b754a936bb62acb87d26896e4676698e6a4",
+    "action": "D2",
+    "title": "Shallow copy chỉ tách object ngoài"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 85,
+    "language": "js",
+    "sha256": "4321e72d129f4e5a9af813e0e2577cb2decd6198243df7be02ee8c6d454a0e65",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 110,
+    "language": "js",
+    "sha256": "ebacdcdf3363e3fefc0c6e4f133fda6751782cab287b6a69dd53cbce9e52e021",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 120,
+    "language": "js",
+    "sha256": "a7e455418da66c8454f0c55c5c157b124a8a1b83940ecd6a1f31d749fae157e9",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 136,
+    "language": "js",
+    "sha256": "10c96cd1eae7d09f646ffca8a7ad2f1a5fe0a07a664243ca0d68e82978348473",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 157,
+    "language": "js",
+    "sha256": "2be86c38c6790e0ce40ee152b214a190fe396053c26ea4664df6551ce5a97eee",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 170,
+    "language": "js",
+    "sha256": "e09e6d9a527ba8ebf688099938752e7f703ac0233960d3ef4285e69f3fe3fab7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 186,
+    "language": "js",
+    "sha256": "a9e9d0422fcaedbf35a987e47af74a053c3d680c0d374b2e94354ec86e6edf4c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 204,
+    "language": "js",
+    "sha256": "bdec4a688691e803d2786f985987b984b8949d07dec9c7ea05674bef3d4ce8a0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 226,
+    "language": "js",
+    "sha256": "b7380e80e63948a391e0e5b60ee25837a11ca995008f8f22be176abaac006b8d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 255,
+    "language": "js",
+    "sha256": "1510cf2b910b10d6b302d377fc1c513109d3f12354545e9732210d027ec246e7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 300,
+    "language": "js",
+    "sha256": "272f74b69a7b8900f9b5f734aa766f46787f2a2da3f45d9bbe9cc433ae04a8fc",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/copy-object.md",
+    "line": 319,
+    "language": "js",
+    "sha256": "a40abd9e0f3bccb5693c1fdc42fa738340f637c8ca42c1e0f64230b7f6821fa3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 62,
+    "language": "text",
+    "sha256": "767063b9c777b17af26f34ea42ae3556682a65a6c5d8e814d221a5e59aeeb288",
+    "action": "D2",
+    "title": "Thứ tự đồng bộ, microtask và macrotask"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 72,
+    "language": "mermaid",
+    "sha256": "4285b811f87f2ce11b7149e08fca0f61b63c3327db27cded2aeac1377ca81bba",
+    "action": "D2",
+    "title": "Một vòng event loop trình duyệt"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 91,
+    "language": "js",
+    "sha256": "6b32d4feb62b24e497dac553f958f8aa689f7b9d296c515b838fa93abc95e557",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 116,
+    "language": "js",
+    "sha256": "f0e3283c51e7d4c1865289c3437bbec7b9d3bdcbf5df3fa13728e2bd20dc40f4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 134,
+    "language": "js",
+    "sha256": "ad8fac2f64d614f68a6ae7498dee95aebe4542a4888c3baff9424dc5560f54b0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 157,
+    "language": "js",
+    "sha256": "dd309285cb58d01ededfbbf1c204233fdc85ebcd14acc28977429e2c750fb3c4",
+    "action": "code-walkthrough",
+    "codeSha256": "74886548a9ab5b343dddce6592b02308685337aa5591dc08f4aaf180a5bfad70"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 182,
+    "language": "text",
+    "sha256": "31d9178290759cc9c6d12505c25ca208e7ed3a122512b5d6514cfa2bb95ca68d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 192,
+    "language": "js",
+    "sha256": "c931142f56c817d23b1005d99b280dc23f523b8bac1b7d33b0c9267dcff85b3f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 233,
+    "language": "text",
+    "sha256": "dda5534ce010137a6a0b5b96d1ae8f097c18ecd279066cbdee30ff7fb19ba51f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 252,
+    "language": "text",
+    "sha256": "b0184285c405525e398fa54cd7e65b849de0d3f7b9bda38c6517529c6f4a36fd",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 269,
+    "language": "text",
+    "sha256": "9f37a90d18f3c879e5ed89d19476628e8bca1ec716cc3f02d10cc971a37d0999",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 295,
+    "language": "js",
+    "sha256": "92934409d374464a9cbf83e85500e4de77017f236c111f6f12eff1d25f7d3e45",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 309,
+    "language": "js",
+    "sha256": "1dd7e1917397bc10967deab662d27b7dfa95350714e43a3e711ac3b813b0f739",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 325,
+    "language": "js",
+    "sha256": "c0d7d59a859ec74ad120da26c823814f054d5a37c9413eacd23caca2b1f5a68b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 338,
+    "language": "js",
+    "sha256": "a2064c88fd95c9dc39b5f3793720db779704d91c10e86a1c591486ff7811e760",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 354,
+    "language": "js",
+    "sha256": "158648df70065a3709844668b228ad7b296b9e3dc87398da07c6b575f26f97c7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 368,
+    "language": "text",
+    "sha256": "89f5cd2730dbad7bfd1606a06ddee8139a3ead51c78b0f159207bfe65a01ed91",
+    "action": "D2",
+    "title": "Giữa hai macrotask phải vét hết microtask"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 376,
+    "language": "js",
+    "sha256": "52492e772f3d30f33e15685fbab99b6a536671504b1315f69e2277e239b7e1e3",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 403,
+    "language": "js",
+    "sha256": "ff183bba186f557175ccae44350018eb3a210119721a580322dcc933bf6c3f3a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/event-loop-microtask-macrotask.md",
+    "line": 460,
+    "language": "text",
+    "sha256": "a4ef138fa7d533fff1130c2f9c5200c4fb4fb4704e73d7c942097d8b6d6d10c6",
+    "action": "D2",
+    "title": "Checklist thứ tự event loop"
+  },
+  {
+    "file": "interview/js-interview-questions.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/js-interview-questions.md",
+    "line": 34,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/js-interview-questions.md",
+    "line": 42,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/js-interview-questions.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "interview/js-interview-questions.md",
+    "line": 65,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 37,
+    "language": "text",
+    "sha256": "84e7a05811c9d3ecedf2921e624ed040e372ce794cdf3af3ff2495d154a552ba",
+    "action": "D2",
+    "title": "Chọn cú pháp theo mục tiêu xử lý dữ liệu"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 52,
+    "language": "js",
+    "sha256": "3ec2b4bd80e6c2c8498107e75fa67647a5f15028f3421ae5794c928833b62d43",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 76,
+    "language": "js",
+    "sha256": "9bb8769020024d879b2697f2ed5361c7553ce37c228e2a2f0e568deeaa4b39af",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 92,
+    "language": "js",
+    "sha256": "6207d99a2d4dd2c8171d2ca7acbf05d4d94291a6d6e25db367e944ee290d2846",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 104,
+    "language": "js",
+    "sha256": "30d50ab5c7c5c32a8afacdb39063ca94011d810a878e75b55761944cf57d02f2",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 121,
+    "language": "js",
+    "sha256": "e820096ba14605ef08e768d0e244c800bf37f9e4eb43d492262ec3f1b69e7c34",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 137,
+    "language": "js",
+    "sha256": "fa51cd14904f7871e8571507abbb06596722d50f6198dc7ac7090cc1a10bb551",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 153,
+    "language": "js",
+    "sha256": "acd45ca561b580b44bdf72d31ceb52cece42ed0cc22d1a5e8cef7bb5873ad324",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 166,
+    "language": "js",
+    "sha256": "3d305c9555eeca8c71b831efcddc6c869e83b9ea3aaa251811a3f8646cc8c146",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 181,
+    "language": "js",
+    "sha256": "b0566ccbd4c0562a5fffcde6727f33a8ca509521b6a07236346d3c7aee852304",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 200,
+    "language": "js",
+    "sha256": "e16b5ab8d85f252d2cf8d384d33f7c2768154fb00281437a45a3b0ec71d0660e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 209,
+    "language": "js",
+    "sha256": "6399365ac47a0bbef7a6ccd074f5ba421864a7d2f8eac8ccba097567da697b69",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 218,
+    "language": "js",
+    "sha256": "e5578bf767619df7eff8b7de148e7dea71c175d62670ec74df27738ef07aae33",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 243,
+    "language": "js",
+    "sha256": "06bfa34888118eef365f23c8baf762ef7a05cf93b4d628ceb5546a024382e4a4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 255,
+    "language": "js",
+    "sha256": "45012c63471ee071a35d8f4c953ccb6534c3a57d75318ebcc7d26128bd40e93f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 267,
+    "language": "js",
+    "sha256": "567ee8ce14a85cda3319174c659e69bcb4eb225b0cc047933dac8e95b21a16d7",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 285,
+    "language": "js",
+    "sha256": "41185126150679a6cff908df4278980427fa8ece28aad2b69143e64dc916c28b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 296,
+    "language": "js",
+    "sha256": "57d8b471bcec2232944a26f319c064e063f276cc5f0075ccebc18c40ba7fef54",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 309,
+    "language": "js",
+    "sha256": "52540a4ac6592ab4d87f49ccea3a471af7e4251de428557135f6475f80d8c503",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 324,
+    "language": "js",
+    "sha256": "98ae594f28c2e800cf21fcf8e8dbb28a96c9510999e319eacf331a516ce60a8d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 337,
+    "language": "js",
+    "sha256": "1867dd26908332c6656e018c87c63faabef5827bd72ba172717f662a0ffe7b74",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 349,
+    "language": "js",
+    "sha256": "c3be3ee91d4c6d85e0bd03b0b6a736ebaaa57b88d093016863e54521d0c96fca",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 359,
+    "language": "js",
+    "sha256": "ef4913e4e1b56ee8d18c3c011056926c2e9c47c7ace8f2ad293f03c7f0153b5a",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 369,
+    "language": "js",
+    "sha256": "057daceeface227081fb58e4f19a9038dcef2276110e6f45ade5a2e09432c9f8",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 389,
+    "language": "js",
+    "sha256": "2145cb10b18f88fd98070f4fefab7ccb61f1535927b680613725168f804fcd5f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 404,
+    "language": "js",
+    "sha256": "c4488c026ae5e8608e12c071a3d92c57767793e1dddd6dae0ec8fd4ee096938d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 417,
+    "language": "js",
+    "sha256": "ba4f759efee3caadedbe78c7fb440ae6d1ab7507aa10cc7479e13a21cc72a939",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 425,
+    "language": "js",
+    "sha256": "50a7c573ad9105abc8a2b6e9f7c8d06172edef01902b1d1bb12b83b6af5e4485",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 437,
+    "language": "js",
+    "sha256": "e250cb562e7beadd6c756c0eb70e9fd3023a6912456541f6d46f0af9bd320985",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 452,
+    "language": "js",
+    "sha256": "c0293c61b0832bc9274d170318309b4b6b14ff23f18ac3e614eae288cf4f368b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/es6-features.md",
+    "line": 465,
+    "language": "js",
+    "sha256": "76f1acb01ab5573c8e8f5faed7d191ecd3b717041a2c408e3880edc9368caa42",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 34,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 42,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 50,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 58,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "modules/import-export.md",
+    "line": 66,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 27,
+    "language": "js",
+    "sha256": "41faf752e51eb783efe9440ebe48940579fd008dc3ec0d6af9f7629ddd3ee4e6",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 48,
+    "language": "js",
+    "sha256": "230364678db5af2112dba8424742b482104ac946331531f0629a9235e578bf75",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 71,
+    "language": "js",
+    "sha256": "7a1ffb304b127fa72463563323f76b2acb6e260775080929115bfacc55192652",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 88,
+    "language": "js",
+    "sha256": "65efcaa65ef5c8177bd1bcb0bcfb1906020fbcd46df4ca6f1c7368c122579b52",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 104,
+    "language": "js",
+    "sha256": "f56b73e7622407f3b79be5e4c36d5cf57ed2f88503a07ce8076efb6002ce5b0f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 118,
+    "language": "js",
+    "sha256": "4377b16c3d04b90d5983b8040feb01b51bca6db82d4a955d5a42dd971a6f4f65",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 140,
+    "language": "js",
+    "sha256": "a7f1ea59ef86600a32a494577c7baf27328d8747bd884fc85383cae33a94538f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 169,
+    "language": "js",
+    "sha256": "c29b2b11f52125726195647ec553086fd639c99b0ba1c2c538a7d9f6fa167f49",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 190,
+    "language": "js",
+    "sha256": "5ef354c877c9e8ba8d6ec95aed85fa13f4c8135297dcca2d0cce06b31990e57e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/class.md",
+    "line": 218,
+    "language": "text",
+    "sha256": "dbca06e3a0d3f59085712b4eaf375871c2ea9bf5f63982dbaccfa39f109d273d",
+    "action": "D2",
+    "title": "Chuỗi prototype của Dog"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 26,
+    "language": "js",
+    "sha256": "60f7b3e69ec90c2d770c5277ee6313948666d594e17e274c56c6be214f19e771",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 46,
+    "language": "text",
+    "sha256": "c04ac42621b789a96043c9c300f3763de3418748e5342eba72bf5a58e575722c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 54,
+    "language": "mermaid",
+    "sha256": "001e7a52b6400241b9e7f3912c360d0fffe28d6abfa444a237b362420841c0b3",
+    "action": "D2",
+    "title": "Các bước của new Person"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 66,
+    "language": "js",
+    "sha256": "b10e5570b6c84fd429f0917e688a574851d9a711360f131905256dc5fbc94d3c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 84,
+    "language": "js",
+    "sha256": "29872c1a714cd1c39c978da32b79a1e643df32940b7eba21582a7646e898391b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 95,
+    "language": "js",
+    "sha256": "0b4f605eb3fa57106f0011b9b8e76e2b9ac818deeeddba59ced3a49ea5ae7d76",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 109,
+    "language": "js",
+    "sha256": "c2e3f930609995523fa7d1a56f9e4ad05abb59d2c78290d097036133fbc51c8f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 128,
+    "language": "js",
+    "sha256": "6e91343f26ef008f71a34724c773a39453edc69e5e22a2bfbd2777bdbfe9144c",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 140,
+    "language": "js",
+    "sha256": "4d3b0c1d01efe165905c96dc8692ca56a3243615569c82aa21ca89b19e87d43d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 153,
+    "language": "js",
+    "sha256": "ac9deed13adc3dcd98d804c4f74a9612d5c47e0d39c6550c6962125a55dbf249",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/constructor-function.md",
+    "line": 179,
+    "language": "js",
+    "sha256": "83ac45b13d6caf93fd1a846c79e3c4aefbfb21fd79466b41902e4e1289575474",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 27,
+    "language": "js",
+    "sha256": "c7885ec70f2b7aa174357c0f6c4688666a5d698fc20b7eb06344c948389d83ad",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 46,
+    "language": "js",
+    "sha256": "63768b0ca5364d13a6279c4822220c1cd73dfd9f79d2e0e73e0a56bf64694cc4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 67,
+    "language": "js",
+    "sha256": "20b2d148a91a0b00e9d9e00c468b62c366df1b7f62feb6b6389d524a8e827704",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 82,
+    "language": "js",
+    "sha256": "968358a3141136d25cbc67962a0c7e137bd198a4df264159f3a62269f20704c4",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 103,
+    "language": "js",
+    "sha256": "b83e15367fd5c55eb8412c6f6db4cbfb83edf3dac6a01e760bb2d136b3580145",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 129,
+    "language": "js",
+    "sha256": "42dfdd7ba7b11a90d4c5d8ad84078a9ba953c5c1b0e9afd999e6899cd541c673",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 139,
+    "language": "js",
+    "sha256": "82f7cfb80ae84a05e4d79574cad0bb61f2798d88d80fac9cde54218dab919948",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/getter-setter.md",
+    "line": 166,
+    "language": "js",
+    "sha256": "bdb03b97aee199e88f6678749a2ad56adcd636344b9110d6cf40452a5dfbc775",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 28,
+    "language": "js",
+    "sha256": "f3c91d30af2e55e9a276c4f4a5c1d23820a58292b22481a2c41ae26f4f67a909",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 44,
+    "language": "js",
+    "sha256": "e21e56944b67182b74078a7ba483b1568d97339ba90b02e396f092689f98a014",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 70,
+    "language": "js",
+    "sha256": "b240947cce15dc53ffd1939a3b05667c818c4153ba62ef65add713766dccb5b5",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 90,
+    "language": "js",
+    "sha256": "3298e16a39fc5344073d78195b47f74f71c3cadab4c2c6a79daa841c1f235c37",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 98,
+    "language": "js",
+    "sha256": "f5b33c2581286a3794c8089470b32e5a44d8a64829ebdbefbc643c9af960c209",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 109,
+    "language": "js",
+    "sha256": "fa4094c80b20262a5a8dda62081c094c3070ba429a530d3c19309ecd7826d243",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 123,
+    "language": "js",
+    "sha256": "84c1e5d9b8c9c03efcbcf5ce1fefb7f65428f81a5892b190bb1b0bca70dff79f",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 146,
+    "language": "js",
+    "sha256": "45db990f487b114639b606b1b9ca986b432923e9a64ba44a4a1ee1102d70c139",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 164,
+    "language": "js",
+    "sha256": "0d96f7cfdeb9df6b3d038cb1e2bb8036cfb2d087ba53a03a8a81903307ad2e4b",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 192,
+    "language": "js",
+    "sha256": "adfb5832e3bb767b338663d0aa85e7e0c7c0b6024fa101d2c6870efd5dfd7b77",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 201,
+    "language": "js",
+    "sha256": "be7eafaf282d96c43d98eb2678daf58f238578cab3bcf98e66c123d0c9766434",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/object.md",
+    "line": 215,
+    "language": "js",
+    "sha256": "8cdc7ef4eb83c8db793edde73df457cb11679d947c2ad7acba110f32db61c2b0",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 27,
+    "language": "js",
+    "sha256": "edf114dd6a4359720d8cdfc491e0387c5abb2ee5f49a0111296392d52366c320",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 41,
+    "language": "text",
+    "sha256": "3524680b51ff0c7558d26989477ba6174c8ba4619ee3af0aac5efc76e5f8c532",
+    "action": "D2",
+    "title": "Tra cứu qua __proto__ tới hết chuỗi"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 60,
+    "language": "js",
+    "sha256": "8627d3a806388d47f9ebd079e8d36dce6227497c616507044c2fb0fa448a907e",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 74,
+    "language": "mermaid",
+    "sha256": "08d0366ede308f316c3984731f1d3db2135fe8708efc2b25e82aecfd36e40078",
+    "action": "D2",
+    "title": "Đọc property obj.x"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 86,
+    "language": "js",
+    "sha256": "80a777478e06c2fe7d8610bd917a3b74aaa528811408bbcc79ae54d01791ff95",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 108,
+    "language": "js",
+    "sha256": "6c8e4e8053cd33a433c007b71bce82f9ac263d529c11c6d7aed74b1c336e9370",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 120,
+    "language": "text",
+    "sha256": "6889f3e55b9486b706c7ea6079f70436b215fbe99378c6f706dc153eaa46d694",
+    "action": "D2",
+    "title": "Constructor và instance trỏ tới cùng prototype"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 141,
+    "language": "js",
+    "sha256": "c87cdba9255b4b5fe0483989a42cc26d547f06d8fd37d8221fb202ad6686762d",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 161,
+    "language": "text",
+    "sha256": "41de53e2d3653e45cccd26a6111ebb4c9feed8285d1e3095b539600d19c1e320",
+    "action": "D2",
+    "title": "Hai method riêng hay một method chia sẻ?"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 178,
+    "language": "js",
+    "sha256": "7ee28736adaf3836d9b07d416d164289e22845ff82fdad2a25b76c4209d836a1",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 184,
+    "language": "js",
+    "sha256": "484e7181668e5cec6254acb9e8f30306876aa59da1265e7423678c8504a50894",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 192,
+    "language": "text",
+    "sha256": "898b7496fcb61fdafe373ed1dd3d55df59d7c53da0cbd772f201f3a539418e9b",
+    "action": "D2",
+    "title": "Prototype chain của array"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 205,
+    "language": "js",
+    "sha256": "36e76bfbec9d047c804a23eb915037b80fa2771714ec4c719d16d170866f1290",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 217,
+    "language": "js",
+    "sha256": "5f5ff22c8d6f85c3c266b22e4ce0825a6f24b754cf4b2f3f0696d128c60d9d62",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "objects-prototypes/prototype.md",
+    "line": 240,
+    "language": "js",
+    "sha256": "45aa60f9a46d3126ee4101a1a82ed9103e17d8ad09c43e26c677e7451a22f368",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/type-vs-interface.md",
+    "line": 25,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/type-vs-interface.md",
+    "line": 33,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/type-vs-interface.md",
+    "line": 41,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/type-vs-interface.md",
+    "line": 49,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/type-vs-interface.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/typescript-overview.md",
+    "line": 25,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/typescript-overview.md",
+    "line": 33,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/typescript-overview.md",
+    "line": 41,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/typescript-overview.md",
+    "line": 49,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  },
+  {
+    "file": "typescript/typescript-overview.md",
+    "line": 57,
+    "language": "js",
+    "sha256": "51e0055838bbc6e6af03ac4c2827b92e047c90dd8adcbca8b2158615e45182cb",
+    "action": "keep-artifact"
+  }
+]

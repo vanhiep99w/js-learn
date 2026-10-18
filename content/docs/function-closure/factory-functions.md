@@ -91,12 +91,19 @@ c.value;         // 11
 c.count;         // undefined — KHÔNG truy cập trực tiếp được
 ```
 
-```text
-createCounter() ──▶ closure giữ [ count ]   (private)
-                       ▲   ▲   ▲
-              increment┘   │   └get value
-                      decrement
-   → chỉ các method được trả ra mới chạm tới count
+```d2 title="Các method cùng giữ count private"
+direction: down
+factory: createCounter()
+count: "closure giữ [count]\nprivate"
+inc: increment
+dec: decrement
+get: get value
+factory -> count
+inc -> count: thay đổi
+dec -> count: thay đổi
+get -> count: đọc
+note: Chỉ các method được trả ra mới chạm tới count
+factory -> note: giới hạn API {style.stroke-dash: 3}
 ```
 
 ---
